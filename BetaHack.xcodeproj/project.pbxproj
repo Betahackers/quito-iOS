@@ -16,6 +16,22 @@
 		4BC24EDF18F946BF007FF792 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24ED818F946BF007FF792 /* ViewController.m */; };
 		4BC24EE218F94B95007FF792 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24EE118F94B95007FF792 /* ArticleViewController.m */; };
 		4BC24EE518F951AB007FF792 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24EE418F951AB007FF792 /* ProfileViewController.m */; };
+		4BC24F0818F952F6007FF792 /* DomainEnums.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24EE818F952F6007FF792 /* DomainEnums.m */; };
+		4BC24F0918F952F6007FF792 /* DomainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24EEA18F952F6007FF792 /* DomainManager.m */; };
+		4BC24F0F18F952F6007FF792 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24EF618F952F6007FF792 /* Model.xcdatamodeld */; };
+		4BC24F1218F952F6007FF792 /* CDArticle+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24EFF18F952F6007FF792 /* CDArticle+Utils.m */; };
+		4BC24F1618F952F6007FF792 /* Installation+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F0718F952F6007FF792 /* Installation+Utils.m */; };
+		4BC24F4A18F95557007FF792 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F4318F95557007FF792 /* NSDate+Utils.m */; };
+		4BC24F4B18F95557007FF792 /* NSSorting.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F4418F95557007FF792 /* NSSorting.m */; };
+		4BC24F4C18F95557007FF792 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F4518F95557007FF792 /* NSString+Utils.m */; };
+		4BC24F4D18F95557007FF792 /* UIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F4618F95557007FF792 /* UIColor+Utils.m */; };
+		4BC24F4E18F95557007FF792 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F4718F95557007FF792 /* UIFont+Utils.m */; };
+		4BC24F4F18F95557007FF792 /* UILabel+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F4818F95557007FF792 /* UILabel+Utils.m */; };
+		4BC24F5018F95557007FF792 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F4918F95557007FF792 /* UIView+Utils.m */; };
+		4BC24F6218F955DC007FF792 /* CDProfile+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F6118F955DC007FF792 /* CDProfile+Utils.m */; };
+		4BC24F6518F95799007FF792 /* CDArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F6418F95799007FF792 /* CDArticle.m */; };
+		4BC24F6818F95799007FF792 /* CDProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F6718F95799007FF792 /* CDProfile.m */; };
+		4BC24F6B18F95799007FF792 /* Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F6A18F95799007FF792 /* Installation.m */; };
 		4BE2A32E18F93E8F00386607 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A32D18F93E8F00386607 /* Foundation.framework */; };
 		4BE2A33018F93E8F00386607 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A32F18F93E8F00386607 /* CoreGraphics.framework */; };
 		4BE2A33218F93E8F00386607 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A33118F93E8F00386607 /* UIKit.framework */; };
@@ -51,6 +67,37 @@
 		4BC24EE118F94B95007FF792 /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		4BC24EE318F951AB007FF792 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		4BC24EE418F951AB007FF792 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		4BC24EE718F952F6007FF792 /* DomainEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainEnums.h; sourceTree = "<group>"; };
+		4BC24EE818F952F6007FF792 /* DomainEnums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainEnums.m; sourceTree = "<group>"; };
+		4BC24EE918F952F6007FF792 /* DomainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainManager.h; sourceTree = "<group>"; };
+		4BC24EEA18F952F6007FF792 /* DomainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainManager.m; sourceTree = "<group>"; };
+		4BC24EF718F952F6007FF792 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		4BC24EFE18F952F6007FF792 /* CDArticle+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDArticle+Utils.h"; sourceTree = "<group>"; };
+		4BC24EFF18F952F6007FF792 /* CDArticle+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDArticle+Utils.m"; sourceTree = "<group>"; };
+		4BC24F0618F952F6007FF792 /* Installation+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Installation+Utils.h"; sourceTree = "<group>"; };
+		4BC24F0718F952F6007FF792 /* Installation+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Installation+Utils.m"; sourceTree = "<group>"; };
+		4BC24F3C18F95557007FF792 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
+		4BC24F3D18F95557007FF792 /* NSSorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSorting.h; sourceTree = "<group>"; };
+		4BC24F3E18F95557007FF792 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
+		4BC24F3F18F95557007FF792 /* UIColor+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utils.h"; sourceTree = "<group>"; };
+		4BC24F4018F95557007FF792 /* UIFont+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Utils.h"; sourceTree = "<group>"; };
+		4BC24F4118F95557007FF792 /* UILabel+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Utils.h"; sourceTree = "<group>"; };
+		4BC24F4218F95557007FF792 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
+		4BC24F4318F95557007FF792 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		4BC24F4418F95557007FF792 /* NSSorting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSorting.m; sourceTree = "<group>"; };
+		4BC24F4518F95557007FF792 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
+		4BC24F4618F95557007FF792 /* UIColor+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utils.m"; sourceTree = "<group>"; };
+		4BC24F4718F95557007FF792 /* UIFont+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Utils.m"; sourceTree = "<group>"; };
+		4BC24F4818F95557007FF792 /* UILabel+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Utils.m"; sourceTree = "<group>"; };
+		4BC24F4918F95557007FF792 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
+		4BC24F6018F955DC007FF792 /* CDProfile+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDProfile+Utils.h"; sourceTree = "<group>"; };
+		4BC24F6118F955DC007FF792 /* CDProfile+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDProfile+Utils.m"; sourceTree = "<group>"; };
+		4BC24F6318F95799007FF792 /* CDArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDArticle.h; sourceTree = "<group>"; };
+		4BC24F6418F95799007FF792 /* CDArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDArticle.m; sourceTree = "<group>"; };
+		4BC24F6618F95799007FF792 /* CDProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProfile.h; sourceTree = "<group>"; };
+		4BC24F6718F95799007FF792 /* CDProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfile.m; sourceTree = "<group>"; };
+		4BC24F6918F95799007FF792 /* Installation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Installation.h; sourceTree = "<group>"; };
+		4BC24F6A18F95799007FF792 /* Installation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installation.m; sourceTree = "<group>"; };
 		4BE2A32A18F93E8F00386607 /* BetaHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetaHack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE2A32D18F93E8F00386607 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4BE2A32F18F93E8F00386607 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +175,67 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4BC24EE618F952F6007FF792 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				4BC24EE718F952F6007FF792 /* DomainEnums.h */,
+				4BC24EE818F952F6007FF792 /* DomainEnums.m */,
+				4BC24EE918F952F6007FF792 /* DomainManager.h */,
+				4BC24EEA18F952F6007FF792 /* DomainManager.m */,
+				4BC24EEB18F952F6007FF792 /* Model */,
+				4BC24EFD18F952F6007FF792 /* Utils */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		4BC24EEB18F952F6007FF792 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BC24EF618F952F6007FF792 /* Model.xcdatamodeld */,
+				4BC24F6318F95799007FF792 /* CDArticle.h */,
+				4BC24F6418F95799007FF792 /* CDArticle.m */,
+				4BC24F6618F95799007FF792 /* CDProfile.h */,
+				4BC24F6718F95799007FF792 /* CDProfile.m */,
+				4BC24F6918F95799007FF792 /* Installation.h */,
+				4BC24F6A18F95799007FF792 /* Installation.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BC24EFD18F952F6007FF792 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4BC24EFE18F952F6007FF792 /* CDArticle+Utils.h */,
+				4BC24EFF18F952F6007FF792 /* CDArticle+Utils.m */,
+				4BC24F6018F955DC007FF792 /* CDProfile+Utils.h */,
+				4BC24F6118F955DC007FF792 /* CDProfile+Utils.m */,
+				4BC24F0618F952F6007FF792 /* Installation+Utils.h */,
+				4BC24F0718F952F6007FF792 /* Installation+Utils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4BC24F2318F954CF007FF792 /* Class Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4BC24F3C18F95557007FF792 /* NSDate+Utils.h */,
+				4BC24F3D18F95557007FF792 /* NSSorting.h */,
+				4BC24F3E18F95557007FF792 /* NSString+Utils.h */,
+				4BC24F3F18F95557007FF792 /* UIColor+Utils.h */,
+				4BC24F4018F95557007FF792 /* UIFont+Utils.h */,
+				4BC24F4118F95557007FF792 /* UILabel+Utils.h */,
+				4BC24F4218F95557007FF792 /* UIView+Utils.h */,
+				4BC24F4318F95557007FF792 /* NSDate+Utils.m */,
+				4BC24F4418F95557007FF792 /* NSSorting.m */,
+				4BC24F4518F95557007FF792 /* NSString+Utils.m */,
+				4BC24F4618F95557007FF792 /* UIColor+Utils.m */,
+				4BC24F4718F95557007FF792 /* UIFont+Utils.m */,
+				4BC24F4818F95557007FF792 /* UILabel+Utils.m */,
+				4BC24F4918F95557007FF792 /* UIView+Utils.m */,
+			);
+			path = "Class Utils";
+			sourceTree = "<group>";
+		};
 		4BE2A32118F93E8F00386607 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +271,8 @@
 			children = (
 				4BC24ECB18F946BF007FF792 /* App Delegate */,
 				4BC24ECE18F946BF007FF792 /* Assets */,
+				4BC24F2318F954CF007FF792 /* Class Utils */,
+				4BC24EE618F952F6007FF792 /* Core Data */,
 				4BC24ED018F946BF007FF792 /* Project Config */,
 				4BC24ED518F946BF007FF792 /* Views */,
 			);
@@ -285,11 +395,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BC24F4F18F95557007FF792 /* UILabel+Utils.m in Sources */,
+				4BC24F0818F952F6007FF792 /* DomainEnums.m in Sources */,
+				4BC24F4B18F95557007FF792 /* NSSorting.m in Sources */,
+				4BC24F0918F952F6007FF792 /* DomainManager.m in Sources */,
+				4BC24F4D18F95557007FF792 /* UIColor+Utils.m in Sources */,
 				4BC24EDF18F946BF007FF792 /* ViewController.m in Sources */,
 				4BC24EE218F94B95007FF792 /* ArticleViewController.m in Sources */,
+				4BC24F4E18F95557007FF792 /* UIFont+Utils.m in Sources */,
 				4BC24EDD18F946BF007FF792 /* main.m in Sources */,
+				4BC24F4A18F95557007FF792 /* NSDate+Utils.m in Sources */,
+				4BC24F4C18F95557007FF792 /* NSString+Utils.m in Sources */,
+				4BC24F6B18F95799007FF792 /* Installation.m in Sources */,
+				4BC24F1218F952F6007FF792 /* CDArticle+Utils.m in Sources */,
+				4BC24F6218F955DC007FF792 /* CDProfile+Utils.m in Sources */,
+				4BC24F6518F95799007FF792 /* CDArticle.m in Sources */,
 				4BC24ED918F946BF007FF792 /* AppDelegate.m in Sources */,
 				4BC24EE518F951AB007FF792 /* ProfileViewController.m in Sources */,
+				4BC24F5018F95557007FF792 /* UIView+Utils.m in Sources */,
+				4BC24F0F18F952F6007FF792 /* Model.xcdatamodeld in Sources */,
+				4BC24F1618F952F6007FF792 /* Installation+Utils.m in Sources */,
+				4BC24F6818F95799007FF792 /* CDProfile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +616,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4BC24EF618F952F6007FF792 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4BC24EF718F952F6007FF792 /* Model.xcdatamodel */,
+			);
+			currentVersion = 4BC24EF718F952F6007FF792 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4BE2A32218F93E8F00386607 /* Project object */;
 }
