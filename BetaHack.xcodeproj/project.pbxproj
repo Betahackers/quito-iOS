@@ -32,6 +32,9 @@
 		4BC24F6518F95799007FF792 /* CDArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F6418F95799007FF792 /* CDArticle.m */; };
 		4BC24F6818F95799007FF792 /* CDProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F6718F95799007FF792 /* CDProfile.m */; };
 		4BC24F6B18F95799007FF792 /* Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F6A18F95799007FF792 /* Installation.m */; };
+		4BC24F6D18F95AAA007FF792 /* Temp_StaticMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24F6C18F95AAA007FF792 /* Temp_StaticMap.png */; };
+		4BC24F6F18F95B16007FF792 /* Temp_MapPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */; };
+		4BC24F7218F95BA9007FF792 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F7118F95BA9007FF792 /* MapViewController.m */; };
 		4BE2A32E18F93E8F00386607 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A32D18F93E8F00386607 /* Foundation.framework */; };
 		4BE2A33018F93E8F00386607 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A32F18F93E8F00386607 /* CoreGraphics.framework */; };
 		4BE2A33218F93E8F00386607 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A33118F93E8F00386607 /* UIKit.framework */; };
@@ -98,6 +101,10 @@
 		4BC24F6718F95799007FF792 /* CDProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfile.m; sourceTree = "<group>"; };
 		4BC24F6918F95799007FF792 /* Installation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Installation.h; sourceTree = "<group>"; };
 		4BC24F6A18F95799007FF792 /* Installation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installation.m; sourceTree = "<group>"; };
+		4BC24F6C18F95AAA007FF792 /* Temp_StaticMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_StaticMap.png; sourceTree = "<group>"; };
+		4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_MapPin.png; sourceTree = "<group>"; };
+		4BC24F7018F95BA9007FF792 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		4BC24F7118F95BA9007FF792 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		4BE2A32A18F93E8F00386607 /* BetaHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetaHack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE2A32D18F93E8F00386607 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4BE2A32F18F93E8F00386607 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,6 +152,8 @@
 		4BC24ECE18F946BF007FF792 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				4BC24F6C18F95AAA007FF792 /* Temp_StaticMap.png */,
+				4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */,
 				4BC24ECF18F946BF007FF792 /* Images.xcassets */,
 			);
 			path = Assets;
@@ -167,6 +176,8 @@
 				4BC24ED618F946BF007FF792 /* Main.storyboard */,
 				4BC24ED718F946BF007FF792 /* ViewController.h */,
 				4BC24ED818F946BF007FF792 /* ViewController.m */,
+				4BC24F7018F95BA9007FF792 /* MapViewController.h */,
+				4BC24F7118F95BA9007FF792 /* MapViewController.m */,
 				4BC24EE018F94B95007FF792 /* ArticleViewController.h */,
 				4BC24EE118F94B95007FF792 /* ArticleViewController.m */,
 				4BC24EE318F951AB007FF792 /* ProfileViewController.h */,
@@ -375,7 +386,9 @@
 			files = (
 				4BC24EDA18F946BF007FF792 /* Images.xcassets in Resources */,
 				4BC24EDC18F946BF007FF792 /* InfoPlist.strings in Resources */,
+				4BC24F6F18F95B16007FF792 /* Temp_MapPin.png in Resources */,
 				4BC24EDB18F946BF007FF792 /* BetaHack-Info.plist in Resources */,
+				4BC24F6D18F95AAA007FF792 /* Temp_StaticMap.png in Resources */,
 				4BC24EDE18F946BF007FF792 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +429,7 @@
 				4BC24F0F18F952F6007FF792 /* Model.xcdatamodeld in Sources */,
 				4BC24F1618F952F6007FF792 /* Installation+Utils.m in Sources */,
 				4BC24F6818F95799007FF792 /* CDProfile.m in Sources */,
+				4BC24F7218F95BA9007FF792 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

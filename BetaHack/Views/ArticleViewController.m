@@ -7,7 +7,8 @@
 //
 
 #import "ArticleViewController.h"
-//#import "DomainManager.h"
+#import "DomainManager.h"
+#import "ProfileViewController.h"
 
 @interface ArticleViewController () {
     NSMutableArray *sections;
@@ -36,22 +37,23 @@ typedef enum tableSections
     
     sections = [NSMutableArray array];
     
-    [sections addObject:[NSArray arrayWithObject:@"First row"]];
+    [sections addObject:[NSArray arrayWithObject:self.article]];
     
     [self.tableView reloadData];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"articleCard_push_editCard"]) {
-//        CDCard *cardToEdit = (CDCard*)sender;
-//        EditCardViewController *viewController = (EditCardViewController *)segue.destinationViewController;
-//        viewController.sourceViewController = self;
-//        [viewController editCard:cardToEdit];
-//    }
+    if ([segue.identifier isEqualToString:@"article_profile"]) {
+        CDProfile *profile = (CDProfile*)sender;
+        ProfileViewController *viewController = (ProfileViewController *)segue.destinationViewController;
+        viewController.profile = profile;
+    }
 }
 
 #pragma mark - ArticleCardCellDelegate
-
+- (void)showProfile:(CDProfile *)profile {
+    [self performSegueWithIdentifier:@"article_profile" sender:profile];
+}
 
 #pragma mark - TableView data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -73,6 +75,12 @@ typedef enum tableSections
             //header
             static NSString *CellIdentifier = @"ArticleHeaderCell";
             ArticleHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            cell.delegate = self;
+            
+            cell.article = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+            cell.titleLabel.text = cell.article.title;
+            [cell.authorButton setTitle:cell.article.profile.name forState:UIControlStateNormal];
+            
             return cell;
         }
             
@@ -96,4 +104,9 @@ typedef enum tableSections
 
 #pragma mark - Prototype cells
 @implementation ArticleHeaderCell
+
+- (IBAction)profileTapped:(id)sender {
+    [self.delegate showProfile:self.article.profile];
+}
+
 @end

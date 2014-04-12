@@ -7,7 +7,7 @@
 //
 
 #import "ProfileViewController.h"
-//#import "DomainManager.h"
+#import "DomainManager.h"
 
 @interface ProfileViewController () {
     NSMutableArray *sections;
@@ -36,19 +36,11 @@ typedef enum tableSections
     
     sections = [NSMutableArray array];
     
-    [sections addObject:[NSArray arrayWithObject:@"First row"]];
+    [sections addObject:[NSArray arrayWithObject:self.profile]];
     
     [self.tableView reloadData];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"articleCard_push_editCard"]) {
-//        CDCard *cardToEdit = (CDCard*)sender;
-//        EditCardViewController *viewController = (EditCardViewController *)segue.destinationViewController;
-//        viewController.sourceViewController = self;
-//        [viewController editCard:cardToEdit];
-//    }
-}
 
 #pragma mark - ProfileCardCellDelegate
 
@@ -73,6 +65,9 @@ typedef enum tableSections
             //header
             static NSString *CellIdentifier = @"ProfileHeaderCell";
             ProfileHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            cell.delegate = self;
+            cell.profile = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+            cell.nameLabel.text = cell.profile.name;
             return cell;
         }
             

@@ -7,17 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "DomainEnums.h"
+#import "DomainEnums.h"
+
+@class CDArticle, CDProfile;
 
 #pragma mark - ArticleViewDelegate
 @protocol ArticleViewDelegate
+- (void)showProfile:(CDProfile*)profile;
 @end
 
 
 #pragma mark - ArticleViewController
-@interface ArticleViewController : UITableViewController
+@interface ArticleViewController : UITableViewController <ArticleViewDelegate>
 
-//@property (nonatomic, weak) CDArticle *article;
+@property (nonatomic, weak) CDArticle *article;
 
 @end
 
@@ -25,4 +28,7 @@
 #pragma mark - ArticleHeaderCell
 @interface ArticleHeaderCell : UITableViewCell
 @property (nonatomic, weak) id<ArticleViewDelegate> delegate;
+@property (nonatomic, strong) CDArticle *article;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UIButton *authorButton;
 @end

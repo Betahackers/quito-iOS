@@ -46,17 +46,17 @@ static Installation *currentInstallation;
 - (void)addTestData {
     
     CDProfile *profile = [CDProfile initWithJSON:nil name:@"Duncan Campbell"];
-    CDArticle *article = [CDArticle initWithJSON:nil title:@"Park Guell" author:profile];
+    CDArticle *article = [CDArticle initWithJSON:nil title:@"Montjuic" author:profile];
     
     profile = [CDProfile initWithJSON:nil name:@"Yonah Forst"];
     article = [CDArticle initWithJSON:nil title:@"Vespa Burger" author:profile];
     
     profile = [CDProfile initWithJSON:nil name:@"Kristian Dupont Knudsen"];
-    article = [CDArticle initWithJSON:nil title:@"Betahaus" author:profile];
+    article = [CDArticle initWithJSON:nil title:@"Ciutadella" author:profile];
 }
 
 #pragma mark - articles
 - (NSArray*)sortedArticles {
-    return [self.articles sortSetByDateField:@"startDate"];
+    return [self.articles sortSetByTextField:@"title"];
 }
 @end

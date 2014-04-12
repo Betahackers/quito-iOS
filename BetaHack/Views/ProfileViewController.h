@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "DomainEnums.h"
+#import "DomainEnums.h"
+
+@class CDProfile;
 
 #pragma mark - ProfileViewDelegate
 @protocol ProfileViewDelegate
@@ -15,9 +17,9 @@
 
 
 #pragma mark - ProfileViewController
-@interface ProfileViewController : UITableViewController
+@interface ProfileViewController : UITableViewController <ProfileViewDelegate>
 
-//@property (nonatomic, weak) CDProfile *article;
+@property (nonatomic, weak) CDProfile *profile;
 
 @end
 
@@ -25,4 +27,6 @@
 #pragma mark - ProfileHeaderCell
 @interface ProfileHeaderCell : UITableViewCell
 @property (nonatomic, weak) id<ProfileViewDelegate> delegate;
+@property (nonatomic, weak) CDProfile *profile;
+@property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @end
