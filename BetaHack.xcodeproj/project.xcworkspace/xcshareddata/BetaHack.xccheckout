@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D3EA3D1F-077A-4EC5-A3E3-010C7E3E0181</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BetaHack</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>10B5EACF-AB65-4D6C-B3F6-D0AED59B4201</key>
+		<string>https://github.com/Betahackers/quito-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BetaHack.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>10B5EACF-AB65-4D6C-B3F6-D0AED59B4201</key>
+		<string>../..</string>
+		<key>50EB1CD6-E151-46BF-9129-2249FFE06D6B</key>
+		<string>../../BetaHack</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Betahackers/quito-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>10B5EACF-AB65-4D6C-B3F6-D0AED59B4201</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>50EB1CD6-E151-46BF-9129-2249FFE06D6B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BetaHack</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>10B5EACF-AB65-4D6C-B3F6-D0AED59B4201</string>
+			<key>IDESourceControlWCCName</key>
+			<string>quito-iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
