@@ -25,7 +25,8 @@ typedef enum tableSections
     kSectionCategory,
     kSectionCategoryItems,
     kSectionProfile,
-    kSectionProfileItems
+    kSectionProfileItems,
+    kSectionBlankCell
 } TableSections;
 
 - (void)viewDidLoad
@@ -43,6 +44,7 @@ typedef enum tableSections
     [sections addObject:[NSMutableArray array]];
     [sections addObject:[NSArray arrayWithObject:@"Profiles"]];
     [sections addObject:[NSMutableArray array]];
+    [sections addObject:[NSArray arrayWithObject:@"Blank"]];
     
     [self reloadTable];
 }
@@ -78,6 +80,7 @@ typedef enum tableSections
             static NSString *CellIdentifier = @"MenuCategoryCell";
             MenuCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             NSString *title = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = title;
@@ -91,6 +94,7 @@ typedef enum tableSections
             static NSString *CellIdentifier = @"MenuCategoryItemCell";
             MenuCategoryItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             CDFilter *filter = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = filter.name;
@@ -104,6 +108,7 @@ typedef enum tableSections
             static NSString *CellIdentifier = @"MenuProfileCell";
             MenuProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             NSString *title = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = title;
@@ -117,6 +122,7 @@ typedef enum tableSections
             static NSString *CellIdentifier = @"MenuProfileItemCell";
             MenuProfileItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             CDProfile *profile = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = profile.name;
@@ -130,6 +136,7 @@ typedef enum tableSections
             static NSString *CellIdentifier = @"MenuEmotionCell";
             MenuEmotionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             NSString *title = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = title;
@@ -143,10 +150,18 @@ typedef enum tableSections
             static NSString *CellIdentifier = @"MenuEmotionItemCell";
             MenuEmotionItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
-            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             CDFilter *filter = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = filter.name;
             
+            return cell;
+        }
+            
+        case kSectionBlankCell: {
+            
+            //header
+            static NSString *CellIdentifier = @"MenuEmptyCell";
+            MenuEmptyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             return cell;
         }
             
@@ -199,7 +214,12 @@ typedef enum tableSections
         
         isExpanded = NO;
         
-        [self performSelector:@selector(expandSection:) withObject:[NSNumber numberWithInteger:indexPath.section] afterDelay:0.4];
+        if (expandedSection != indexPath.section) {
+            [self performSelector:@selector(expandSection:) withObject:[NSNumber numberWithInteger:indexPath.section] afterDelay:0.4];
+        } else {
+            expandedSection = -1;
+            [self.mapViewDelegate shrinkTable];
+        }
         
     } else {
         [self expandSection:[NSNumber numberWithInt:indexPath.section]];
@@ -256,6 +276,7 @@ typedef enum tableSections
     
     isExpanded = YES;
     expandedSection = [section intValue];
+    [self.mapViewDelegate growTable];
     
     [self.tableView endUpdates];
 }
@@ -274,4 +295,6 @@ typedef enum tableSections
 @implementation MenuProfileCell
 @end
 @implementation MenuProfileItemCell
+@end
+@implementation MenuEmptyCell
 @end

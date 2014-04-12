@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface ViewController ()
 
@@ -17,7 +19,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    NSMutableDictionary *event =
+    [[GAIDictionaryBuilder createEventWithCategory:@"App"
+                                            action:@"Open"
+                                             label:@"Run"
+                                             value:nil] build];
+    [[GAI sharedInstance].defaultTracker send:event];
+    [[GAI sharedInstance] dispatch];
+    
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning

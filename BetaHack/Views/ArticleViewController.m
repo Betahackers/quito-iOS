@@ -29,6 +29,8 @@ typedef enum tableSections
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    [self.navigationController setNavigationBarHidden:NO];
+    
     sections = [NSMutableArray array];
     [self reloadTable];
 }

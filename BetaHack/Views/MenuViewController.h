@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DomainEnums.h"
+#import "MapViewController.h"
 
 @class CDMenu, CDProfile;
 
@@ -21,6 +22,7 @@
 @interface MenuViewController : UITableViewController <MenuViewDelegate>
 
 @property (nonatomic, weak) CDMenu *menu;
+@property (nonatomic, weak) id<MapViewDelegate> mapViewDelegate;
 
 @end
 
@@ -54,4 +56,7 @@
 @interface MenuEmotionItemCell : UITableViewCell
 @property (nonatomic, weak) id<MenuViewDelegate> delegate;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@end
+
+@interface MenuEmptyCell : UITableViewCell
 @end

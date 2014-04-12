@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MapViewController : UIViewController
+#pragma mark - MapViewDelegate
+@protocol MapViewDelegate
+- (void)shrinkTable;
+- (void)growTable;
+@end
+
+@interface MapViewController : UIViewController <MapViewDelegate>
 
 @end
