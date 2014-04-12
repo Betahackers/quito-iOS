@@ -9,8 +9,12 @@
 #import "MapViewController.h"
 #import "DomainManager.h"
 #import "ArticleViewController.h"
+#import "MenuViewController.h"
 
 @interface MapViewController ()
+
+@property (nonatomic, strong) IBOutlet UIView *menuView;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @end
 
@@ -19,6 +23,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

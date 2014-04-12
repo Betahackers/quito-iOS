@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B35F69F18F98621005FDBB2 /* CDFilter+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F69E18F98621005FDBB2 /* CDFilter+Utils.m */; };
+		4B35F6BA18F9909F005FDBB2 /* Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F6B918F9909F005FDBB2 /* Installation.m */; };
+		4B35F6BD18F990A0005FDBB2 /* CDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F6BC18F990A0005FDBB2 /* CDFilter.m */; };
+		4B35F6C018F990A0005FDBB2 /* CDProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F6BF18F990A0005FDBB2 /* CDProfile.m */; };
+		4B35F6C318F990A0005FDBB2 /* CDArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F6C218F990A0005FDBB2 /* CDArticle.m */; };
+		4B35F6C618F99799005FDBB2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F6C518F99799005FDBB2 /* MenuViewController.m */; };
+		4B82439918F9AD580097854D /* Temp_ProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B82439818F9AD580097854D /* Temp_ProfilePhoto.png */; };
 		4BC24ED918F946BF007FF792 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24ECD18F946BF007FF792 /* AppDelegate.m */; };
 		4BC24EDA18F946BF007FF792 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24ECF18F946BF007FF792 /* Images.xcassets */; };
 		4BC24EDB18F946BF007FF792 /* BetaHack-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24ED118F946BF007FF792 /* BetaHack-Info.plist */; };
@@ -29,9 +36,6 @@
 		4BC24F4F18F95557007FF792 /* UILabel+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F4818F95557007FF792 /* UILabel+Utils.m */; };
 		4BC24F5018F95557007FF792 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F4918F95557007FF792 /* UIView+Utils.m */; };
 		4BC24F6218F955DC007FF792 /* CDProfile+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F6118F955DC007FF792 /* CDProfile+Utils.m */; };
-		4BC24F6518F95799007FF792 /* CDArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F6418F95799007FF792 /* CDArticle.m */; };
-		4BC24F6818F95799007FF792 /* CDProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F6718F95799007FF792 /* CDProfile.m */; };
-		4BC24F6B18F95799007FF792 /* Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F6A18F95799007FF792 /* Installation.m */; };
 		4BC24F6D18F95AAA007FF792 /* Temp_StaticMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24F6C18F95AAA007FF792 /* Temp_StaticMap.png */; };
 		4BC24F6F18F95B16007FF792 /* Temp_MapPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */; };
 		4BC24F7218F95BA9007FF792 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F7118F95BA9007FF792 /* MapViewController.m */; };
@@ -56,6 +60,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B35F69D18F98621005FDBB2 /* CDFilter+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDFilter+Utils.h"; sourceTree = "<group>"; };
+		4B35F69E18F98621005FDBB2 /* CDFilter+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDFilter+Utils.m"; sourceTree = "<group>"; };
+		4B35F6B818F9909F005FDBB2 /* Installation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Installation.h; sourceTree = "<group>"; };
+		4B35F6B918F9909F005FDBB2 /* Installation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installation.m; sourceTree = "<group>"; };
+		4B35F6BB18F990A0005FDBB2 /* CDFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFilter.h; sourceTree = "<group>"; };
+		4B35F6BC18F990A0005FDBB2 /* CDFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilter.m; sourceTree = "<group>"; };
+		4B35F6BE18F990A0005FDBB2 /* CDProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProfile.h; sourceTree = "<group>"; };
+		4B35F6BF18F990A0005FDBB2 /* CDProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfile.m; sourceTree = "<group>"; };
+		4B35F6C118F990A0005FDBB2 /* CDArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDArticle.h; sourceTree = "<group>"; };
+		4B35F6C218F990A0005FDBB2 /* CDArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDArticle.m; sourceTree = "<group>"; };
+		4B35F6C418F99799005FDBB2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		4B35F6C518F99799005FDBB2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		4B82439818F9AD580097854D /* Temp_ProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_ProfilePhoto.png; sourceTree = "<group>"; };
 		4BC24ECC18F946BF007FF792 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4BC24ECD18F946BF007FF792 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4BC24ECF18F946BF007FF792 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -95,12 +112,6 @@
 		4BC24F4918F95557007FF792 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 		4BC24F6018F955DC007FF792 /* CDProfile+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDProfile+Utils.h"; sourceTree = "<group>"; };
 		4BC24F6118F955DC007FF792 /* CDProfile+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDProfile+Utils.m"; sourceTree = "<group>"; };
-		4BC24F6318F95799007FF792 /* CDArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDArticle.h; sourceTree = "<group>"; };
-		4BC24F6418F95799007FF792 /* CDArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDArticle.m; sourceTree = "<group>"; };
-		4BC24F6618F95799007FF792 /* CDProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProfile.h; sourceTree = "<group>"; };
-		4BC24F6718F95799007FF792 /* CDProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfile.m; sourceTree = "<group>"; };
-		4BC24F6918F95799007FF792 /* Installation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Installation.h; sourceTree = "<group>"; };
-		4BC24F6A18F95799007FF792 /* Installation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installation.m; sourceTree = "<group>"; };
 		4BC24F6C18F95AAA007FF792 /* Temp_StaticMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_StaticMap.png; sourceTree = "<group>"; };
 		4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_MapPin.png; sourceTree = "<group>"; };
 		4BC24F7018F95BA9007FF792 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -154,6 +165,7 @@
 			children = (
 				4BC24F6C18F95AAA007FF792 /* Temp_StaticMap.png */,
 				4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */,
+				4B82439818F9AD580097854D /* Temp_ProfilePhoto.png */,
 				4BC24ECF18F946BF007FF792 /* Images.xcassets */,
 			);
 			path = Assets;
@@ -178,6 +190,8 @@
 				4BC24ED818F946BF007FF792 /* ViewController.m */,
 				4BC24F7018F95BA9007FF792 /* MapViewController.h */,
 				4BC24F7118F95BA9007FF792 /* MapViewController.m */,
+				4B35F6C418F99799005FDBB2 /* MenuViewController.h */,
+				4B35F6C518F99799005FDBB2 /* MenuViewController.m */,
 				4BC24EE018F94B95007FF792 /* ArticleViewController.h */,
 				4BC24EE118F94B95007FF792 /* ArticleViewController.m */,
 				4BC24EE318F951AB007FF792 /* ProfileViewController.h */,
@@ -202,13 +216,15 @@
 		4BC24EEB18F952F6007FF792 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B35F6B818F9909F005FDBB2 /* Installation.h */,
+				4B35F6C118F990A0005FDBB2 /* CDArticle.h */,
+				4B35F6C218F990A0005FDBB2 /* CDArticle.m */,
+				4B35F6BE18F990A0005FDBB2 /* CDProfile.h */,
+				4B35F6BF18F990A0005FDBB2 /* CDProfile.m */,
+				4B35F6BB18F990A0005FDBB2 /* CDFilter.h */,
+				4B35F6BC18F990A0005FDBB2 /* CDFilter.m */,
+				4B35F6B918F9909F005FDBB2 /* Installation.m */,
 				4BC24EF618F952F6007FF792 /* Model.xcdatamodeld */,
-				4BC24F6318F95799007FF792 /* CDArticle.h */,
-				4BC24F6418F95799007FF792 /* CDArticle.m */,
-				4BC24F6618F95799007FF792 /* CDProfile.h */,
-				4BC24F6718F95799007FF792 /* CDProfile.m */,
-				4BC24F6918F95799007FF792 /* Installation.h */,
-				4BC24F6A18F95799007FF792 /* Installation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +234,8 @@
 			children = (
 				4BC24EFE18F952F6007FF792 /* CDArticle+Utils.h */,
 				4BC24EFF18F952F6007FF792 /* CDArticle+Utils.m */,
+				4B35F69D18F98621005FDBB2 /* CDFilter+Utils.h */,
+				4B35F69E18F98621005FDBB2 /* CDFilter+Utils.m */,
 				4BC24F6018F955DC007FF792 /* CDProfile+Utils.h */,
 				4BC24F6118F955DC007FF792 /* CDProfile+Utils.m */,
 				4BC24F0618F952F6007FF792 /* Installation+Utils.h */,
@@ -384,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B82439918F9AD580097854D /* Temp_ProfilePhoto.png in Resources */,
 				4BC24EDA18F946BF007FF792 /* Images.xcassets in Resources */,
 				4BC24EDC18F946BF007FF792 /* InfoPlist.strings in Resources */,
 				4BC24F6F18F95B16007FF792 /* Temp_MapPin.png in Resources */,
@@ -417,18 +436,21 @@
 				4BC24EE218F94B95007FF792 /* ArticleViewController.m in Sources */,
 				4BC24F4E18F95557007FF792 /* UIFont+Utils.m in Sources */,
 				4BC24EDD18F946BF007FF792 /* main.m in Sources */,
+				4B35F6C618F99799005FDBB2 /* MenuViewController.m in Sources */,
 				4BC24F4A18F95557007FF792 /* NSDate+Utils.m in Sources */,
+				4B35F6BD18F990A0005FDBB2 /* CDFilter.m in Sources */,
+				4B35F6BA18F9909F005FDBB2 /* Installation.m in Sources */,
 				4BC24F4C18F95557007FF792 /* NSString+Utils.m in Sources */,
-				4BC24F6B18F95799007FF792 /* Installation.m in Sources */,
+				4B35F69F18F98621005FDBB2 /* CDFilter+Utils.m in Sources */,
 				4BC24F1218F952F6007FF792 /* CDArticle+Utils.m in Sources */,
 				4BC24F6218F955DC007FF792 /* CDProfile+Utils.m in Sources */,
-				4BC24F6518F95799007FF792 /* CDArticle.m in Sources */,
 				4BC24ED918F946BF007FF792 /* AppDelegate.m in Sources */,
+				4B35F6C318F990A0005FDBB2 /* CDArticle.m in Sources */,
 				4BC24EE518F951AB007FF792 /* ProfileViewController.m in Sources */,
 				4BC24F5018F95557007FF792 /* UIView+Utils.m in Sources */,
 				4BC24F0F18F952F6007FF792 /* Model.xcdatamodeld in Sources */,
 				4BC24F1618F952F6007FF792 /* Installation+Utils.m in Sources */,
-				4BC24F6818F95799007FF792 /* CDProfile.m in Sources */,
+				4B35F6C018F990A0005FDBB2 /* CDProfile.m in Sources */,
 				4BC24F7218F95BA9007FF792 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

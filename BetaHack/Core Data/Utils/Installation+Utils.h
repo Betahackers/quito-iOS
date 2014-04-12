@@ -14,6 +14,10 @@
 + (Installation*)currentInstallation;
 
 - (NSArray*)sortedArticles;
+- (NSArray*)sortedProfiles;
+
+- (NSArray*)sortedFilterByGroup:(FilterGroup)filterGroup;
+- (CDFilter*)filterOfType:(FilterType)filterType;
 
 @end
 

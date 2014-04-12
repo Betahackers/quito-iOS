@@ -9,12 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class CDProfile, Installation;
+@class CDFilter, CDProfile, Installation;
 
 @interface CDArticle : NSManagedObject
 
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) Installation *installation;
 @property (nonatomic, retain) CDProfile *profile;
+@property (nonatomic, retain) NSSet *filters;
+@end
+
+@interface CDArticle (CoreDataGeneratedAccessors)
+
+- (void)addFiltersObject:(CDFilter *)value;
+- (void)removeFiltersObject:(CDFilter *)value;
+- (void)addFilters:(NSSet *)values;
+- (void)removeFilters:(NSSet *)values;
 
 @end

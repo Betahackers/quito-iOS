@@ -8,6 +8,7 @@
 
 #import "Installation.h"
 #import "CDArticle.h"
+#import "CDFilter.h"
 #import "CDProfile.h"
 
 
@@ -15,5 +16,6 @@
 
 @dynamic articles;
 @dynamic profiles;
+@dynamic filters;
 
 @end

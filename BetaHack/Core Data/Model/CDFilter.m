@@ -1,22 +1,22 @@
 //
-//  CDArticle.m
+//  CDFilter.m
 //  BetaHack
 //
 //  Created by Duncan Campbell on 12/04/14.
 //  Copyright (c) 2014 Betahackers. All rights reserved.
 //
 
-#import "CDArticle.h"
 #import "CDFilter.h"
-#import "CDProfile.h"
+#import "CDArticle.h"
 #import "Installation.h"
 
 
-@implementation CDArticle
+@implementation CDFilter
 
-@dynamic title;
+@dynamic filterTypeRaw;
+@dynamic name;
+@dynamic filterGroupRaw;
 @dynamic installation;
-@dynamic profile;
-@dynamic filters;
+@dynamic articles;
 
 @end

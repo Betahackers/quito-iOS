@@ -18,6 +18,23 @@
         article.title = title;
         article.installation = [Installation currentInstallation];
         article.profile = author;
+        
+        //choose 4 random categories
+        int rand = arc4random() % 15;
+        CDFilter *filter = [[Installation currentInstallation] filterOfType:rand];
+        [article addFiltersObject:filter];
+        
+        rand = arc4random() % 15;
+        filter = [[Installation currentInstallation] filterOfType:rand];
+        [article addFiltersObject:filter];
+        
+        rand = arc4random() % 15;
+        filter = [[Installation currentInstallation] filterOfType:rand];
+        [article addFiltersObject:filter];
+        
+        rand = arc4random() % 15;
+        filter = [[Installation currentInstallation] filterOfType:rand];
+        [article addFiltersObject:filter];
     }
     
     return article;
