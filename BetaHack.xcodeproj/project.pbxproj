@@ -45,6 +45,7 @@
 		4BC24F6D18F95AAA007FF792 /* Temp_StaticMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24F6C18F95AAA007FF792 /* Temp_StaticMap.png */; };
 		4BC24F6F18F95B16007FF792 /* Temp_MapPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */; };
 		4BC24F7218F95BA9007FF792 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F7118F95BA9007FF792 /* MapViewController.m */; };
+		4BC56CE618FAB9F300B7DD7E /* Temp_RedDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC56CE518FAB9F300B7DD7E /* Temp_RedDot.png */; };
 		4BE2A32E18F93E8F00386607 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A32D18F93E8F00386607 /* Foundation.framework */; };
 		4BE2A33018F93E8F00386607 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A32F18F93E8F00386607 /* CoreGraphics.framework */; };
 		4BE2A33218F93E8F00386607 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A33118F93E8F00386607 /* UIKit.framework */; };
@@ -133,6 +134,7 @@
 		4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_MapPin.png; sourceTree = "<group>"; };
 		4BC24F7018F95BA9007FF792 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		4BC24F7118F95BA9007FF792 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		4BC56CE518FAB9F300B7DD7E /* Temp_RedDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_RedDot.png; sourceTree = "<group>"; };
 		4BE2A32A18F93E8F00386607 /* BetaHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetaHack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE2A32D18F93E8F00386607 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4BE2A32F18F93E8F00386607 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -188,6 +190,7 @@
 				4BC24F6C18F95AAA007FF792 /* Temp_StaticMap.png */,
 				4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */,
 				4B82439818F9AD580097854D /* Temp_ProfilePhoto.png */,
+				4BC56CE518FAB9F300B7DD7E /* Temp_RedDot.png */,
 				4BC24ECF18F946BF007FF792 /* Images.xcassets */,
 			);
 			path = Assets;
@@ -441,6 +444,7 @@
 				4BC24EDC18F946BF007FF792 /* InfoPlist.strings in Resources */,
 				4BC24F6F18F95B16007FF792 /* Temp_MapPin.png in Resources */,
 				4BC24EDB18F946BF007FF792 /* BetaHack-Info.plist in Resources */,
+				4BC56CE618FAB9F300B7DD7E /* Temp_RedDot.png in Resources */,
 				4BC24F6D18F95AAA007FF792 /* Temp_StaticMap.png in Resources */,
 				4BC24EDE18F946BF007FF792 /* Main.storyboard in Resources */,
 			);

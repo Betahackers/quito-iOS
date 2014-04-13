@@ -65,7 +65,7 @@ static Installation *currentInstallation;
 }
 
 - (NSArray*)sortedProfiles {
-    return [self.profiles sortSetByTextField:@"name"];
+    return [self.profiles sortSetByTextField:@"displayName"];
 }
 
 - (CDProfile*)profileWithID:(int)profileID {

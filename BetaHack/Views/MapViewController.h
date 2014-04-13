@@ -9,25 +9,26 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+@class CDArticle;
+
 #pragma mark - MapViewDelegate
 @protocol MapViewDelegate
 - (void)shrinkTable;
 - (void)growTable;
 @end
 
-@interface MapViewController : UIViewController <MapViewDelegate>
+@interface MapViewController : UIViewController <MapViewDelegate, MKMapViewDelegate>
 
 @end
 
 
-@interface MapPinAnnotation : NSObject <MKAnnotation>
+
+@interface MyAnnotation : NSObject <MKAnnotation>
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
-@property (nonatomic, readonly) NSString* title;
-@property (nonatomic, readonly) NSString* subtitle;
+@property (nonatomic, copy, readonly) NSString *image;
+@property (nonatomic, copy, readonly) CDArticle *article;
 
-- (id)initWithCoordinates:(CLLocationCoordinate2D)location
-                placeName:(NSString *)placeName
-              description:(NSString *)description;
+-(id)initWithCoordinates:(CLLocationCoordinate2D)paramCoordinates image:(NSString *)paramImage article:(CDArticle*)article;
 
 @end

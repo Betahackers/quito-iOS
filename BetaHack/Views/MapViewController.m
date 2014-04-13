@@ -69,8 +69,8 @@
             CDLocation *location = article.locations.anyObject;
             CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(location.latitude,location.longitude);
             
-            MapPinAnnotation* pinAnnotation = [[MapPinAnnotation alloc] initWithCoordinates:coordinate placeName:article.title description:nil];
-            [self.mapView addAnnotation:pinAnnotation];
+            MyAnnotation *annotation1 = [[MyAnnotation alloc] initWithCoordinates:coordinate image:@"Temp_MapPin.png" article:article];
+            [self.mapView addAnnotation:annotation1];
         }
     });
 }
@@ -109,28 +109,50 @@
     [self.menuContainerView setFrameHeight:self.view.frame.size.height];
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    static NSString *identifier = @"MyLocation";
+    if ([annotation isKindOfClass:[MyAnnotation class]])
+    {
+        MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        
+        if (annotationView == nil)
+        {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        } else
+        {
+            annotationView.annotation = annotation;
+        }
+        
+        annotationView.enabled = YES;
+        annotationView.canShowCallout = NO;
+        
+        annotationView.image = [UIImage imageNamed:@"Temp_RedDot.png"];
+        
+        return annotationView;
+    }
+    return nil;
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    MyAnnotation *mapViewAnnotation = (MyAnnotation*)view.annotation;
+    [self performSegueWithIdentifier:@"map_article" sender:mapViewAnnotation.article];
+}
+
 @end
 
 
-@implementation MapPinAnnotation
+@implementation MyAnnotation
 
-@synthesize coordinate;
-@synthesize title;
-@synthesize subtitle;
-
-- (id)initWithCoordinates:(CLLocationCoordinate2D)location
-                placeName:(NSString *)placeName
-              description:(NSString *)description;
-{
-    self = [super init];
-    if (self)
-    {
-        coordinate = location;
-        title = placeName;
-        subtitle = description;
-    }
+-(id)initWithCoordinates:(CLLocationCoordinate2D)paramCoordinates image:(NSString *)paramImage article:(CDArticle*)article {
     
-    return self;
+    self = [super init];
+    if(self != nil)
+    {
+        _coordinate = paramCoordinates;
+        _image = paramImage;
+        _article = article;
+    }
+    return (self);
 }
 
 @end
