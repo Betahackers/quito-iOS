@@ -15,12 +15,13 @@
 
 @implementation CDArticle
 
-@dynamic title;
 @dynamic content;
 @dynamic identifier;
+@dynamic title;
+@dynamic intro;
 @dynamic filters;
 @dynamic installation;
-@dynamic profile;
 @dynamic locations;
+@dynamic profile;
 
 @end

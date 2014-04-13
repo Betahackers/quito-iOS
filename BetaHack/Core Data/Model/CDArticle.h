@@ -13,13 +13,14 @@
 
 @interface CDArticle : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * content;
 @property (nonatomic) int32_t identifier;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * intro;
 @property (nonatomic, retain) NSSet *filters;
 @property (nonatomic, retain) Installation *installation;
-@property (nonatomic, retain) CDProfile *profile;
 @property (nonatomic, retain) NSSet *locations;
+@property (nonatomic, retain) CDProfile *profile;
 @end
 
 @interface CDArticle (CoreDataGeneratedAccessors)

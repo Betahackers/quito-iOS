@@ -14,8 +14,12 @@
 @interface CDProfile : NSManagedObject
 
 @property (nonatomic, retain) NSString * firstName;
-@property (nonatomic, retain) NSString * lastName;
 @property (nonatomic) int32_t identifier;
+@property (nonatomic, retain) NSString * lastName;
+@property (nonatomic, retain) NSString * expertIn;
+@property (nonatomic, retain) NSString * biography;
+@property (nonatomic, retain) NSString * hometown;
+@property (nonatomic, retain) NSString * jobTitle;
 @property (nonatomic, retain) NSSet *articles;
 @property (nonatomic, retain) Installation *installation;
 @end

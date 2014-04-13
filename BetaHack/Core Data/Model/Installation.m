@@ -17,7 +17,7 @@
 
 @dynamic articles;
 @dynamic filters;
-@dynamic profiles;
 @dynamic locations;
+@dynamic profiles;
 
 @end

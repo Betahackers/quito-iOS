@@ -75,4 +75,8 @@
         }
     }
 }
+
+- (UIImage*)articleImage {
+    return [UIImage imageNamed:@"Temp_ParcGuell.png"];
+}
 @end

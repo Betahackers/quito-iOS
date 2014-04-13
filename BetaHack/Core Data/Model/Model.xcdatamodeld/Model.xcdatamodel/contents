@@ -3,6 +3,7 @@
     <entity name="CDArticle" representedClassName="CDArticle" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="intro" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="filters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDFilter" inverseName="articles" inverseEntity="CDFilter" syncable="YES"/>
         <relationship name="installation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Installation" inverseName="articles" inverseEntity="Installation" syncable="YES"/>
@@ -26,8 +27,12 @@
         <relationship name="installation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Installation" inverseName="locations" inverseEntity="Installation" syncable="YES"/>
     </entity>
     <entity name="CDProfile" representedClassName="CDProfile" syncable="YES">
+        <attribute name="biography" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="expertIn" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hometown" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="jobTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="articles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDArticle" inverseName="profile" inverseEntity="CDArticle" syncable="YES"/>
         <relationship name="installation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Installation" inverseName="profiles" inverseEntity="Installation" syncable="YES"/>
@@ -39,10 +44,10 @@
         <relationship name="profiles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDProfile" inverseName="installation" inverseEntity="CDProfile" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDArticle" positionX="0" positionY="0" width="128" height="148"/>
+        <element name="CDArticle" positionX="0" positionY="0" width="128" height="163"/>
         <element name="CDFilter" positionX="9" positionY="45" width="128" height="135"/>
         <element name="CDLocation" positionX="9" positionY="72" width="128" height="133"/>
-        <element name="CDProfile" positionX="18" positionY="27" width="128" height="118"/>
+        <element name="CDProfile" positionX="18" positionY="27" width="128" height="178"/>
         <element name="Installation" positionX="0" positionY="0" width="128" height="105"/>
     </elements>
 </model>

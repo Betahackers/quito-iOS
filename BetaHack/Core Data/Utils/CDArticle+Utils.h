@@ -15,6 +15,8 @@
 + (id)initWithJSON:(NSDictionary*)json;
 - (void)updateWithJSON:(NSDictionary*)json;
 
+- (UIImage*)articleImage;
+
 @end
 
 

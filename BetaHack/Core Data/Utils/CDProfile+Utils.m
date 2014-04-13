@@ -27,8 +27,33 @@
 
 - (void)updateWithJSON:(NSDictionary*)json {
     
-    self.firstName = [json objectForKey:@"first_name"];
-    self.lastName = [json objectForKey:@"last_name"];
+    NSString *firstName = [json objectForKey:@"first_name"];
+    self.firstName = firstName;
+    
+    NSString *lastName = [json objectForKey:@"last_name"];
+    if (lastName != (NSString *)[NSNull null]) {
+        self.lastName = lastName;
+    }
+    
+    NSString *expertIn = [json objectForKey:@"expert_in"];
+    if (expertIn != (NSString *)[NSNull null]) {
+        self.expertIn = expertIn;
+    }
+    
+    NSString *biography = [json objectForKey:@"about"];
+    if (biography != (NSString *)[NSNull null]) {
+        self.biography = biography;
+    }
+    
+    NSString *hometown = [json objectForKey:@"nationality"];
+    if (hometown != (NSString *)[NSNull null]) {
+        self.hometown = hometown;
+    }
+    
+    NSString *jobTitle = [json objectForKey:@"profession"];
+    if (jobTitle != (NSString *)[NSNull null]) {
+        self.jobTitle = jobTitle;
+    }
 }
 
 - (NSString*)displayName {

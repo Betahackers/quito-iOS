@@ -14,8 +14,12 @@
 @implementation CDProfile
 
 @dynamic firstName;
-@dynamic lastName;
 @dynamic identifier;
+@dynamic lastName;
+@dynamic expertIn;
+@dynamic biography;
+@dynamic hometown;
+@dynamic jobTitle;
 @dynamic articles;
 @dynamic installation;
 

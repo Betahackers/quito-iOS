@@ -19,7 +19,10 @@
 
 typedef enum tableSections
 {
-    kSectionHeader
+    kSectionHeader,
+    kSectionProfile,
+    kSectionProfileFooter,
+    kSectionArticle
 } TableSections;
 
 - (void)viewDidLoad
@@ -40,6 +43,9 @@ typedef enum tableSections
     
     sections = [NSMutableArray array];
     
+    [sections addObject:[NSArray arrayWithObject:self.article]];
+    [sections addObject:[NSArray arrayWithObject:self.article]];
+    [sections addObject:[NSArray arrayWithObject:self.article]];
     [sections addObject:[NSArray arrayWithObject:self.article]];
     
     [self.tableView reloadData];
@@ -75,15 +81,51 @@ typedef enum tableSections
     switch (indexPath.section) {
         case kSectionHeader: {
             
-            //header
             static NSString *CellIdentifier = @"ArticleHeaderCell";
             ArticleHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            cell.delegate = self;
+            return cell;
+        }
+            
+        case kSectionProfile: {
+    
+            static NSString *CellIdentifier = @"ArticleProfileCell";
+            ArticleProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             [cell.contentView applyMontserratFontToSubviews];
             
-            cell.article = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-            cell.titleLabel.text = cell.article.title;
-            [cell.authorButton setTitle:cell.article.profile.displayName forState:UIControlStateNormal];
+            cell.profileImageView.image = self.article.profile.profileImage;
+            cell.profileImageView.layer.masksToBounds = NO;
+            cell.profileImageView.clipsToBounds = YES;
+            cell.profileImageView.layer.cornerRadius = (cell.profileImageView.frame.size.height / 2);
+            
+            cell.nameLabel.text = self.article.profile.displayName;
+            cell.expertLabel.text = [NSString stringWithFormat:@"Expert in... %@", self.article.profile.expertIn];
+            
+            cell.biographyLabel.text = self.article.profile.biography;
+            return cell;
+        }
+            
+        case kSectionProfileFooter: {
+            
+            static NSString *CellIdentifier = @"ArticleProfileFooterCell";
+            ArticleProfileFooterCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            [cell.contentView applyMontserratFontToSubviews];
+            
+            cell.hometownLabel.text = self.article.profile.hometown;
+            cell.jobTitleLabel.text = self.article.profile.jobTitle;
+            cell.articleImageView.image = self.article.articleImage;
+            
+            return cell;
+        }
+            
+        case kSectionArticle: {
+            
+            static NSString *CellIdentifier = @"ArticleBodyCell";
+            ArticleBodyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            [cell.contentView applyMontserratFontToSubviews];
+            
+            cell.introLabel.text = self.article.intro;
+            cell.titleLabel.text = self.article.title;
+            cell.contentLabel.text = self.article.content;
             
             return cell;
         }
@@ -108,9 +150,13 @@ typedef enum tableSections
 
 #pragma mark - Prototype cells
 @implementation ArticleHeaderCell
+@end
 
-- (IBAction)profileTapped:(id)sender {
-    [self.delegate showProfile:self.article.profile];
-}
+@implementation ArticleProfileCell
+@end
 
+@implementation ArticleProfileFooterCell
+@end
+
+@implementation ArticleBodyCell
 @end
