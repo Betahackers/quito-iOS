@@ -16,6 +16,7 @@
 @dynamic filterGroupRaw;
 @dynamic filterTypeRaw;
 @dynamic name;
+@dynamic imageName;
 @dynamic articles;
 @dynamic installation;
 

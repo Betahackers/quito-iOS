@@ -29,7 +29,7 @@
     
     self.title = [json objectForKey:@"title"];
     
-    NSDictionary *authorDict = [json objectForKey:@"author"];
+    NSDictionary *authorDict = [json objectForKey:@"user"];
     int profileID = [[authorDict objectForKey:@"id"] intValue];
     CDProfile *profile = [[Installation currentInstallation] profileWithID:profileID];
     if (!profile) {
@@ -39,20 +39,40 @@
     }
     self.profile = profile;
     
-    
     [self removeLocations:self.locations];
     
-    NSArray *locationsArray = [json objectForKey:@"locations"];
-    for (NSDictionary *locationDict in locationsArray) {
-        
-        int locationID = [[locationDict objectForKey:@"id"] intValue];
-        CDLocation *location = [[Installation currentInstallation] locationWithID:locationID];
-        if (!location) {
-            location = [CDLocation initWithJSON:locationDict];
-        } else {
-            [location updateWithJSON:locationDict];
+//    NSArray *locationsArray = [json objectForKey:@"locations"];
+//    for (NSDictionary *locationDict in locationsArray) {
+//        
+//        int locationID = [[locationDict objectForKey:@"id"] intValue];
+//        CDLocation *location = [[Installation currentInstallation] locationWithID:locationID];
+//        if (!location) {
+//            location = [CDLocation initWithJSON:locationDict];
+//        } else {
+//            [location updateWithJSON:locationDict];
+//        }
+//        [self addLocationsObject:location];
+//    }
+    
+    //Filters
+    [self removeFilters:self.filters];
+    
+    for (NSString *category in [json objectForKey:@"categories"]) {
+    
+        for (CDFilter *filter in [[Installation currentInstallation] sortedFilterByGroup:kFilterGroupCategory]) {
+            if ([filter.name.lowercaseString isEqualToString:category]) {
+                [self addFiltersObject:filter];
+            }
         }
-        [self addLocationsObject:location];
+    }
+    
+    for (NSString *mood in [json objectForKey:@"moods"]) {
+        
+        for (CDFilter *filter in [[Installation currentInstallation] sortedFilterByGroup:kFilterGroupEmotion]) {
+            if ([filter.name.lowercaseString isEqualToString:mood]) {
+                [self addFiltersObject:filter];
+            }
+        }
     }
 }
 @end

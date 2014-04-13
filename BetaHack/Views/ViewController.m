@@ -32,7 +32,7 @@ BOOL isFinishedFetching;
 - (void)viewWillAppear:(BOOL)animated {
     
     //pull some articles
-    [[Installation currentInstallation] fetchArticles:^(NSError *error) {
+    [[Installation currentInstallation] fetchUsers:^(NSError *error) {
         isFinishedFetching = YES;
         [self moveToNextScreen];
     }];

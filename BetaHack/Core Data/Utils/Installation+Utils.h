@@ -23,8 +23,11 @@
 - (NSArray*)sortedFilterByGroup:(FilterGroup)filterGroup;
 - (CDFilter*)filterOfType:(FilterType)filterType;
 
-- (void)fetchArticles:(void (^)(NSError *error))completion;
-- (void)fetchArticlesWithRadius:(float)radius completion:(void (^)(NSError *error))completion;
+- (void)fetchLocationsWithRadius:(float)radius long:(float)longitude lat:(float)latitude completion:(void (^)(NSError *error))completion;
+- (void)fetchLocationsWithRadius:(float)radius long:(float)longitude lat:(float)latitude filter:(CDFilter*)filter completion:(void (^)(NSError *error))completion;
+- (void)fetchLocationsWithRadius:(float)radius long:(float)longitude lat:(float)latitude profile:(CDProfile*)profile completion:(void (^)(NSError *error))completion;
+
+- (void)fetchUsers:(void (^)(NSError *error))completion;
 
 @end
 

@@ -9,13 +9,20 @@
 #import "MapViewController.h"
 #import "DomainManager.h"
 #import "ArticleViewController.h"
-#import "MenuViewController.h"
 #import "FilterViewController.h"
 
 @interface MapViewController ()
 
 @property (nonatomic, strong) IBOutlet UIView *menuContainerView;
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
+
+@property (nonatomic, strong) IBOutlet UIButton *activitiesFilterButton;
+@property (nonatomic, strong) IBOutlet UIButton *moodsFilterButton;
+@property (nonatomic, strong) IBOutlet UIButton *profilesFilterButton;
+
+@property (nonatomic, strong) IBOutlet UIImageView *activitiesFilterImageView;
+@property (nonatomic, strong) IBOutlet UIImageView *moodsFilterImageView;
+@property (nonatomic, strong) IBOutlet UIImageView *profilesFilterImageView;
 
 @property (nonatomic, strong) CDProfile *selectedProfile;
 @property (nonatomic, strong) CDFilter *selectedFilter;
@@ -29,6 +36,28 @@
     [super viewDidLoad];
     [self.view applyMontserratFontToSubviews];
     [self.menuContainerView setAlpha:0];
+    
+    self.moodsFilterImageView = [[UIImageView alloc] initWithFrame:self.moodsFilterButton.bounds];
+    [self.moodsFilterImageView setFrameOriginX:-self.moodsFilterImageView.frame.size.width];
+    [self.moodsFilterImageView setFrameWidth:self.moodsFilterImageView.frame.size.width * 2];
+    [self.moodsFilterButton addSubview:self.moodsFilterImageView];
+    
+    self.activitiesFilterImageView = [[UIImageView alloc] initWithFrame:self.moodsFilterButton.bounds];
+    [self.activitiesFilterImageView setFrameOriginX:-self.activitiesFilterImageView.frame.size.width];
+    [self.activitiesFilterImageView setFrameWidth:self.activitiesFilterImageView.frame.size.width * 2];
+    [self.activitiesFilterButton addSubview:self.activitiesFilterImageView];
+    
+    self.profilesFilterImageView = [[UIImageView alloc] initWithFrame:self.moodsFilterButton.bounds];
+    [self.profilesFilterImageView setFrameOriginX:-self.profilesFilterImageView.frame.size.width];
+    [self.profilesFilterImageView setFrameWidth:self.profilesFilterImageView.frame.size.width * 2];
+    self.profilesFilterImageView.layer.masksToBounds = NO;
+    self.profilesFilterImageView.clipsToBounds = YES;
+    self.profilesFilterImageView.layer.cornerRadius = (self.profilesFilterImageView.frame.size.height / 2);
+    [self.profilesFilterButton addSubview:self.profilesFilterImageView];
+    
+    
+    UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mapHeader.png"]];
+    [self.view addSubview:headerImageView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -61,10 +90,6 @@
         ArticleViewController *viewController = (ArticleViewController *)segue.destinationViewController;
         viewController.article = article;
     }
-    if ([segue.identifier isEqualToString:@"map_menu"]) {
-        MenuViewController *viewController = (MenuViewController *)segue.destinationViewController;
-        viewController.mapViewDelegate = self;
-    }
     if ([segue.identifier isEqualToString:@"map_filter"]) {
         FilterViewController *viewController = (FilterViewController *)segue.destinationViewController;
         switch ([sender intValue]) {
@@ -86,16 +111,21 @@
 
 - (IBAction)filterTapped:(UIButton*)sender {
     
-    if (!self.selectedProfile && !self.selectedFilter) {
-        FilterViewController *viewController = [[FilterViewController alloc] init];
-        [self performSegueWithIdentifier:@"map_filter" sender:[NSNumber numberWithInt:sender.tag]];
-    } else {
-        
-        //remove filters
-        self.selectedFilter = nil;
+    if (self.selectedProfile != nil && sender == self.profilesFilterButton) {
         self.selectedProfile = nil;
-        [self reloadAnnotations];
+    } else if (self.selectedFilter != nil) {
+        if (self.selectedFilter.filterGroup == kFilterGroupEmotion && sender == self.moodsFilterButton) {
+            self.selectedFilter = nil;
+        } else if (self.selectedFilter.filterGroup == kFilterGroupCategory && sender == self.activitiesFilterButton) {
+            self.selectedFilter = nil;
+        } else {
+            [self performSegueWithIdentifier:@"map_filter" sender:[NSNumber numberWithInt:sender.tag]];
+        }
+    } else {
+        [self performSegueWithIdentifier:@"map_filter" sender:[NSNumber numberWithInt:sender.tag]];
     }
+    
+    [self reloadAnnotations];
 }
 
 - (void)shrinkTable {
@@ -118,6 +148,7 @@
     } else {
         self.selectedFilter = filter;
     }
+    self.selectedProfile = nil;
     [self reloadAnnotations];
 }
 
@@ -127,6 +158,7 @@
     } else {
         self.selectedProfile = profile;
     }
+    self.selectedFilter = nil;
     [self reloadAnnotations];
 }
 
@@ -148,7 +180,17 @@
         annotationView.enabled = YES;
         annotationView.canShowCallout = NO;
         
-        annotationView.image = [UIImage imageNamed:@"point_select_moods.png"];
+        if (self.selectedFilter) {
+            if (self.selectedFilter.filterGroup == kFilterGroupEmotion) {
+                annotationView.image = [UIImage imageNamed:@"point_select_moods.png"];
+            } else {
+                annotationView.image = [UIImage imageNamed:@"point_select_activities.png"];
+            }
+        } else if (self.selectedProfile) {
+            annotationView.image = [UIImage imageNamed:@"point_select_profiles.png"];
+        } else {
+            annotationView.image = [UIImage imageNamed:@"point_select_moods.png"];
+        }
         
         return annotationView;
     }
@@ -172,7 +214,7 @@
     NSLog(@"Radius: %f", radius);
     
     //now reload the points for this location
-    [[Installation currentInstallation] fetchArticlesWithRadius:radius completion:^(NSError *error) {
+    [[Installation currentInstallation] fetchLocationsWithRadius:radius long:mapView.centerCoordinate.longitude lat:mapView.centerCoordinate.latitude completion:^(NSError *error) {
         [self reloadAnnotations];
     }];
 }
@@ -205,6 +247,21 @@
         
         MyAnnotation *annotation1 = [[MyAnnotation alloc] initWithCoordinates:coordinate image:@"Temp_MapPin.png" article:article];
         [self.mapView addAnnotation:annotation1];
+    }
+    
+    //hide all the buttons
+    self.activitiesFilterImageView.image = nil;
+    self.profilesFilterImageView.image = nil;
+    self.moodsFilterImageView.image = nil;
+    
+    if (self.selectedFilter != nil) {
+        if (self.selectedFilter.filterGroup == kFilterGroupEmotion) {
+            [self.moodsFilterImageView setImage:self.selectedFilter.filterImage];
+        } else {
+            [self.activitiesFilterImageView setImage:self.selectedFilter.filterImage];
+        }
+    } else if (self.selectedProfile != nil) {
+        [self.profilesFilterImageView setImage:self.selectedProfile.profileImage];
     }
 }
 @end

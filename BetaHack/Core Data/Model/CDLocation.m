@@ -13,11 +13,11 @@
 
 @implementation CDLocation
 
-@dynamic longitude;
-@dynamic latitude;
-@dynamic name;
 @dynamic identifier;
-@dynamic installation;
+@dynamic latitude;
+@dynamic longitude;
+@dynamic name;
 @dynamic articles;
+@dynamic installation;
 
 @end

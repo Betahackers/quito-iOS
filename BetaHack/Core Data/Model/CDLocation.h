@@ -13,12 +13,12 @@
 
 @interface CDLocation : NSManagedObject
 
-@property (nonatomic) double longitude;
-@property (nonatomic) double latitude;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic) double identifier;
-@property (nonatomic, retain) Installation *installation;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *articles;
+@property (nonatomic, retain) Installation *installation;
 @end
 
 @interface CDLocation (CoreDataGeneratedAccessors)

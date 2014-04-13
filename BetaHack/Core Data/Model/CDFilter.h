@@ -16,6 +16,7 @@
 @property (nonatomic) int16_t filterGroupRaw;
 @property (nonatomic) int16_t filterTypeRaw;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * imageName;
 @property (nonatomic, retain) NSSet *articles;
 @property (nonatomic, retain) Installation *installation;
 @end

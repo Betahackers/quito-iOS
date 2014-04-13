@@ -36,7 +36,7 @@
 }
 
 - (UIImage*)profileImage {
-    return [UIImage imageNamed:@"Temp_ProfilePhoto.png"];
+    return [UIImage imageNamed:@"Temp_ProfilePhoto2.jpg"];
 }
 
 @end

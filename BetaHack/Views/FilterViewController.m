@@ -31,17 +31,19 @@ typedef enum tableSections
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    [self.titleLabel applyFontMontserratWithWeight:kFontWeightBold];
+    
     switch (self.filterGroup) {
         case kFilterGroupCategory:
-            self.view.backgroundColor = [UIColor redColor];
+            self.view.backgroundColor = [UIColor colorWithRed:156/255.0 green:146/255.0 blue:205/255.0 alpha:1.0];
             self.titleLabel.text = @"Activities";
             break;
         case kFilterGroupEmotion:
-            self.view.backgroundColor = [UIColor greenColor];
+            self.view.backgroundColor = [UIColor colorWithRed:42/255.0 green:197/255.0 blue:193/255.0 alpha:1.0];
             self.titleLabel.text = @"Moods";
             break;
         case kFilterGroupProfile:
-            self.view.backgroundColor = [UIColor blueColor];
+            self.view.backgroundColor = [UIColor colorWithRed:42/255.0 green:197/255.0 blue:193/255.0 alpha:1.0];
             self.titleLabel.text = @"Profiles";
             break;
         default:
@@ -112,6 +114,9 @@ typedef enum tableSections
                 CDProfile *profile = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
                 cell.titleLabel.text = profile.displayName;
                 cell.filterImage.image = profile.profileImage;
+                cell.filterImage.layer.masksToBounds = NO;
+                cell.filterImage.clipsToBounds = YES;
+                cell.filterImage.layer.cornerRadius = (cell.filterImage.frame.size.height / 2);
             }
             
             if ([filterItem isKindOfClass:[CDFilter class]]) {

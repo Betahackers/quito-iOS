@@ -28,23 +28,23 @@ static Installation *currentInstallation;
             //create the Installation
             currentInstallation = (Installation*)[Installation createEntity];
             
-            [CDFilter initWithJSON:nil type:kFilterCategory1 group:kFilterGroupCategory name:@"Eat"];
-            [CDFilter initWithJSON:nil type:kFilterCategory2 group:kFilterGroupCategory name:@"Drink"];
-            [CDFilter initWithJSON:nil type:kFilterCategory3 group:kFilterGroupCategory name:@"Healthy"];
-            [CDFilter initWithJSON:nil type:kFilterCategory4 group:kFilterGroupCategory name:@"Walking"];
-            [CDFilter initWithJSON:nil type:kFilterCategory5 group:kFilterGroupCategory name:@"Culture"];
-            [CDFilter initWithJSON:nil type:kFilterCategory6 group:kFilterGroupCategory name:@"Shopping"];
-            [CDFilter initWithJSON:nil type:kFilterCategory7 group:kFilterGroupCategory name:@"Live Music"];
-            [CDFilter initWithJSON:nil type:kFilterCategory8 group:kFilterGroupCategory name:@"Dancing"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryCulture group:kFilterGroupCategory name:@"Culture" imageName:@"adult.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryDancing group:kFilterGroupCategory name:@"Dancing" imageName:@"artistic.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryDrink group:kFilterGroupCategory name:@"Drink" imageName:@"food.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryEat group:kFilterGroupCategory name:@"Eat" imageName:@"intellectual.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryHealthyLife group:kFilterGroupCategory name:@"Healthy Life" imageName:@"landscape.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryLiveMusic group:kFilterGroupCategory name:@"Live Music" imageName:@"microphone.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryShopping group:kFilterGroupCategory name:@"Shopping" imageName:@"shopping.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryWalks group:kFilterGroupCategory name:@"Walks" imageName:@"trainers.png"];
             
-            [CDFilter initWithJSON:nil type:kFilterEmotion1 group:kFilterGroupEmotion name:@"Illegal"];
-            [CDFilter initWithJSON:nil type:kFilterEmotion2 group:kFilterGroupEmotion name:@"Dancing"];
-            [CDFilter initWithJSON:nil type:kFilterEmotion3 group:kFilterGroupEmotion name:@"Adventure"];
-            [CDFilter initWithJSON:nil type:kFilterEmotion4 group:kFilterGroupEmotion name:@"Philosophical"];
-            [CDFilter initWithJSON:nil type:kFilterEmotion5 group:kFilterGroupEmotion name:@"Romantic"];
-            [CDFilter initWithJSON:nil type:kFilterEmotion6 group:kFilterGroupEmotion name:@"Relaxed"];
-            [CDFilter initWithJSON:nil type:kFilterEmotion7 group:kFilterGroupEmotion name:@"Solitary"];
-            [CDFilter initWithJSON:nil type:kFilterEmotion8 group:kFilterGroupEmotion name:@"Active"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionIllegal group:kFilterGroupEmotion name:@"Illegal" imageName:@"prison.png"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionSociable group:kFilterGroupEmotion name:@"Sociable" imageName:@"sociable.png"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionAdventure group:kFilterGroupEmotion name:@"Adventure" imageName:@"Adventure.png"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionActive group:kFilterGroupEmotion name:@"Active" imageName:@"active.png"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionCultural group:kFilterGroupEmotion name:@"Cultural" imageName:@"philosophical.png"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionRomantic group:kFilterGroupEmotion name:@"Romantic" imageName:@"Romantic.png"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionRelaxed group:kFilterGroupEmotion name:@"Relaxed" imageName:@"Relaxed.png"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionSolitary group:kFilterGroupEmotion name:@"Solitary" imageName:@"solitary.png"];
             
         } else {
             currentInstallation = [fetchedObjects objectAtIndex:0];
@@ -117,26 +117,33 @@ static Installation *currentInstallation;
 }
 
 #pragma mark - fetch articles
-- (void)fetchArticles:(void (^)(NSError *error))completion {
+- (void)fetchLocationsWithRadius:(float)radius long:(float)longitude lat:(float)latitude completion:(void (^)(NSError *error))completion {
+    
+    NSString *url = [NSString stringWithFormat:@"http://fromto.es/v1/locations.json?ll=%f,%f&radius=%f&include_articles=true", latitude, longitude, radius];
+    NSLog(@"URL: %@", url);
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://fromto.es/v1/articles.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [self processArticlesResponse:responseObject];
+        [self processLocationsResponse:responseObject];
+        
         completion(nil);
-
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         completion(error);
-
     }];
 }
 
-- (void)fetchArticlesWithRadius:(float)radius completion:(void (^)(NSError *error))completion {
+- (void)fetchLocationsWithRadius:(float)radius long:(float)longitude lat:(float)latitude filter:(CDFilter*)filter completion:(void (^)(NSError *error))completion {
+    
+    NSString *url = [NSString stringWithFormat:@"http://fromto.es/v1/locations.json?ll=%f,%f&radius=%f&mood=%@&include_articles=true", latitude, longitude, radius, filter.name.lowercaseString];
+    NSLog(@"URL: %@", url);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://fromto.es/v1/articles.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [self processArticlesResponse:responseObject];
+        [self processLocationsResponse:responseObject];
         
         completion(nil);
 
@@ -144,6 +151,74 @@ static Installation *currentInstallation;
         NSLog(@"Error: %@", error);
         completion(error);
     }];
+}
+
+- (void)fetchLocationsWithRadius:(float)radius long:(float)longitude lat:(float)latitude profile:(CDProfile*)profile completion:(void (^)(NSError *error))completion {
+    
+    NSString *url = [NSString stringWithFormat:@"http://fromto.es/v1/locations.json?ll=%f,%f&radius=%f&user=%d&include_articles=true", latitude, longitude, radius, profile.identifier];
+    NSLog(@"URL: %@", url);
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [self processLocationsResponse:responseObject];
+        
+        completion(nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        completion(error);
+    }];
+}
+
+- (void)fetchUsers:(void (^)(NSError *error))completion {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://fromto.es/v1/users.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        //add the articles
+        NSDictionary *usersDict = (NSDictionary*)responseObject;
+        NSArray *users = [usersDict objectForKey:@"users"];
+        
+        for (NSDictionary *userDict in users) {
+            
+            int userID = [[userDict objectForKey:@"id"] intValue];
+            CDProfile *user = [[Installation currentInstallation] profileWithID:userID];
+            if (!user) {
+                [CDProfile initWithJSON:userDict];
+            } else {
+                [user updateWithJSON:userDict];
+            }
+        }
+        
+        completion(nil);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        completion(error);
+    }];
+}
+
+- (void)processLocationsResponse:(id)responseObject {
+    NSLog(@"JSON: %@", responseObject);
+    
+    //clear down the data store
+    
+    //add the articles
+    NSDictionary *locationsDict = (NSDictionary*)responseObject;
+    NSArray *locations = [locationsDict objectForKey:@"locations"];
+    
+    for (NSDictionary *locationHolderDict in locations) {
+        NSDictionary *locationDict = [locationHolderDict objectForKey:@"location"];
+        
+        int locationID = [[locationDict objectForKey:@"id"] intValue];
+        CDLocation *location = [[Installation currentInstallation] locationWithID:locationID];
+        if (!location) {
+            [CDLocation initWithJSON:locationDict];
+        } else {
+            [location updateWithJSON:locationDict];
+        }
+    }
 }
 
 - (void)processArticlesResponse:(id)responseObject {
