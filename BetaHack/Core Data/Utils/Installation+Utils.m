@@ -128,9 +128,8 @@ static Installation *currentInstallation;
         NSDictionary *articlesDict = (NSDictionary*)responseObject;
         NSArray *articles = [articlesDict objectForKey:@"articles"];
         
-       
-        
-        for (NSDictionary *articleDict in articles) {
+        for (NSDictionary *articleHolderDict in articles) {
+            NSDictionary *articleDict = [articleHolderDict objectForKey:@"article"];
             
             int articleID = [[articleDict objectForKey:@"id"] intValue];
             CDArticle *article = [[Installation currentInstallation] articleWithID:articleID];

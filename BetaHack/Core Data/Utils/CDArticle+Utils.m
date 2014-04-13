@@ -39,15 +39,20 @@
     }
     self.profile = profile;
     
-    NSDictionary *locationDict = [json objectForKey:@"location"];
-    int locationID = [[locationDict objectForKey:@"id"] intValue];
-    CDLocation *location = [[Installation currentInstallation] locationWithID:locationID];
-    if (!location) {
-        location = [CDProfile initWithJSON:locationDict];
-    } else {
-        [location updateWithJSON:locationDict];
-    }
+    
     [self removeLocations:self.locations];
-    [self addLocationsObject:location];
+    
+    NSArray *locationsArray = [json objectForKey:@"locations"];
+    for (NSDictionary *locationDict in locationsArray) {
+        
+        int locationID = [[locationDict objectForKey:@"id"] intValue];
+        CDLocation *location = [[Installation currentInstallation] locationWithID:locationID];
+        if (!location) {
+            location = [CDLocation initWithJSON:locationDict];
+        } else {
+            [location updateWithJSON:locationDict];
+        }
+        [self addLocationsObject:location];
+    }
 }
 @end

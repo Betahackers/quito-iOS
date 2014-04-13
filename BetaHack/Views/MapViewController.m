@@ -10,7 +10,6 @@
 #import "DomainManager.h"
 #import "ArticleViewController.h"
 #import "MenuViewController.h"
-#import <MapKit/MapKit.h>
 
 @interface MapViewController ()
 
@@ -60,6 +59,20 @@
             [self.menuContainerView setAlpha:1];
         }];
     });
+    
+    delayInSeconds = 3.0;
+    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        for (CDArticle *article in [Installation currentInstallation].articles) {
+            
+            CDLocation *location = article.locations.anyObject;
+            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(location.latitude,location.longitude);
+            
+            MapPinAnnotation* pinAnnotation = [[MapPinAnnotation alloc] initWithCoordinates:coordinate placeName:article.title description:nil];
+            [self.mapView addAnnotation:pinAnnotation];
+        }
+    });
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -94,6 +107,30 @@
 
 - (void)growTable {
     [self.menuContainerView setFrameHeight:self.view.frame.size.height];
+}
+
+@end
+
+
+@implementation MapPinAnnotation
+
+@synthesize coordinate;
+@synthesize title;
+@synthesize subtitle;
+
+- (id)initWithCoordinates:(CLLocationCoordinate2D)location
+                placeName:(NSString *)placeName
+              description:(NSString *)description;
+{
+    self = [super init];
+    if (self)
+    {
+        coordinate = location;
+        title = placeName;
+        subtitle = description;
+    }
+    
+    return self;
 }
 
 @end
