@@ -35,4 +35,8 @@
     return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
 }
 
+- (UIImage*)profileImage {
+    return [UIImage imageNamed:@"Temp_ProfilePhoto.png"];
+}
+
 @end

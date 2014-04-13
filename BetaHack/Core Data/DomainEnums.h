@@ -12,13 +12,13 @@
 
 typedef enum {
     kFontWeightRegular,
-    kFontWeightBold,
-    kFontWeightLight
+    kFontWeightBold
 } FontWeight;
 
 typedef enum {
     kFilterGroupEmotion,
-    kFilterGroupCategory
+    kFilterGroupCategory,
+    kFilterGroupProfile
 } FilterGroup;
 
 typedef enum {

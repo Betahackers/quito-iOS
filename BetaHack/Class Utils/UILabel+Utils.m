@@ -11,7 +11,7 @@
 
 @implementation UILabel (Utils)
 
-- (void) applyFontMuseoSansWithWeight:(FontWeight)weight {
-    self.font = [UIFont museoSansWithWeight:weight size:self.font.pointSize];
+- (void) applyFontMontserratWithWeight:(FontWeight)weight {
+    self.font = [UIFont montserratWithWeight:weight size:self.font.pointSize];
 }
 @end

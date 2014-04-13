@@ -12,12 +12,12 @@
 
 @interface UIFont (Utils)
 
-+ (UIFont*)museoSansWithWeight:(FontWeight)weight size:(float)size;
++ (UIFont*)montserratWithWeight:(FontWeight)weight size:(float)size;
 
 @end
 
 @interface UIView (FontUtils)
 
-- (void)applyMuseoFontToSubviews;
+- (void)applyMontserratFontToSubviews;
 
 @end

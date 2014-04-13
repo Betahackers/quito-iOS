@@ -11,6 +11,6 @@
 
 @interface UILabel (Utils)
 
-- (void) applyFontMuseoSansWithWeight:(FontWeight)weight;
+- (void) applyFontMontserratWithWeight:(FontWeight)weight;
 
 @end

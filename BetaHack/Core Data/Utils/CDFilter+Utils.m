@@ -40,4 +40,8 @@
 - (void)setFilterGroup:(FilterGroup)filterGroup {
     self.filterGroupRaw = filterGroup;
 }
+
+- (UIImage*)filterImage {
+    return [UIImage imageNamed:@"Temp_ProfilePhoto.png"];
+}
 @end

@@ -16,6 +16,7 @@
 - (void)updateWithJSON:(NSDictionary*)json;
 
 - (NSString*)displayName;
+- (UIImage*)profileImage;
 
 @end
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B35F69F18F98621005FDBB2 /* CDFilter+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F69E18F98621005FDBB2 /* CDFilter+Utils.m */; };
 		4B35F6C618F99799005FDBB2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F6C518F99799005FDBB2 /* MenuViewController.m */; };
+		4B78FAD318FAE91500322A30 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B78FAD218FAE91500322A30 /* FilterViewController.m */; };
 		4B82439918F9AD580097854D /* Temp_ProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B82439818F9AD580097854D /* Temp_ProfilePhoto.png */; };
 		4B8243AC18F9B2200097854D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8243AB18F9B2200097854D /* libz.dylib */; };
 		4B8243AE18F9B22A0097854D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8243AD18F9B22A0097854D /* AdSupport.framework */; };
@@ -45,7 +46,15 @@
 		4BC24F6D18F95AAA007FF792 /* Temp_StaticMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24F6C18F95AAA007FF792 /* Temp_StaticMap.png */; };
 		4BC24F6F18F95B16007FF792 /* Temp_MapPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */; };
 		4BC24F7218F95BA9007FF792 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24F7118F95BA9007FF792 /* MapViewController.m */; };
-		4BC56CE618FAB9F300B7DD7E /* Temp_RedDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC56CE518FAB9F300B7DD7E /* Temp_RedDot.png */; };
+		4BC56CEA18FACC4E00B7DD7E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BC56CE818FACC4E00B7DD7E /* Montserrat-Bold.ttf */; };
+		4BC56CEB18FACC4E00B7DD7E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BC56CE918FACC4E00B7DD7E /* Montserrat-Regular.ttf */; };
+		4BC56CF318FAD3B700B7DD7E /* point_activities.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC56CED18FAD3B700B7DD7E /* point_activities.png */; };
+		4BC56CF418FAD3B700B7DD7E /* point_moods.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC56CEE18FAD3B700B7DD7E /* point_moods.png */; };
+		4BC56CF518FAD3B700B7DD7E /* point_profiles.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC56CEF18FAD3B700B7DD7E /* point_profiles.png */; };
+		4BC56CF618FAD3B700B7DD7E /* point_select_activities.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC56CF018FAD3B700B7DD7E /* point_select_activities.png */; };
+		4BC56CF718FAD3B700B7DD7E /* point_select_moods.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC56CF118FAD3B700B7DD7E /* point_select_moods.png */; };
+		4BC56CF818FAD3B700B7DD7E /* point_select_profiles.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC56CF218FAD3B700B7DD7E /* point_select_profiles.png */; };
+		4BC56CFB18FAD48100B7DD7E /* fromto.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BC56CFA18FAD48100B7DD7E /* fromto.png */; };
 		4BE2A32E18F93E8F00386607 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A32D18F93E8F00386607 /* Foundation.framework */; };
 		4BE2A33018F93E8F00386607 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A32F18F93E8F00386607 /* CoreGraphics.framework */; };
 		4BE2A33218F93E8F00386607 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A33118F93E8F00386607 /* UIKit.framework */; };
@@ -74,6 +83,8 @@
 		4B35F69E18F98621005FDBB2 /* CDFilter+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDFilter+Utils.m"; sourceTree = "<group>"; };
 		4B35F6C418F99799005FDBB2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		4B35F6C518F99799005FDBB2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		4B78FAD118FAE91500322A30 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		4B78FAD218FAE91500322A30 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		4B82439818F9AD580097854D /* Temp_ProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_ProfilePhoto.png; sourceTree = "<group>"; };
 		4B8243AB18F9B2200097854D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4B8243AD18F9B22A0097854D /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -134,7 +145,15 @@
 		4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_MapPin.png; sourceTree = "<group>"; };
 		4BC24F7018F95BA9007FF792 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		4BC24F7118F95BA9007FF792 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		4BC56CE518FAB9F300B7DD7E /* Temp_RedDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_RedDot.png; sourceTree = "<group>"; };
+		4BC56CE818FACC4E00B7DD7E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		4BC56CE918FACC4E00B7DD7E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		4BC56CED18FAD3B700B7DD7E /* point_activities.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point_activities.png; sourceTree = "<group>"; };
+		4BC56CEE18FAD3B700B7DD7E /* point_moods.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point_moods.png; sourceTree = "<group>"; };
+		4BC56CEF18FAD3B700B7DD7E /* point_profiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point_profiles.png; sourceTree = "<group>"; };
+		4BC56CF018FAD3B700B7DD7E /* point_select_activities.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point_select_activities.png; sourceTree = "<group>"; };
+		4BC56CF118FAD3B700B7DD7E /* point_select_moods.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point_select_moods.png; sourceTree = "<group>"; };
+		4BC56CF218FAD3B700B7DD7E /* point_select_profiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point_select_profiles.png; sourceTree = "<group>"; };
+		4BC56CFA18FAD48100B7DD7E /* fromto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fromto.png; sourceTree = "<group>"; };
 		4BE2A32A18F93E8F00386607 /* BetaHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetaHack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE2A32D18F93E8F00386607 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4BE2A32F18F93E8F00386607 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -187,10 +206,12 @@
 		4BC24ECE18F946BF007FF792 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				4BC56CF918FAD48100B7DD7E /* Logo */,
+				4BC56CEC18FAD3B700B7DD7E /* Map Points */,
+				4BC56CE718FACC4E00B7DD7E /* Fonts */,
 				4BC24F6C18F95AAA007FF792 /* Temp_StaticMap.png */,
 				4BC24F6E18F95B16007FF792 /* Temp_MapPin.png */,
 				4B82439818F9AD580097854D /* Temp_ProfilePhoto.png */,
-				4BC56CE518FAB9F300B7DD7E /* Temp_RedDot.png */,
 				4BC24ECF18F946BF007FF792 /* Images.xcassets */,
 			);
 			path = Assets;
@@ -217,6 +238,8 @@
 				4BC24F7118F95BA9007FF792 /* MapViewController.m */,
 				4B35F6C418F99799005FDBB2 /* MenuViewController.h */,
 				4B35F6C518F99799005FDBB2 /* MenuViewController.m */,
+				4B78FAD118FAE91500322A30 /* FilterViewController.h */,
+				4B78FAD218FAE91500322A30 /* FilterViewController.m */,
 				4BC24EE018F94B95007FF792 /* ArticleViewController.h */,
 				4BC24EE118F94B95007FF792 /* ArticleViewController.m */,
 				4BC24EE318F951AB007FF792 /* ProfileViewController.h */,
@@ -281,17 +304,47 @@
 				4BC24F3E18F95557007FF792 /* NSString+Utils.h */,
 				4BC24F3F18F95557007FF792 /* UIColor+Utils.h */,
 				4BC24F4018F95557007FF792 /* UIFont+Utils.h */,
+				4BC24F4718F95557007FF792 /* UIFont+Utils.m */,
 				4BC24F4118F95557007FF792 /* UILabel+Utils.h */,
 				4BC24F4218F95557007FF792 /* UIView+Utils.h */,
+				4BC24F4918F95557007FF792 /* UIView+Utils.m */,
 				4BC24F4318F95557007FF792 /* NSDate+Utils.m */,
 				4BC24F4418F95557007FF792 /* NSSorting.m */,
 				4BC24F4518F95557007FF792 /* NSString+Utils.m */,
 				4BC24F4618F95557007FF792 /* UIColor+Utils.m */,
-				4BC24F4718F95557007FF792 /* UIFont+Utils.m */,
 				4BC24F4818F95557007FF792 /* UILabel+Utils.m */,
-				4BC24F4918F95557007FF792 /* UIView+Utils.m */,
 			);
 			path = "Class Utils";
+			sourceTree = "<group>";
+		};
+		4BC56CE718FACC4E00B7DD7E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4BC56CE818FACC4E00B7DD7E /* Montserrat-Bold.ttf */,
+				4BC56CE918FACC4E00B7DD7E /* Montserrat-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4BC56CEC18FAD3B700B7DD7E /* Map Points */ = {
+			isa = PBXGroup;
+			children = (
+				4BC56CED18FAD3B700B7DD7E /* point_activities.png */,
+				4BC56CEE18FAD3B700B7DD7E /* point_moods.png */,
+				4BC56CEF18FAD3B700B7DD7E /* point_profiles.png */,
+				4BC56CF018FAD3B700B7DD7E /* point_select_activities.png */,
+				4BC56CF118FAD3B700B7DD7E /* point_select_moods.png */,
+				4BC56CF218FAD3B700B7DD7E /* point_select_profiles.png */,
+			);
+			path = "Map Points";
+			sourceTree = "<group>";
+		};
+		4BC56CF918FAD48100B7DD7E /* Logo */ = {
+			isa = PBXGroup;
+			children = (
+				4BC56CFA18FAD48100B7DD7E /* fromto.png */,
+			);
+			path = Logo;
 			sourceTree = "<group>";
 		};
 		4BE2A32118F93E8F00386607 = {
@@ -439,14 +492,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BC56CF418FAD3B700B7DD7E /* point_moods.png in Resources */,
+				4BC56CF618FAD3B700B7DD7E /* point_select_activities.png in Resources */,
 				4B82439918F9AD580097854D /* Temp_ProfilePhoto.png in Resources */,
 				4BC24EDA18F946BF007FF792 /* Images.xcassets in Resources */,
+				4BC56CFB18FAD48100B7DD7E /* fromto.png in Resources */,
 				4BC24EDC18F946BF007FF792 /* InfoPlist.strings in Resources */,
 				4BC24F6F18F95B16007FF792 /* Temp_MapPin.png in Resources */,
 				4BC24EDB18F946BF007FF792 /* BetaHack-Info.plist in Resources */,
-				4BC56CE618FAB9F300B7DD7E /* Temp_RedDot.png in Resources */,
+				4BC56CF318FAD3B700B7DD7E /* point_activities.png in Resources */,
+				4BC56CEA18FACC4E00B7DD7E /* Montserrat-Bold.ttf in Resources */,
+				4BC56CF818FAD3B700B7DD7E /* point_select_profiles.png in Resources */,
 				4BC24F6D18F95AAA007FF792 /* Temp_StaticMap.png in Resources */,
+				4BC56CEB18FACC4E00B7DD7E /* Montserrat-Regular.ttf in Resources */,
+				4BC56CF518FAD3B700B7DD7E /* point_profiles.png in Resources */,
 				4BC24EDE18F946BF007FF792 /* Main.storyboard in Resources */,
+				4BC56CF718FAD3B700B7DD7E /* point_select_moods.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +577,7 @@
 				4B8243D918FAA5A60097854D /* CDLocation.m in Sources */,
 				4BC24F1218F952F6007FF792 /* CDArticle+Utils.m in Sources */,
 				4BC24F6218F955DC007FF792 /* CDProfile+Utils.m in Sources */,
+				4B78FAD318FAE91500322A30 /* FilterViewController.m in Sources */,
 				4BC24ED918F946BF007FF792 /* AppDelegate.m in Sources */,
 				4BC24EE518F951AB007FF792 /* ProfileViewController.m in Sources */,
 				4BC24F5018F95557007FF792 /* UIView+Utils.m in Sources */,

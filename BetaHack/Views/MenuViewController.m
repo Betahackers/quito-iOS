@@ -81,6 +81,7 @@ typedef enum tableSections
             MenuCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell.contentView applyMontserratFontToSubviews];
             
             NSString *title = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = title;
@@ -95,6 +96,7 @@ typedef enum tableSections
             MenuCategoryItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell.contentView applyMontserratFontToSubviews];
             
             CDFilter *filter = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = filter.name;
@@ -109,6 +111,7 @@ typedef enum tableSections
             MenuProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell.contentView applyMontserratFontToSubviews];
             
             NSString *title = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = title;
@@ -123,6 +126,7 @@ typedef enum tableSections
             MenuProfileItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell.contentView applyMontserratFontToSubviews];
             
             CDProfile *profile = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = profile.displayName;
@@ -137,6 +141,7 @@ typedef enum tableSections
             MenuEmotionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell.contentView applyMontserratFontToSubviews];
             
             NSString *title = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = title;
@@ -151,6 +156,8 @@ typedef enum tableSections
             MenuEmotionItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell.contentView applyMontserratFontToSubviews];
+            
             CDFilter *filter = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = filter.name;
             

@@ -117,31 +117,54 @@ static Installation *currentInstallation;
 }
 
 #pragma mark - fetch articles
-- (void)fetchArticles {
+- (void)fetchArticles:(void (^)(NSError *error))completion {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"http://fromto.es/v1/articles.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
         
-        //clear down the data store
-        
-        //add the articles
-        NSDictionary *articlesDict = (NSDictionary*)responseObject;
-        NSArray *articles = [articlesDict objectForKey:@"articles"];
-        
-        for (NSDictionary *articleHolderDict in articles) {
-            NSDictionary *articleDict = [articleHolderDict objectForKey:@"article"];
-            
-            int articleID = [[articleDict objectForKey:@"id"] intValue];
-            CDArticle *article = [[Installation currentInstallation] articleWithID:articleID];
-            if (!article) {
-                [CDArticle initWithJSON:articleDict];
-            } else {
-                [article updateWithJSON:articleDict];
-            }
-        }
-        
+        [self processArticlesResponse:responseObject];
+        completion(nil);
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        completion(error);
+
     }];
+}
+
+- (void)fetchArticlesWithRadius:(float)radius completion:(void (^)(NSError *error))completion {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://fromto.es/v1/articles.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [self processArticlesResponse:responseObject];
+        
+        completion(nil);
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        completion(error);
+    }];
+}
+
+- (void)processArticlesResponse:(id)responseObject {
+    NSLog(@"JSON: %@", responseObject);
+    
+    //clear down the data store
+    
+    //add the articles
+    NSDictionary *articlesDict = (NSDictionary*)responseObject;
+    NSArray *articles = [articlesDict objectForKey:@"articles"];
+    
+    for (NSDictionary *articleHolderDict in articles) {
+        NSDictionary *articleDict = [articleHolderDict objectForKey:@"article"];
+        
+        int articleID = [[articleDict objectForKey:@"id"] intValue];
+        CDArticle *article = [[Installation currentInstallation] articleWithID:articleID];
+        if (!article) {
+            [CDArticle initWithJSON:articleDict];
+        } else {
+            [article updateWithJSON:articleDict];
+        }
+    }
 }
 @end

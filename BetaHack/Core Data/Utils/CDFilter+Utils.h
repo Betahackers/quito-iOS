@@ -20,6 +20,8 @@
 - (FilterGroup)filterGroup;
 - (void)setFilterGroup:(FilterGroup)filterGroup;
 
+- (UIImage*)filterImage;
+
 @end
 
 

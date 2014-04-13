@@ -10,16 +10,14 @@
 
 @implementation UIFont (Utils)
 
-+ (UIFont*)museoSansWithWeight:(FontWeight)weight size:(float)size {
++ (UIFont*)montserratWithWeight:(FontWeight)weight size:(float)size {
     
     NSString *fontName;
     switch (weight) {
         case kFontWeightRegular:
-            fontName = @"MuseoSans-300"; break;
+            fontName = @"Montserrat-Regular"; break;
         case kFontWeightBold:
-            fontName = @"MuseoSans-500"; break;
-        case kFontWeightLight:
-            fontName = @"MuseoSans-100"; break;
+            fontName = @"Montserrat-Bold"; break;
     }
     
     UIFont *font = [UIFont fontWithName:fontName size:size];
@@ -42,21 +40,21 @@
 @implementation UIView (FontUtils)
 
 #pragma mark - Fonts
-- (void)applyMuseoFontToSubviews {
+- (void)applyMontserratFontToSubviews {
     
     for (UILabel *label in self.subviews) {
         if ([label isKindOfClass:[UILabel class]]) {
-            [label applyFontMuseoSansWithWeight:kFontWeightRegular];
+            [label applyFontMontserratWithWeight:kFontWeightRegular];
         }
     }
     for (UIButton *button in self.subviews) {
         if ([button isKindOfClass:[UIButton class]]) {
-            [button.titleLabel applyFontMuseoSansWithWeight:kFontWeightRegular];
+            [button.titleLabel applyFontMontserratWithWeight:kFontWeightRegular];
         }
     }
     for (UIView *subview in self.subviews) {
         if ([subview isKindOfClass:[UIView class]]) {
-            [subview applyMuseoFontToSubviews];
+            [subview applyMontserratFontToSubviews];
         }
     }
 }

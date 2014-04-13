@@ -23,7 +23,8 @@
 - (NSArray*)sortedFilterByGroup:(FilterGroup)filterGroup;
 - (CDFilter*)filterOfType:(FilterType)filterType;
 
-- (void)fetchArticles;
+- (void)fetchArticles:(void (^)(NSError *error))completion;
+- (void)fetchArticlesWithRadius:(float)radius completion:(void (^)(NSError *error))completion;
 
 @end
 

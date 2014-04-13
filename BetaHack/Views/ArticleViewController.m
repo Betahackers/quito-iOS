@@ -25,6 +25,7 @@ typedef enum tableSections
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view applyMontserratFontToSubviews];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -78,6 +79,7 @@ typedef enum tableSections
             static NSString *CellIdentifier = @"ArticleHeaderCell";
             ArticleHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
+            [cell.contentView applyMontserratFontToSubviews];
             
             cell.article = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = cell.article.title;

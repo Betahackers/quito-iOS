@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@class CDArticle;
+@class CDArticle, CDFilter, CDProfile;
 
 #pragma mark - MapViewDelegate
 @protocol MapViewDelegate
 - (void)shrinkTable;
 - (void)growTable;
+- (void)applyFilter:(CDFilter*)filter;
+- (void)applyProfile:(CDProfile*)profile;
+
 @end
 
 @interface MapViewController : UIViewController <MapViewDelegate, MKMapViewDelegate>
