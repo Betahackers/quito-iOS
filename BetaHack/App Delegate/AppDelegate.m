@@ -10,21 +10,8 @@
 
 @implementation AppDelegate
 
-static NSString *const kTrackingId = @"UA-45895640-3";
-static NSString *const kAllowTracking = @"allowTracking";
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
-    [GAI sharedInstance].optOut =
-    ![[NSUserDefaults standardUserDefaults] boolForKey:kAllowTracking];
-    // Initialize Google Analytics with a 120-second dispatch interval. There is a
-    // tradeoff between battery usage and timely dispatch.
-    [GAI sharedInstance].dispatchInterval = 120;
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    self.tracker = [[GAI sharedInstance] trackerWithName:@"Fromto"
-                                              trackingId:kTrackingId];
-    
     // Override point for customization after application launch.
     return YES;
 }

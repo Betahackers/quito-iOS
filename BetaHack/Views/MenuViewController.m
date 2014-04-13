@@ -125,7 +125,7 @@ typedef enum tableSections
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             CDProfile *profile = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-            cell.titleLabel.text = profile.name;
+            cell.titleLabel.text = profile.displayName;
             
             return cell;
         }

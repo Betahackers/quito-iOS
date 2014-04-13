@@ -24,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.menuContainerView setAlpha:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,6 +50,15 @@
         MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
         MKCoordinateRegion region = {coord, span};
         [self.mapView setRegion:region animated:YES];
+    });
+    
+    delayInSeconds = 2.0;
+    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.menuContainerView setAlpha:1];
+        }];
     });
 }
 

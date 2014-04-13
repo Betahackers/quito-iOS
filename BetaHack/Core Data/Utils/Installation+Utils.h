@@ -16,8 +16,14 @@
 - (NSArray*)sortedArticles;
 - (NSArray*)sortedProfiles;
 
+- (CDProfile*)profileWithID:(int)profileID;
+- (CDLocation*)locationWithID:(int)locationID;
+- (CDArticle*)articleWithID:(int)articleID;
+
 - (NSArray*)sortedFilterByGroup:(FilterGroup)filterGroup;
 - (CDFilter*)filterOfType:(FilterType)filterType;
+
+- (void)fetchArticles;
 
 @end
 

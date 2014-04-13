@@ -8,17 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		4B35F69F18F98621005FDBB2 /* CDFilter+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F69E18F98621005FDBB2 /* CDFilter+Utils.m */; };
-		4B35F6BA18F9909F005FDBB2 /* Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F6B918F9909F005FDBB2 /* Installation.m */; };
-		4B35F6BD18F990A0005FDBB2 /* CDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F6BC18F990A0005FDBB2 /* CDFilter.m */; };
-		4B35F6C018F990A0005FDBB2 /* CDProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F6BF18F990A0005FDBB2 /* CDProfile.m */; };
-		4B35F6C318F990A0005FDBB2 /* CDArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F6C218F990A0005FDBB2 /* CDArticle.m */; };
 		4B35F6C618F99799005FDBB2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F6C518F99799005FDBB2 /* MenuViewController.m */; };
 		4B82439918F9AD580097854D /* Temp_ProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B82439818F9AD580097854D /* Temp_ProfilePhoto.png */; };
-		4B8243AA18F9B1040097854D /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8243A918F9B1040097854D /* libGoogleAnalyticsServices.a */; };
 		4B8243AC18F9B2200097854D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8243AB18F9B2200097854D /* libz.dylib */; };
 		4B8243AE18F9B22A0097854D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8243AD18F9B22A0097854D /* AdSupport.framework */; };
 		4B8243B018F9B2620097854D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8243AF18F9B2620097854D /* SystemConfiguration.framework */; };
 		4B8243B218F9C4C60097854D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8243B118F9C4C60097854D /* MapKit.framework */; };
+		4B8243C718FAA15B0097854D /* CDProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8243C618FAA15B0097854D /* CDProfile.m */; };
+		4B8243CD18FAA15B0097854D /* CDArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8243CC18FAA15B0097854D /* CDArticle.m */; };
+		4B8243D018FAA15B0097854D /* Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8243CF18FAA15B0097854D /* Installation.m */; };
+		4B8243D318FAA5550097854D /* CDLocation+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8243D218FAA5550097854D /* CDLocation+Utils.m */; };
+		4B8243D618FAA5A50097854D /* CDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8243D518FAA5A50097854D /* CDFilter.m */; };
+		4B8243D918FAA5A60097854D /* CDLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8243D818FAA5A60097854D /* CDLocation.m */; };
 		4BC24ED918F946BF007FF792 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24ECD18F946BF007FF792 /* AppDelegate.m */; };
 		4BC24EDA18F946BF007FF792 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24ECF18F946BF007FF792 /* Images.xcassets */; };
 		4BC24EDB18F946BF007FF792 /* BetaHack-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24ED118F946BF007FF792 /* BetaHack-Info.plist */; };
@@ -52,6 +53,7 @@
 		4BE2A34F18F93E8F00386607 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2A33118F93E8F00386607 /* UIKit.framework */; };
 		4BE2A35718F93E8F00386607 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BE2A35518F93E8F00386607 /* InfoPlist.strings */; };
 		4BE2A35918F93E8F00386607 /* BetaHackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2A35818F93E8F00386607 /* BetaHackTests.m */; };
+		FAD5409421DE48A988C347D2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D0837A406B4972A8669783 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,30 +67,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24D0837A406B4972A8669783 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A6A031D66B9440CB0E0F0D6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		4B35F69D18F98621005FDBB2 /* CDFilter+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDFilter+Utils.h"; sourceTree = "<group>"; };
 		4B35F69E18F98621005FDBB2 /* CDFilter+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDFilter+Utils.m"; sourceTree = "<group>"; };
-		4B35F6B818F9909F005FDBB2 /* Installation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Installation.h; sourceTree = "<group>"; };
-		4B35F6B918F9909F005FDBB2 /* Installation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installation.m; sourceTree = "<group>"; };
-		4B35F6BB18F990A0005FDBB2 /* CDFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFilter.h; sourceTree = "<group>"; };
-		4B35F6BC18F990A0005FDBB2 /* CDFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilter.m; sourceTree = "<group>"; };
-		4B35F6BE18F990A0005FDBB2 /* CDProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProfile.h; sourceTree = "<group>"; };
-		4B35F6BF18F990A0005FDBB2 /* CDProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfile.m; sourceTree = "<group>"; };
-		4B35F6C118F990A0005FDBB2 /* CDArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDArticle.h; sourceTree = "<group>"; };
-		4B35F6C218F990A0005FDBB2 /* CDArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDArticle.m; sourceTree = "<group>"; };
 		4B35F6C418F99799005FDBB2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		4B35F6C518F99799005FDBB2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		4B82439818F9AD580097854D /* Temp_ProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_ProfilePhoto.png; sourceTree = "<group>"; };
-		4B8243A318F9B1040097854D /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		4B8243A418F9B1040097854D /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		4B8243A518F9B1040097854D /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		4B8243A618F9B1040097854D /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		4B8243A718F9B1040097854D /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		4B8243A818F9B1040097854D /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		4B8243A918F9B1040097854D /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		4B8243AB18F9B2200097854D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4B8243AD18F9B22A0097854D /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		4B8243AF18F9B2620097854D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4B8243B118F9C4C60097854D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4B8243C518FAA15B0097854D /* CDProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProfile.h; sourceTree = "<group>"; };
+		4B8243C618FAA15B0097854D /* CDProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfile.m; sourceTree = "<group>"; };
+		4B8243CB18FAA15B0097854D /* CDArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDArticle.h; sourceTree = "<group>"; };
+		4B8243CC18FAA15B0097854D /* CDArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDArticle.m; sourceTree = "<group>"; };
+		4B8243CE18FAA15B0097854D /* Installation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Installation.h; sourceTree = "<group>"; };
+		4B8243CF18FAA15B0097854D /* Installation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installation.m; sourceTree = "<group>"; };
+		4B8243D118FAA5550097854D /* CDLocation+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDLocation+Utils.h"; sourceTree = "<group>"; };
+		4B8243D218FAA5550097854D /* CDLocation+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDLocation+Utils.m"; sourceTree = "<group>"; };
+		4B8243D418FAA5A50097854D /* CDFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFilter.h; sourceTree = "<group>"; };
+		4B8243D518FAA5A50097854D /* CDFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilter.m; sourceTree = "<group>"; };
+		4B8243D718FAA5A60097854D /* CDLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLocation.h; sourceTree = "<group>"; };
+		4B8243D818FAA5A60097854D /* CDLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLocation.m; sourceTree = "<group>"; };
 		4BC24ECC18F946BF007FF792 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4BC24ECD18F946BF007FF792 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4BC24ECF18F946BF007FF792 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -155,7 +156,7 @@
 				4BE2A33018F93E8F00386607 /* CoreGraphics.framework in Frameworks */,
 				4BE2A33218F93E8F00386607 /* UIKit.framework in Frameworks */,
 				4BE2A32E18F93E8F00386607 /* Foundation.framework in Frameworks */,
-				4B8243AA18F9B1040097854D /* libGoogleAnalyticsServices.a in Frameworks */,
+				FAD5409421DE48A988C347D2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,28 +173,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B82439A18F9AFAE0097854D /* Google Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				4B8243A218F9B1040097854D /* Library */,
-			);
-			path = "Google Analytics";
-			sourceTree = "<group>";
-		};
-		4B8243A218F9B1040097854D /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				4B8243A318F9B1040097854D /* GAI.h */,
-				4B8243A418F9B1040097854D /* GAIDictionaryBuilder.h */,
-				4B8243A518F9B1040097854D /* GAIFields.h */,
-				4B8243A618F9B1040097854D /* GAILogger.h */,
-				4B8243A718F9B1040097854D /* GAITrackedViewController.h */,
-				4B8243A818F9B1040097854D /* GAITracker.h */,
-				4B8243A918F9B1040097854D /* libGoogleAnalyticsServices.a */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
 		4BC24ECB18F946BF007FF792 /* App Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,15 +238,17 @@
 		4BC24EEB18F952F6007FF792 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4B35F6B818F9909F005FDBB2 /* Installation.h */,
-				4B35F6C118F990A0005FDBB2 /* CDArticle.h */,
-				4B35F6C218F990A0005FDBB2 /* CDArticle.m */,
-				4B35F6BE18F990A0005FDBB2 /* CDProfile.h */,
-				4B35F6BF18F990A0005FDBB2 /* CDProfile.m */,
-				4B35F6BB18F990A0005FDBB2 /* CDFilter.h */,
-				4B35F6BC18F990A0005FDBB2 /* CDFilter.m */,
-				4B35F6B918F9909F005FDBB2 /* Installation.m */,
+				4B8243CE18FAA15B0097854D /* Installation.h */,
+				4B8243CF18FAA15B0097854D /* Installation.m */,
+				4B8243CB18FAA15B0097854D /* CDArticle.h */,
+				4B8243CC18FAA15B0097854D /* CDArticle.m */,
+				4B8243C518FAA15B0097854D /* CDProfile.h */,
+				4B8243C618FAA15B0097854D /* CDProfile.m */,
 				4BC24EF618F952F6007FF792 /* Model.xcdatamodeld */,
+				4B8243D418FAA5A50097854D /* CDFilter.h */,
+				4B8243D518FAA5A50097854D /* CDFilter.m */,
+				4B8243D718FAA5A60097854D /* CDLocation.h */,
+				4B8243D818FAA5A60097854D /* CDLocation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +264,8 @@
 				4BC24F6118F955DC007FF792 /* CDProfile+Utils.m */,
 				4BC24F0618F952F6007FF792 /* Installation+Utils.h */,
 				4BC24F0718F952F6007FF792 /* Installation+Utils.m */,
+				4B8243D118FAA5550097854D /* CDLocation+Utils.h */,
+				4B8243D218FAA5550097854D /* CDLocation+Utils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -315,6 +298,7 @@
 				4BE2A35218F93E8F00386607 /* BetaHackTests */,
 				4BE2A32C18F93E8F00386607 /* Frameworks */,
 				4BE2A32B18F93E8F00386607 /* Products */,
+				4A6A031D66B9440CB0E0F0D6 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -338,6 +322,7 @@
 				4BE2A32F18F93E8F00386607 /* CoreGraphics.framework */,
 				4BE2A33118F93E8F00386607 /* UIKit.framework */,
 				4BE2A34C18F93E8F00386607 /* XCTest.framework */,
+				24D0837A406B4972A8669783 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -349,7 +334,6 @@
 				4BC24ECE18F946BF007FF792 /* Assets */,
 				4BC24F2318F954CF007FF792 /* Class Utils */,
 				4BC24EE618F952F6007FF792 /* Core Data */,
-				4B82439A18F9AFAE0097854D /* Google Analytics */,
 				4BC24ED018F946BF007FF792 /* Project Config */,
 				4BC24ED518F946BF007FF792 /* Views */,
 			);
@@ -381,9 +365,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BE2A35C18F93E8F00386607 /* Build configuration list for PBXNativeTarget "BetaHack" */;
 			buildPhases = (
+				6C8DA654C8014194A7E548D6 /* Check Pods Manifest.lock */,
 				4BE2A32618F93E8F00386607 /* Sources */,
 				4BE2A32718F93E8F00386607 /* Frameworks */,
 				4BE2A32818F93E8F00386607 /* Resources */,
+				36B2CD2DED744687855CA421 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -470,35 +456,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		36B2CD2DED744687855CA421 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C8DA654C8014194A7E548D6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4BE2A32618F93E8F00386607 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8243C718FAA15B0097854D /* CDProfile.m in Sources */,
 				4BC24F4F18F95557007FF792 /* UILabel+Utils.m in Sources */,
 				4BC24F0818F952F6007FF792 /* DomainEnums.m in Sources */,
 				4BC24F4B18F95557007FF792 /* NSSorting.m in Sources */,
 				4BC24F0918F952F6007FF792 /* DomainManager.m in Sources */,
 				4BC24F4D18F95557007FF792 /* UIColor+Utils.m in Sources */,
 				4BC24EDF18F946BF007FF792 /* ViewController.m in Sources */,
+				4B8243D618FAA5A50097854D /* CDFilter.m in Sources */,
 				4BC24EE218F94B95007FF792 /* ArticleViewController.m in Sources */,
 				4BC24F4E18F95557007FF792 /* UIFont+Utils.m in Sources */,
 				4BC24EDD18F946BF007FF792 /* main.m in Sources */,
 				4B35F6C618F99799005FDBB2 /* MenuViewController.m in Sources */,
 				4BC24F4A18F95557007FF792 /* NSDate+Utils.m in Sources */,
-				4B35F6BD18F990A0005FDBB2 /* CDFilter.m in Sources */,
-				4B35F6BA18F9909F005FDBB2 /* Installation.m in Sources */,
 				4BC24F4C18F95557007FF792 /* NSString+Utils.m in Sources */,
 				4B35F69F18F98621005FDBB2 /* CDFilter+Utils.m in Sources */,
+				4B8243D918FAA5A60097854D /* CDLocation.m in Sources */,
 				4BC24F1218F952F6007FF792 /* CDArticle+Utils.m in Sources */,
 				4BC24F6218F955DC007FF792 /* CDProfile+Utils.m in Sources */,
 				4BC24ED918F946BF007FF792 /* AppDelegate.m in Sources */,
-				4B35F6C318F990A0005FDBB2 /* CDArticle.m in Sources */,
 				4BC24EE518F951AB007FF792 /* ProfileViewController.m in Sources */,
 				4BC24F5018F95557007FF792 /* UIView+Utils.m in Sources */,
+				4B8243D018FAA15B0097854D /* Installation.m in Sources */,
+				4B8243CD18FAA15B0097854D /* CDArticle.m in Sources */,
 				4BC24F0F18F952F6007FF792 /* Model.xcdatamodeld in Sources */,
 				4BC24F1618F952F6007FF792 /* Installation+Utils.m in Sources */,
-				4B35F6C018F990A0005FDBB2 /* CDProfile.m in Sources */,
+				4B8243D318FAA5550097854D /* CDLocation+Utils.m in Sources */,
 				4BC24F7218F95BA9007FF792 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,6 +626,7 @@
 		};
 		4BE2A35D18F93E8F00386607 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A6A031D66B9440CB0E0F0D6 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -623,6 +645,7 @@
 		};
 		4BE2A35E18F93E8F00386607 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A6A031D66B9440CB0E0F0D6 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

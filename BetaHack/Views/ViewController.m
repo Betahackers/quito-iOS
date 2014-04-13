@@ -7,8 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "GAI.h"
-#import "GAIDictionaryBuilder.h"
+#import "DomainManager.h"
 
 @interface ViewController ()
 
@@ -20,21 +19,16 @@
 {
     [super viewDidLoad];
     
-    NSMutableDictionary *event =
-    [[GAIDictionaryBuilder createEventWithCategory:@"App"
-                                            action:@"Open"
-                                             label:@"Run"
-                                             value:nil] build];
-    [[GAI sharedInstance].defaultTracker send:event];
-    [[GAI sharedInstance] dispatch];
-    
     [self.navigationController setNavigationBarHidden:YES];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    
+    //pull some articles
+    [[Installation currentInstallation] fetchArticles];
+    
+    //show the map
+    [self performSegueWithIdentifier:@"splash_map" sender:self];
 }
 
 @end

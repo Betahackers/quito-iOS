@@ -7,6 +7,7 @@
 //
 
 #import "Installation+Utils.h"
+#import "AFNetworking.h"
 
 @implementation Installation (Utils)
 
@@ -45,8 +46,6 @@ static Installation *currentInstallation;
             [CDFilter initWithJSON:nil type:kFilterEmotion7 group:kFilterGroupEmotion name:@"Solitary"];
             [CDFilter initWithJSON:nil type:kFilterEmotion8 group:kFilterGroupEmotion name:@"Active"];
             
-            [currentInstallation addTestData];
-            
         } else {
             currentInstallation = [fetchedObjects objectAtIndex:0];
         }
@@ -60,19 +59,6 @@ static Installation *currentInstallation;
     return installation;
 }
 
-#pragma mark - Test Data
-- (void)addTestData {
-    
-    CDProfile *profile = [CDProfile initWithJSON:nil name:@"Duncan Campbell"];
-    CDArticle *article = [CDArticle initWithJSON:nil title:@"Montjuic" author:profile];
-    
-    profile = [CDProfile initWithJSON:nil name:@"Yonah Forst"];
-    article = [CDArticle initWithJSON:nil title:@"Vespa Burger" author:profile];
-    
-    profile = [CDProfile initWithJSON:nil name:@"Kristian Dupont Knudsen"];
-    article = [CDArticle initWithJSON:nil title:@"Ciutadella" author:profile];
-}
-
 #pragma mark - articles
 - (NSArray*)sortedArticles {
     return [self.articles sortSetByTextField:@"title"];
@@ -80,6 +66,33 @@ static Installation *currentInstallation;
 
 - (NSArray*)sortedProfiles {
     return [self.profiles sortSetByTextField:@"name"];
+}
+
+- (CDProfile*)profileWithID:(int)profileID {
+    for (CDProfile *profile in self.profiles) {
+        if (profile.identifier == profileID) {
+            return profile;
+        }
+    }
+    return nil;
+}
+
+- (CDLocation*)locationWithID:(int)locationID {
+    for (CDLocation *location in self.locations) {
+        if (location.identifier == locationID) {
+            return location;
+        }
+    }
+    return nil;
+}
+
+- (CDArticle*)articleWithID:(int)articleID {
+    for (CDArticle *article in self.articles) {
+        if (article.identifier == articleID) {
+            return article;
+        }
+    }
+    return nil;
 }
 
 - (NSArray*)sortedFilterByGroup:(FilterGroup)filterGroup {
@@ -101,5 +114,35 @@ static Installation *currentInstallation;
         }
     }
     return nil;
+}
+
+#pragma mark - fetch articles
+- (void)fetchArticles {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://fromto.es/v1/articles.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        
+        //clear down the data store
+        
+        //add the articles
+        NSDictionary *articlesDict = (NSDictionary*)responseObject;
+        NSArray *articles = [articlesDict objectForKey:@"articles"];
+        
+       
+        
+        for (NSDictionary *articleDict in articles) {
+            
+            int articleID = [[articleDict objectForKey:@"id"] intValue];
+            CDArticle *article = [[Installation currentInstallation] articleWithID:articleID];
+            if (!article) {
+                [CDArticle initWithJSON:articleDict];
+            } else {
+                [article updateWithJSON:articleDict];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 @end

@@ -2,7 +2,7 @@
 //  CDFilter.h
 //  BetaHack
 //
-//  Created by Duncan Campbell on 12/04/14.
+//  Created by Duncan Campbell on 13/04/14.
 //  Copyright (c) 2014 Betahackers. All rights reserved.
 //
 
@@ -13,11 +13,11 @@
 
 @interface CDFilter : NSManagedObject
 
+@property (nonatomic) int16_t filterGroupRaw;
 @property (nonatomic) int16_t filterTypeRaw;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic) int16_t filterGroupRaw;
-@property (nonatomic, retain) Installation *installation;
 @property (nonatomic, retain) NSSet *articles;
+@property (nonatomic, retain) Installation *installation;
 @end
 
 @interface CDFilter (CoreDataGeneratedAccessors)

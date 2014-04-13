@@ -11,32 +11,43 @@
 
 @implementation CDArticle (Utils)
 
-+ (id)initWithJSON:(NSDictionary*)json title:(NSString*)title author:(CDProfile*)author {
++ (id)initWithJSON:(NSDictionary*)json {
     
     CDArticle *article = (CDArticle *)[NSEntityDescription insertNewObjectForEntityForName:@"CDArticle" inManagedObjectContext:[[DomainManager sharedManager] context]];
     if (article) {
-        article.title = title;
+        
         article.installation = [Installation currentInstallation];
-        article.profile = author;
-        
-        //choose 4 random categories
-        int rand = arc4random() % 15;
-        CDFilter *filter = [[Installation currentInstallation] filterOfType:rand];
-        [article addFiltersObject:filter];
-        
-        rand = arc4random() % 15;
-        filter = [[Installation currentInstallation] filterOfType:rand];
-        [article addFiltersObject:filter];
-        
-        rand = arc4random() % 15;
-        filter = [[Installation currentInstallation] filterOfType:rand];
-        [article addFiltersObject:filter];
-        
-        rand = arc4random() % 15;
-        filter = [[Installation currentInstallation] filterOfType:rand];
-        [article addFiltersObject:filter];
+
+        article.identifier = [[json objectForKey:@"id"] intValue];
+        [article updateWithJSON:json];
     }
     
     return article;
+}
+
+- (void)updateWithJSON:(NSDictionary*)json {
+    
+    self.title = [json objectForKey:@"title"];
+    
+    NSDictionary *authorDict = [json objectForKey:@"author"];
+    int profileID = [[authorDict objectForKey:@"id"] intValue];
+    CDProfile *profile = [[Installation currentInstallation] profileWithID:profileID];
+    if (!profile) {
+        profile = [CDProfile initWithJSON:authorDict];
+    } else {
+        [profile updateWithJSON:authorDict];
+    }
+    self.profile = profile;
+    
+    NSDictionary *locationDict = [json objectForKey:@"location"];
+    int locationID = [[locationDict objectForKey:@"id"] intValue];
+    CDLocation *location = [[Installation currentInstallation] locationWithID:locationID];
+    if (!location) {
+        location = [CDProfile initWithJSON:locationDict];
+    } else {
+        [location updateWithJSON:locationDict];
+    }
+    [self removeLocations:self.locations];
+    [self addLocationsObject:location];
 }
 @end

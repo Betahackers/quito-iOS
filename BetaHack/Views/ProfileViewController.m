@@ -67,7 +67,7 @@ typedef enum tableSections
             ProfileHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell.delegate = self;
             cell.profile = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-            cell.nameLabel.text = cell.profile.name;
+            cell.nameLabel.text = cell.profile.displayName;
             return cell;
         }
             

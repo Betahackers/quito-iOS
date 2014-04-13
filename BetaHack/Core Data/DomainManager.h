@@ -15,6 +15,7 @@
 #import "CDArticle+Utils.h"
 #import "CDProfile+Utils.h"
 #import "CDFilter+Utils.h"
+#import "CDLocation+Utils.h"
 
 #import "NSDate+Utils.h"
 #import "NSSorting.h"

@@ -12,7 +12,8 @@
 
 @interface CDArticle (Utils)
 
-+ (id)initWithJSON:(NSDictionary*)json title:(NSString*)title author:(CDProfile*)author;
++ (id)initWithJSON:(NSDictionary*)json;
+- (void)updateWithJSON:(NSDictionary*)json;
 
 @end
 

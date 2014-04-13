@@ -11,14 +11,28 @@
 
 @implementation CDProfile (Utils)
 
-+ (id)initWithJSON:(NSDictionary*)json name:(NSString*)name {
++ (id)initWithJSON:(NSDictionary*)json {
     
     CDProfile *profile = (CDProfile *)[NSEntityDescription insertNewObjectForEntityForName:@"CDProfile" inManagedObjectContext:[[DomainManager sharedManager] context]];
     if (profile) {
-        profile.name = name;
+        
         profile.installation = [Installation currentInstallation];
+        
+        profile.identifier = [[json objectForKey:@"id"] intValue];
+        [profile updateWithJSON:json];
     }
     
     return profile;
 }
+
+- (void)updateWithJSON:(NSDictionary*)json {
+    
+    self.firstName = [json objectForKey:@"first_name"];
+    self.lastName = [json objectForKey:@"last_name"];
+}
+
+- (NSString*)displayName {
+    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+}
+
 @end

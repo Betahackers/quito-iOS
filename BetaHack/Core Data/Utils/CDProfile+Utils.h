@@ -12,7 +12,10 @@
 
 @interface CDProfile (Utils)
 
-+ (id)initWithJSON:(NSDictionary*)json name:(NSString*)name;
++ (id)initWithJSON:(NSDictionary*)json;
+- (void)updateWithJSON:(NSDictionary*)json;
+
+- (NSString*)displayName;
 
 @end
 

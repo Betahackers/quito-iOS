@@ -81,7 +81,7 @@ typedef enum tableSections
             
             cell.article = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
             cell.titleLabel.text = cell.article.title;
-            [cell.authorButton setTitle:cell.article.profile.name forState:UIControlStateNormal];
+            [cell.authorButton setTitle:cell.article.profile.displayName forState:UIControlStateNormal];
             
             return cell;
         }

@@ -23,18 +23,18 @@
                                 <state key="normal" title="Fromto">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="X86-Tt-HqN" kind="push" id="2Jj-kb-PNh"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="kyn-ef-rhD"/>
+                    <connections>
+                        <segue destination="X86-Tt-HqN" kind="push" identifier="splash_map" id="eJV-PM-Di4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="121"/>
+            <point key="canvasLocation" x="-65" y="121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mry-zg-U2A">
