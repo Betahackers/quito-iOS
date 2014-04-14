@@ -189,7 +189,21 @@
         } else if (self.selectedProfile) {
             annotationView.image = [UIImage imageNamed:@"point_select_profiles.png"];
         } else {
-            annotationView.image = [UIImage imageNamed:@"point_select_moods.png"];
+            
+            MyAnnotation *mapViewAnnotation = (MyAnnotation*)annotationView.annotation;
+            switch (mapViewAnnotation.article.defaultFilterGroupColour) {
+                case kFilterGroupCategory:
+                    annotationView.image = [UIImage imageNamed:@"point_select_activities.png"];
+                    break;
+                case kFilterGroupEmotion:
+                    annotationView.image = [UIImage imageNamed:@"point_select_moods.png"];
+                    break;
+                case kFilterGroupProfile:
+                    annotationView.image = [UIImage imageNamed:@"point_select_profiles.png"];
+                    break;
+                default:
+                    break;
+            }
         }
         
         return annotationView;

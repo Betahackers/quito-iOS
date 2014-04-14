@@ -20,6 +20,8 @@
 
         article.identifier = [[json objectForKey:@"id"] intValue];
         [article updateWithJSON:json];
+        
+        article.defaultFilterGroupColourRaw = arc4random() % 3;
     }
     
     return article;
@@ -78,5 +80,12 @@
 
 - (UIImage*)articleImage {
     return [UIImage imageNamed:@"Temp_ParcGuell.png"];
+}
+
+- (FilterGroup)defaultFilterGroupColour {
+    return (FilterGroup)self.defaultFilterGroupColourRaw;
+}
+- (void)setDefaultFilterGroupColour:(FilterGroup)defaultFilterGroupColour {
+    self.defaultFilterGroupColourRaw = defaultFilterGroupColour;
 }
 @end

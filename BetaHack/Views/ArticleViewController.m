@@ -141,6 +141,13 @@ typedef enum tableSections
     static NSString *CellIdentifier;
     if (indexPath.section == kSectionHeader)
         CellIdentifier = @"ArticleHeaderCell";
+    else if (indexPath.section == kSectionProfile)
+        CellIdentifier = @"ArticleHeaderCell";
+    else if (indexPath.section == kSectionProfileFooter)
+        CellIdentifier = @"ArticleProfileFooterCell";
+    else if (indexPath.section == kSectionArticle)
+        CellIdentifier = @"ArticleBodyCell";
+    
     
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     return cell.bounds.size.height;

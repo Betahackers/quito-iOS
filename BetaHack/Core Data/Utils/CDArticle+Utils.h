@@ -17,6 +17,9 @@
 
 - (UIImage*)articleImage;
 
+- (FilterGroup)defaultFilterGroupColour;
+- (void)setDefaultFilterGroupColour:(FilterGroup)defaultFilterGroupColour;
+
 @end
 
 

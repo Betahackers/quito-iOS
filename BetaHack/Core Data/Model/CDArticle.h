@@ -2,7 +2,7 @@
 //  CDArticle.h
 //  BetaHack
 //
-//  Created by Duncan Campbell on 13/04/14.
+//  Created by Duncan Campbell on 14/04/14.
 //  Copyright (c) 2014 Betahackers. All rights reserved.
 //
 
@@ -15,8 +15,9 @@
 
 @property (nonatomic, retain) NSString * content;
 @property (nonatomic) int32_t identifier;
-@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * intro;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic) int16_t defaultFilterGroupColourRaw;
 @property (nonatomic, retain) NSSet *filters;
 @property (nonatomic, retain) Installation *installation;
 @property (nonatomic, retain) NSSet *locations;

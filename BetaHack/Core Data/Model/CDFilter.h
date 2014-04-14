@@ -2,7 +2,7 @@
 //  CDFilter.h
 //  BetaHack
 //
-//  Created by Duncan Campbell on 13/04/14.
+//  Created by Duncan Campbell on 14/04/14.
 //  Copyright (c) 2014 Betahackers. All rights reserved.
 //
 
@@ -15,8 +15,8 @@
 
 @property (nonatomic) int16_t filterGroupRaw;
 @property (nonatomic) int16_t filterTypeRaw;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * imageName;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *articles;
 @property (nonatomic, retain) Installation *installation;
 @end
