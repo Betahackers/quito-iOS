@@ -10,6 +10,7 @@
 #import "DomainManager.h"
 #import "ArticleViewController.h"
 #import "FilterViewController.h"
+#import "ILTranslucentView.h"
 
 @interface MapViewController ()
 
@@ -23,6 +24,8 @@
 @property (nonatomic, strong) IBOutlet UIImageView *activitiesFilterImageView;
 @property (nonatomic, strong) IBOutlet UIImageView *moodsFilterImageView;
 @property (nonatomic, strong) IBOutlet UIImageView *profilesFilterImageView;
+
+@property (nonatomic, strong) IBOutlet UIView *translucentHolderView;
 
 @property (nonatomic, strong) CDProfile *selectedProfile;
 @property (nonatomic, strong) CDFilter *selectedFilter;
@@ -60,6 +63,10 @@ BOOL isFirstTime;
     UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mapHeader.png"]];
     [self.view addSubview:headerImageView];
     
+    [self.moodsFilterButton setAlpha:0.0f];
+    [self.activitiesFilterButton setAlpha:0.0f];
+    [self.profilesFilterButton setAlpha:0.0f];
+    
     isFirstTime = YES;
 }
 
@@ -72,21 +79,46 @@ BOOL isFirstTime;
         MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
         MKCoordinateRegion region = {coord, span};
         [self.mapView setRegion:region];
+        
+        //add the toolbar
+        self.translucentHolderView = [[UIView alloc] initWithFrame:self.view.frame];
+        [self.view addSubview:self.translucentHolderView];
+        
+        ILTranslucentView *translucentView = [[ILTranslucentView alloc] initWithFrame:self.view.frame];
+        [self.translucentHolderView addSubview:translucentView];
+        
+        //    //optional:
+        //    translucentView.translucentAlpha = 1;
+        translucentView.translucentStyle = UIBarStyleBlack;
+        //    translucentView.translucentTintColor = [UIColor clearColor];
+        //    translucentView.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
+        [imageView setContentMode:UIViewContentModeScaleAspectFit];
+        
+        int rand = arc4random() % 24;
+        NSString *imageName = [NSString stringWithFormat:@"fromto_hola_App_%02d.png", rand];
+        [imageView setImage:[UIImage imageNamed:imageName]];
+        [translucentView addSubview:imageView];
+        
         isFirstTime = NO;
     }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self shrinkTable];
     
-    float delayInSeconds = 2.0;
-    float popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
-        [UIView animateWithDuration:0.3 animations:^{
-            [self.menuContainerView setAlpha:1];
+    [UIView animateWithDuration:2.0 animations:^{
+        [self.moodsFilterButton setAlpha:1.0f];
+        [self.activitiesFilterButton setAlpha:1.0f];
+        [self.profilesFilterButton setAlpha:1.0f];
+    } completion:^(BOOL finished) {
+    
+        [UIView animateWithDuration:0.8 animations:^{
+            [self.translucentHolderView setFrameOriginY:self.translucentHolderView.frame.size.height];
+        } completion:^(BOOL finished) {
+            [self.translucentHolderView removeFromSuperview];
         }];
-    });
+    }];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -141,19 +173,6 @@ BOOL isFirstTime;
     [self reloadAnnotations];
 }
 
-- (void)shrinkTable {
-    
-    double delayInSeconds = 0.4;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        //code to be executed on the main queue after delay
-        [self.menuContainerView setFrameHeight:44*3];
-    });
-}
-
-- (void)growTable {
-    [self.menuContainerView setFrameHeight:self.view.frame.size.height];
-}
 
 - (void)applyFilter:(CDFilter *)filter {
     if (self.selectedFilter == filter) {

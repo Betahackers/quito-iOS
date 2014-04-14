@@ -13,7 +13,7 @@
 
 #pragma mark - ArticleViewDelegate
 @protocol ArticleViewDelegate
-- (void)showProfile:(CDProfile*)profile;
+- (void)popViewController;
 @end
 
 
@@ -31,6 +31,7 @@
 @end
 
 @interface ArticleProfileCell : UITableViewCell
+@property (nonatomic, weak) id<ArticleViewDelegate> delegate;
 @property (nonatomic, strong) IBOutlet UIImageView *profileImageView;
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) IBOutlet UILabel *expertLabel;
@@ -47,4 +48,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *introLabel;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *contentLabel;
+@property (nonatomic, strong) IBOutlet UILabel *overlayContentLabel;
+
+- (void)initWithArticle:(CDArticle*)article;
 @end

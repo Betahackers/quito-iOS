@@ -34,7 +34,7 @@ typedef enum tableSections
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES];
     
     sections = [NSMutableArray array];
     [self reloadTable];
@@ -61,8 +61,8 @@ typedef enum tableSections
 }
 
 #pragma mark - ArticleCardCellDelegate
-- (void)showProfile:(CDProfile *)profile {
-    [self performSegueWithIdentifier:@"article_profile" sender:profile];
+- (void)popViewController {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - TableView data source
@@ -92,6 +92,8 @@ typedef enum tableSections
             static NSString *CellIdentifier = @"ArticleProfileCell";
             ArticleProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             [cell.contentView applyMontserratFontToSubviews];
+            
+            cell.delegate = self;
             
             cell.profileImageView.image = self.article.profile.profileImage;
             cell.profileImageView.layer.masksToBounds = NO;
@@ -129,15 +131,8 @@ typedef enum tableSections
             
             static NSString *CellIdentifier = @"ArticleBodyCell";
             ArticleBodyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            [cell.contentView applyMontserratFontToSubviews];
-            
-            cell.introLabel.text = self.article.title;
-            cell.titleLabel.text = self.article.locationName;
-            [cell.titleLabel applyFontMontserratWithWeight:kFontWeightBold];
-            cell.contentLabel.text = self.article.content;
-            
+            [cell initWithArticle:self.article];
             cell.backgroundColor = [self lightColourForFilterGroup:self.selectedFilterGroup];
-            
             return cell;
         }
             
@@ -178,8 +173,12 @@ typedef enum tableSections
         CellIdentifier = @"ArticleProfileCell";
     else if (indexPath.section == kSectionProfileFooter)
         CellIdentifier = @"ArticleProfileFooterCell";
-    else if (indexPath.section == kSectionArticle)
+    else if (indexPath.section == kSectionArticle) {
         CellIdentifier = @"ArticleBodyCell";
+        ArticleBodyCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        [cell initWithArticle:self.article];
+        return cell.overlayContentLabel.frame.origin.y + cell.overlayContentLabel.frame.size.height + 10;
+    }
     
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     return cell.bounds.size.height;
@@ -192,10 +191,35 @@ typedef enum tableSections
 @end
 
 @implementation ArticleProfileCell
+
+- (IBAction)backTapped:(id)sender {
+    [self.delegate popViewController];
+}
 @end
 
 @implementation ArticleProfileFooterCell
 @end
 
 @implementation ArticleBodyCell
+
+- (void)initWithArticle:(CDArticle*)article {
+    
+    [self.contentView applyMontserratFontToSubviews];
+    
+    self.introLabel.text = article.title;
+    self.titleLabel.text = article.locationName;
+    [self.titleLabel applyFontMontserratWithWeight:kFontWeightBold];
+    self.contentLabel.text = article.content;
+    
+    //hide the suggestion label and add another label ontop with a variable size
+    self.contentLabel.hidden = YES;
+    self.overlayContentLabel = [[UILabel alloc] initWithFrame:self.contentLabel.frame];
+    [self.overlayContentLabel setFont:self.contentLabel.font];
+    [self.overlayContentLabel setText:self.contentLabel.text];
+    [self.overlayContentLabel setTextAlignment:self.contentLabel.textAlignment];
+    [self.overlayContentLabel setNumberOfLines:0];
+    [self.overlayContentLabel setTextColor:self.contentLabel.textColor];
+    [self.overlayContentLabel sizeToFit];
+    [self addSubview:self.overlayContentLabel];
+}
 @end

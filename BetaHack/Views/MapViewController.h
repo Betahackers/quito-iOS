@@ -13,8 +13,6 @@
 
 #pragma mark - MapViewDelegate
 @protocol MapViewDelegate
-- (void)shrinkTable;
-- (void)growTable;
 - (void)applyFilter:(CDFilter*)filter;
 - (void)applyProfile:(CDProfile*)profile;
 
@@ -23,7 +21,6 @@
 @interface MapViewController : UIViewController <MapViewDelegate, MKMapViewDelegate>
 
 @end
-
 
 
 @interface MyAnnotation : NSObject <MKAnnotation>
