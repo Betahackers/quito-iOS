@@ -31,6 +31,8 @@
 
 @implementation MapViewController
 
+BOOL isFirstTime;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,20 +57,23 @@
     self.profilesFilterImageView.layer.cornerRadius = (self.profilesFilterImageView.frame.size.height / 2);
     [self.profilesFilterButton addSubview:self.profilesFilterImageView];
     
-    
     UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mapHeader.png"]];
     [self.view addSubview:headerImageView];
+    
+    isFirstTime = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES];
     
     //41.407001,2.156799
-    
-    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(41.407001, 2.156799);
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
-    MKCoordinateRegion region = {coord, span};
-    [self.mapView setRegion:region];
+    if (isFirstTime) {
+        CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(41.407001, 2.156799);
+        MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
+        MKCoordinateRegion region = {coord, span};
+        [self.mapView setRegion:region];
+        isFirstTime = NO;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

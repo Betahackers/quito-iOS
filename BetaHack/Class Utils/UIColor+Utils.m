@@ -21,11 +21,11 @@
 }
 
 + (UIColor *)fromtoProfileColour {
-    return [UIColor colorWithRed:42/255.0 green:197/255.0 blue:193/255.0 alpha:1.0];
+    return [UIColor colorWithRed:139/255.0 green:204/255.0 blue:86/255.0 alpha:1.0];
 }
 
 + (UIColor *)fromtoProfileColourLight {
-    return [UIColor colorWithRed:25/255.0 green:180/255.0 blue:152/255.0 alpha:1.0];
+    return [UIColor colorWithRed:209/255.0 green:235/255.0 blue:182/255.0 alpha:1.0];
 }
 
 + (UIColor *)fromtoActivityColour {
@@ -33,6 +33,6 @@
 }
 
 + (UIColor *)fromtoActivityColourLight {
-    return [UIColor colorWithRed:209/255.0 green:235/255.0 blue:182/255.0 alpha:1.0];
+    return [UIColor colorWithRed:216/255.0 green:211/255.0 blue:235/255.0 alpha:1.0];
 }
 @end

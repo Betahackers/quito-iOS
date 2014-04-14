@@ -148,6 +148,9 @@ typedef enum tableSections
 }
 
 - (UIColor*)colourForFilterGroup:(FilterGroup)filterGroup {
+   
+    NSLog(@"SELECTED filter GROUP = %d", self.selectedFilterGroup);
+    
     switch (filterGroup) {
         case kFilterGroupCategory: return [UIColor fromtoActivityColour]; break;
         case kFilterGroupProfile: return [UIColor fromtoProfileColour]; break;
@@ -156,6 +159,9 @@ typedef enum tableSections
 }
 
 - (UIColor*)lightColourForFilterGroup:(FilterGroup)filterGroup {
+    
+    NSLog(@"SELECTED filter GROUP = %d", self.selectedFilterGroup);
+    
     switch (filterGroup) {
         case kFilterGroupCategory: return [UIColor fromtoActivityColourLight]; break;
         case kFilterGroupProfile: return [UIColor fromtoProfileColourLight]; break;
