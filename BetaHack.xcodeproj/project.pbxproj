@@ -37,7 +37,8 @@
 		4B546B7E18FB73CA0091C821 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B7B18FB73CA0091C821 /* README.md */; };
 		4B546B8018FB78940091C821 /* BackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B7F18FB78940091C821 /* BackArrow.png */; };
 		4B546B8218FB7A7A0091C821 /* fromtoSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B8118FB7A7A0091C821 /* fromtoSplash.png */; };
-		4B546B8418FB7C410091C821 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B8318FB7C410091C821 /* icon120.png */; };
+		4B546B9418FBFFDA0091C821 /* icon_app_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B9218FBFFDA0091C821 /* icon_app_120.png */; };
+		4B546B9518FBFFDA0091C821 /* icon_app_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B9318FBFFDA0091C821 /* icon_app_1024.png */; };
 		4B78FAD318FAE91500322A30 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B78FAD218FAE91500322A30 /* FilterViewController.m */; };
 		4B78FADD18FAFE2300322A30 /* active.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B78FAD518FAFE2300322A30 /* active.png */; };
 		4B78FADE18FAFE2300322A30 /* Adventure.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B78FAD618FAFE2300322A30 /* Adventure.png */; };
@@ -164,7 +165,8 @@
 		4B546B7B18FB73CA0091C821 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		4B546B7F18FB78940091C821 /* BackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackArrow.png; sourceTree = "<group>"; };
 		4B546B8118FB7A7A0091C821 /* fromtoSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fromtoSplash.png; sourceTree = "<group>"; };
-		4B546B8318FB7C410091C821 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		4B546B9218FBFFDA0091C821 /* icon_app_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_app_120.png; sourceTree = "<group>"; };
+		4B546B9318FBFFDA0091C821 /* icon_app_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_app_1024.png; sourceTree = "<group>"; };
 		4B78FAD118FAE91500322A30 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		4B78FAD218FAE91500322A30 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		4B78FAD518FAFE2300322A30 /* active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = active.png; sourceTree = "<group>"; };
@@ -396,7 +398,6 @@
 		4BC24ECE18F946BF007FF792 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				4B546B8318FB7C410091C821 /* icon120.png */,
 				4BB7F58F18FB653C00A68E86 /* Temp_Barceloneta.jpg */,
 				4B546B7F18FB78940091C821 /* BackArrow.png */,
 				4B546B8118FB7A7A0091C821 /* fromtoSplash.png */,
@@ -541,6 +542,8 @@
 			isa = PBXGroup;
 			children = (
 				4BC56CFA18FAD48100B7DD7E /* fromto.png */,
+				4B546B9218FBFFDA0091C821 /* icon_app_120.png */,
+				4B546B9318FBFFDA0091C821 /* icon_app_1024.png */,
 			);
 			path = Logo;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				4B78FAF718FB130000322A30 /* food.png in Resources */,
 				4BC56CF418FAD3B700B7DD7E /* point_moods.png in Resources */,
 				4B546B6C18FB725F0091C821 /* fromto_hola_App_15.png in Resources */,
+				4B546B9518FBFFDA0091C821 /* icon_app_1024.png in Resources */,
 				4B546B6418FB725F0091C821 /* fromto_hola_App_07.png in Resources */,
 				4B546B7018FB725F0091C821 /* fromto_hola_App_19.png in Resources */,
 				4B78FAFB18FB130000322A30 /* shopping.png in Resources */,
@@ -717,7 +721,6 @@
 				4B546B6F18FB725F0091C821 /* fromto_hola_App_18.png in Resources */,
 				4BC24EDC18F946BF007FF792 /* InfoPlist.strings in Resources */,
 				4B78FB0F18FB367700322A30 /* separator.png in Resources */,
-				4B546B8418FB7C410091C821 /* icon120.png in Resources */,
 				4BC24F6F18F95B16007FF792 /* Temp_MapPin.png in Resources */,
 				4BB7F59018FB653C00A68E86 /* Temp_Barceloneta.jpg in Resources */,
 				4B546B6118FB725F0091C821 /* fromto_hola_App_04.png in Resources */,
@@ -756,6 +759,7 @@
 				4B546B6518FB725F0091C821 /* fromto_hola_App_08.png in Resources */,
 				4B78FAE118FAFE2300322A30 /* Relaxed.png in Resources */,
 				4B546B7218FB725F0091C821 /* fromto_hola_App_21.png in Resources */,
+				4B546B9418FBFFDA0091C821 /* icon_app_120.png in Resources */,
 				4B546B6E18FB725F0091C821 /* fromto_hola_App_17.png in Resources */,
 				4B78FAE418FAFE2300322A30 /* solitary.png in Resources */,
 				4B78FAF618FB130000322A30 /* culture.png in Resources */,
