@@ -28,14 +28,14 @@ static Installation *currentInstallation;
             //create the Installation
             currentInstallation = (Installation*)[Installation createEntity];
             
-            [CDFilter initWithJSON:nil type:kFilterCategoryCulture group:kFilterGroupCategory name:@"Culture" imageName:@"adult.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryDancing group:kFilterGroupCategory name:@"Dancing" imageName:@"artistic.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryDrink group:kFilterGroupCategory name:@"Drink" imageName:@"food.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryEat group:kFilterGroupCategory name:@"Eat" imageName:@"intellectual.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryHealthyLife group:kFilterGroupCategory name:@"Healthy Life" imageName:@"landscape.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryLiveMusic group:kFilterGroupCategory name:@"Live Music" imageName:@"microphone.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryCulture group:kFilterGroupCategory name:@"Culture" imageName:@"culture.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryDancing group:kFilterGroupCategory name:@"Alternative" imageName:@"alternative.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryDrink group:kFilterGroupCategory name:@"Drink" imageName:@"drinks.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryEat group:kFilterGroupCategory name:@"Eat" imageName:@"food.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryHealthyLife group:kFilterGroupCategory name:@"Healthy Life" imageName:@"healthylife.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryLiveMusic group:kFilterGroupCategory name:@"Live Music" imageName:@"music.png"];
             [CDFilter initWithJSON:nil type:kFilterCategoryShopping group:kFilterGroupCategory name:@"Shopping" imageName:@"shopping.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryWalks group:kFilterGroupCategory name:@"Walks" imageName:@"trainers.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryWalks group:kFilterGroupCategory name:@"Walks" imageName:@"haveastroll.png"];
             
             [CDFilter initWithJSON:nil type:kFilterEmotionIllegal group:kFilterGroupEmotion name:@"Illegal" imageName:@"prison.png"];
             [CDFilter initWithJSON:nil type:kFilterEmotionSociable group:kFilterGroupEmotion name:@"Sociable" imageName:@"sociable.png"];
