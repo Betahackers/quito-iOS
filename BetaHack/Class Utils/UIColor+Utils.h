@@ -12,17 +12,11 @@
 
 // Color Names can be found here:  http://www.color-blindness.com/color-name-hue/
 
-+ (UIColor *)elvieMountainMeadow;
-+ (UIColor *)elvieCaberetPurple;
-+ (UIColor *)elvieHippieBlue;
-+ (UIColor *)elvieFlamingoPink;
-+ (UIColor *)elvieSmokey;
-+ (UIColor *)elvieSmokeyLight;
-+ (UIColor *)elvieAquaHaze;
-+ (UIColor *)elvieLightSeaGreen;
-+ (UIColor *)elvieBurntSienna;
-+ (UIColor *)elviePaleVioletRed;
-+ (UIColor *)elvieBostonBlue;
-+ (UIColor *)elvieCatskillWhite;
++ (UIColor *)fromtoMoodColour;
++ (UIColor *)fromtoMoodColourLight;
++ (UIColor *)fromtoProfileColour;
++ (UIColor *)fromtoProfileColourLight;
++ (UIColor *)fromtoActivityColour;
++ (UIColor *)fromtoActivityColourLight;
 
 @end

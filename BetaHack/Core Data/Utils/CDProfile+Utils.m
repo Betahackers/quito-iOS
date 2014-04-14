@@ -18,6 +18,12 @@
         
         profile.installation = [Installation currentInstallation];
         
+        profile.lastName = @"";
+        profile.expertIn = @"being an expert.";
+        profile.biography = @"Betahaus member with a passion for life.";
+        profile.hometown = @"Barcelona, Catalunya";
+        profile.jobTitle = @"FromTo team member";
+        
         profile.identifier = [[json objectForKey:@"id"] intValue];
         [profile updateWithJSON:json];
     }
@@ -36,28 +42,35 @@
     }
     
     NSString *expertIn = [json objectForKey:@"expert_in"];
-    if (expertIn != (NSString *)[NSNull null]) {
-        self.expertIn = expertIn;
-    }
-    
-    NSString *biography = [json objectForKey:@"about"];
-    if (biography != (NSString *)[NSNull null]) {
-        self.biography = biography;
-    }
-    
-    NSString *hometown = [json objectForKey:@"nationality"];
-    if (hometown != (NSString *)[NSNull null]) {
-        self.hometown = hometown;
-    }
-    
-    NSString *jobTitle = [json objectForKey:@"profession"];
-    if (jobTitle != (NSString *)[NSNull null]) {
-        self.jobTitle = jobTitle;
+    if (expertIn != nil) {
+        if (expertIn != (NSString *)[NSNull null]) {
+            self.expertIn = expertIn;
+        }
+        
+        NSString *biography = [json objectForKey:@"about"];
+        if (biography != (NSString *)[NSNull null]) {
+            self.biography = biography;
+        }
+        
+        NSString *hometown = [json objectForKey:@"nationality"];
+        if (hometown != (NSString *)[NSNull null]) {
+            self.hometown = hometown;
+        }
+        
+        NSString *jobTitle = [json objectForKey:@"profession"];
+        if (jobTitle != (NSString *)[NSNull null]) {
+            self.jobTitle = jobTitle;
+        }
     }
 }
 
 - (NSString*)displayName {
-    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+    
+    NSMutableString *displayName = [NSMutableString stringWithString:self.firstName];
+    if (self.lastName.length > 0) {
+        [displayName appendFormat:@" %@", self.lastName];
+    }
+    return displayName;
 }
 
 - (UIImage*)profileImage {

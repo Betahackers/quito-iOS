@@ -21,6 +21,7 @@
 @interface ArticleViewController : UITableViewController <ArticleViewDelegate>
 
 @property (nonatomic, weak) CDArticle *article;
+@property (nonatomic, assign) FilterGroup selectedFilterGroup;
 
 @end
 

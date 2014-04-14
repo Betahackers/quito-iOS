@@ -35,15 +35,15 @@ typedef enum tableSections
     
     switch (self.filterGroup) {
         case kFilterGroupCategory:
-            self.view.backgroundColor = [UIColor colorWithRed:156/255.0 green:146/255.0 blue:205/255.0 alpha:1.0];
+            self.view.backgroundColor = [UIColor fromtoActivityColour];
             self.titleLabel.text = @"Activities";
             break;
         case kFilterGroupEmotion:
-            self.view.backgroundColor = [UIColor colorWithRed:42/255.0 green:197/255.0 blue:193/255.0 alpha:1.0];
+            self.view.backgroundColor = [UIColor fromtoMoodColour];
             self.titleLabel.text = @"Moods";
             break;
         case kFilterGroupProfile:
-            self.view.backgroundColor = [UIColor colorWithRed:42/255.0 green:197/255.0 blue:193/255.0 alpha:1.0];
+            self.view.backgroundColor = [UIColor fromtoProfileColour];
             self.titleLabel.text = @"Profiles";
             break;
         default:

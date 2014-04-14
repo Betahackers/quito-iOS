@@ -18,6 +18,8 @@
         
         article.installation = [Installation currentInstallation];
 
+        article.intro = @"Awesome place.  Worth a visit";
+        
         article.identifier = [[json objectForKey:@"id"] intValue];
         [article updateWithJSON:json];
         
@@ -30,6 +32,7 @@
 - (void)updateWithJSON:(NSDictionary*)json {
     
     self.title = [json objectForKey:@"title"];
+    self.content = [json objectForKey:@"content"];
     
     NSDictionary *authorDict = [json objectForKey:@"user"];
     int profileID = [[authorDict objectForKey:@"id"] intValue];
@@ -79,7 +82,12 @@
 }
 
 - (UIImage*)articleImage {
-    return [UIImage imageNamed:@"Temp_ParcGuell.png"];
+    return [UIImage imageNamed:@"Temp_Barceloneta.jpg"];
+}
+
+- (NSString*)locationName {
+    CDLocation *location = [self.locations anyObject];
+    return location.name;
 }
 
 - (FilterGroup)defaultFilterGroupColour {

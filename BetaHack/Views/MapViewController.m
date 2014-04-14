@@ -89,7 +89,15 @@
         CDArticle *article = (CDArticle*)sender;
         ArticleViewController *viewController = (ArticleViewController *)segue.destinationViewController;
         viewController.article = article;
+        if (self.selectedFilter != nil) {
+            viewController.selectedFilterGroup = self.selectedFilter.filterGroup;
+        } else if (self.selectedProfile != nil) {
+            viewController.selectedFilterGroup = kFilterGroupProfile;
+        } else {
+            viewController.selectedFilterGroup = article.defaultFilterGroupColour;
+        }
     }
+    
     if ([segue.identifier isEqualToString:@"map_filter"]) {
         FilterViewController *viewController = (FilterViewController *)segue.destinationViewController;
         switch ([sender intValue]) {

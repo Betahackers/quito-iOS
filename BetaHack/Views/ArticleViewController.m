@@ -29,6 +29,7 @@ typedef enum tableSections
 {
     [super viewDidLoad];
     [self.view applyMontserratFontToSubviews];
+    self.tableView.backgroundColor = [self lightColourForFilterGroup:self.selectedFilterGroup];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -98,9 +99,14 @@ typedef enum tableSections
             cell.profileImageView.layer.cornerRadius = (cell.profileImageView.frame.size.height / 2);
             
             cell.nameLabel.text = self.article.profile.displayName;
+            [cell.nameLabel applyFontMontserratWithWeight:kFontWeightBold];
             cell.expertLabel.text = [NSString stringWithFormat:@"Expert in... %@", self.article.profile.expertIn];
+            [cell.expertLabel applyFontMontserratWithWeight:kFontWeightBold];
             
             cell.biographyLabel.text = self.article.profile.biography;
+            
+            cell.backgroundColor = [self colourForFilterGroup:self.selectedFilterGroup];
+            
             return cell;
         }
             
@@ -114,6 +120,8 @@ typedef enum tableSections
             cell.jobTitleLabel.text = self.article.profile.jobTitle;
             cell.articleImageView.image = self.article.articleImage;
             
+            cell.backgroundColor = [self colourForFilterGroup:self.selectedFilterGroup];
+            
             return cell;
         }
             
@@ -123,9 +131,12 @@ typedef enum tableSections
             ArticleBodyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             [cell.contentView applyMontserratFontToSubviews];
             
-            cell.introLabel.text = self.article.intro;
-            cell.titleLabel.text = self.article.title;
+            cell.introLabel.text = self.article.title;
+            cell.titleLabel.text = self.article.locationName;
+            [cell.titleLabel applyFontMontserratWithWeight:kFontWeightBold];
             cell.contentLabel.text = self.article.content;
+            
+            cell.backgroundColor = [self lightColourForFilterGroup:self.selectedFilterGroup];
             
             return cell;
         }
@@ -136,18 +147,33 @@ typedef enum tableSections
     }
 }
 
+- (UIColor*)colourForFilterGroup:(FilterGroup)filterGroup {
+    switch (filterGroup) {
+        case kFilterGroupCategory: return [UIColor fromtoActivityColour]; break;
+        case kFilterGroupProfile: return [UIColor fromtoProfileColour]; break;
+        case kFilterGroupEmotion: return [UIColor fromtoMoodColour]; break;
+    }
+}
+
+- (UIColor*)lightColourForFilterGroup:(FilterGroup)filterGroup {
+    switch (filterGroup) {
+        case kFilterGroupCategory: return [UIColor fromtoActivityColourLight]; break;
+        case kFilterGroupProfile: return [UIColor fromtoProfileColourLight]; break;
+        case kFilterGroupEmotion: return [UIColor fromtoMoodColourLight]; break;
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier;
     if (indexPath.section == kSectionHeader)
         CellIdentifier = @"ArticleHeaderCell";
     else if (indexPath.section == kSectionProfile)
-        CellIdentifier = @"ArticleHeaderCell";
+        CellIdentifier = @"ArticleProfileCell";
     else if (indexPath.section == kSectionProfileFooter)
         CellIdentifier = @"ArticleProfileFooterCell";
     else if (indexPath.section == kSectionArticle)
         CellIdentifier = @"ArticleBodyCell";
-    
     
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     return cell.bounds.size.height;

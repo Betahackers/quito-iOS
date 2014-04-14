@@ -43,6 +43,7 @@
 		4B8243D318FAA5550097854D /* CDLocation+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8243D218FAA5550097854D /* CDLocation+Utils.m */; };
 		4BB7F58B18FB5F2600A68E86 /* CDArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB7F58A18FB5F2600A68E86 /* CDArticle.m */; };
 		4BB7F58E18FB5F2700A68E86 /* CDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB7F58D18FB5F2700A68E86 /* CDFilter.m */; };
+		4BB7F59018FB653C00A68E86 /* Temp_Barceloneta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BB7F58F18FB653C00A68E86 /* Temp_Barceloneta.jpg */; };
 		4BC24ED918F946BF007FF792 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24ECD18F946BF007FF792 /* AppDelegate.m */; };
 		4BC24EDA18F946BF007FF792 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24ECF18F946BF007FF792 /* Images.xcassets */; };
 		4BC24EDB18F946BF007FF792 /* BetaHack-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24ED118F946BF007FF792 /* BetaHack-Info.plist */; };
@@ -145,6 +146,7 @@
 		4BB7F58A18FB5F2600A68E86 /* CDArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDArticle.m; sourceTree = "<group>"; };
 		4BB7F58C18FB5F2700A68E86 /* CDFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFilter.h; sourceTree = "<group>"; };
 		4BB7F58D18FB5F2700A68E86 /* CDFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilter.m; sourceTree = "<group>"; };
+		4BB7F58F18FB653C00A68E86 /* Temp_Barceloneta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Temp_Barceloneta.jpg; sourceTree = "<group>"; };
 		4BC24ECC18F946BF007FF792 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4BC24ECD18F946BF007FF792 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4BC24ECF18F946BF007FF792 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		4BC24ECE18F946BF007FF792 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				4BB7F58F18FB653C00A68E86 /* Temp_Barceloneta.jpg */,
 				4B78FB0918FB233A00322A30 /* mapHeader@2x.png */,
 				4B78FB0D18FB367700322A30 /* Article */,
 				4B78FAD418FAFE2300322A30 /* Categories */,
@@ -588,6 +591,7 @@
 				4BC24EDC18F946BF007FF792 /* InfoPlist.strings in Resources */,
 				4B78FB0F18FB367700322A30 /* separator.png in Resources */,
 				4BC24F6F18F95B16007FF792 /* Temp_MapPin.png in Resources */,
+				4BB7F59018FB653C00A68E86 /* Temp_Barceloneta.jpg in Resources */,
 				4BC24EDB18F946BF007FF792 /* BetaHack-Info.plist in Resources */,
 				4B78FAF918FB130000322A30 /* landscape.png in Resources */,
 				4B78FB0A18FB233A00322A30 /* mapHeader@2x.png in Resources */,
