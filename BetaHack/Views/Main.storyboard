@@ -293,7 +293,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E3h-Rb-k1b">
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E3h-Rb-k1b">
                                 <rect key="frame" x="0.0" y="50" width="320" height="518"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -346,6 +346,10 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.72156862749999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="E3h-Rb-k1b" firstAttribute="top" secondItem="Jg2-9S-pr1" secondAttribute="top" constant="50" id="P7l-Up-3u0"/>
+                            <constraint firstItem="QkW-gv-Rhh" firstAttribute="top" secondItem="E3h-Rb-k1b" secondAttribute="bottom" id="PWm-GQ-XGT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dST-o0-dKS"/>
                     <nil key="simulatedTopBarMetrics"/>
