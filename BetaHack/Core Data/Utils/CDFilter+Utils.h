@@ -12,7 +12,7 @@
 
 @interface CDFilter (Utils)
 
-+ (id)initWithJSON:(NSDictionary*)json type:(FilterType)type group:(FilterGroup)group name:(NSString*)name imageName:(NSString*)imageName;
++ (id)initWithJSON:(NSDictionary*)json type:(FilterType)type group:(FilterGroup)group name:(NSString*)name jsonName:(NSString*)jsonName imageName:(NSString*)imageName;
 
 - (FilterType)filterType;
 - (void)setFilterType:(FilterType)filterType;

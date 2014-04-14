@@ -17,6 +17,7 @@
 @dynamic filterTypeRaw;
 @dynamic imageName;
 @dynamic name;
+@dynamic jsonName;
 @dynamic articles;
 @dynamic installation;
 

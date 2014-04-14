@@ -65,7 +65,7 @@
     for (NSString *category in [json objectForKey:@"categories"]) {
     
         for (CDFilter *filter in [[Installation currentInstallation] sortedFilterByGroup:kFilterGroupCategory]) {
-            if ([filter.name.lowercaseString isEqualToString:category]) {
+            if ([filter.jsonName isEqualToString:category]) {
                 [self addFiltersObject:filter];
             }
         }
@@ -74,7 +74,7 @@
     for (NSString *mood in [json objectForKey:@"moods"]) {
         
         for (CDFilter *filter in [[Installation currentInstallation] sortedFilterByGroup:kFilterGroupEmotion]) {
-            if ([filter.name.lowercaseString isEqualToString:mood]) {
+            if ([filter.jsonName isEqualToString:mood]) {
                 [self addFiltersObject:filter];
             }
         }
