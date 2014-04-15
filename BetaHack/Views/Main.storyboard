@@ -47,6 +47,80 @@
             </objects>
             <point key="canvasLocation" x="-458" y="126"/>
         </scene>
+        <!--Header View Controller-->
+        <scene sceneID="SkS-pT-TkD">
+            <objects>
+                <viewController id="HUq-jc-tvT" customClass="HeaderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sf9-sj-klb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xgS-4r-F49"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RlC-gf-BzY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="headerTitle.png" translatesAutoresizingMaskIntoConstraints="NO" id="wfK-Yv-vDO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DownArrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="cX8-VW-Gf4">
+                                <rect key="frame" x="271" y="13" width="29" height="9"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xM-Zg-FCQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downTapped:" destination="HUq-jc-tvT" eventType="touchUpInside" id="BfK-Uf-wdQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Ti1-Lo-X8R">
+                                <rect key="frame" x="20" y="52" width="280" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Fromto is the result of a collaboration between 30 Barcelona-based freelancers, who decided to design, build and launch a tech project in 36 hours.  </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Fromto." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Ebk-ag-SiU">
+                                <rect key="frame" x="20" y="172" width="280" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="movieStill.png" translatesAutoresizingMaskIntoConstraints="NO" id="JbS-IE-mBR">
+                                <rect key="frame" x="0.0" y="242" width="320" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3W-1D-TtE">
+                                <rect key="frame" x="0.0" y="242" width="320" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="moviePlay.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playTapped:" destination="HUq-jc-tvT" eventType="touchUpInside" id="Hqm-hB-N7k"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1647058824" green="0.7725490196" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="400"/>
+                    <connections>
+                        <outlet property="downButtonImageView" destination="cX8-VW-Gf4" id="a6S-wz-G1C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OZl-ni-Gvj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="950" y="-343"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="SW5-bE-ceB">
             <objects>
@@ -156,6 +230,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.6705882353" green="0.64705882349999999" blue="0.84313725490000002" alpha="0.0" colorSpace="calibratedRGB"/>
                             </view>
+                            <containerView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUN-zY-YwC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="HUq-jc-tvT" kind="embed" identifier="map_header" id="oYB-S5-W7R"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -164,6 +246,7 @@
                         <outlet property="activitiesFilterButton" destination="1z9-qy-BjF" id="NdY-0d-Cqo"/>
                         <outlet property="activitiesFilterImageView" destination="LPd-2W-IUD" id="ySB-RB-qvm"/>
                         <outlet property="activitiesFilterView" destination="ShJ-CE-3hc" id="iuf-Nb-xYt"/>
+                        <outlet property="headerContainerView" destination="NUN-zY-YwC" id="zph-Vi-tfA"/>
                         <outlet property="mapView" destination="TH2-iK-WgD" id="pr7-9w-Ba2"/>
                         <outlet property="moodsFilterButton" destination="aVZ-Xs-RA3" id="tmR-3f-qRk"/>
                         <outlet property="moodsFilterImageView" destination="Row-Lg-Vk4" id="xNJ-Kp-vbV"/>
@@ -563,13 +646,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DownArrow.png" width="57" height="18"/>
         <image name="Temp_ProfilePhoto.png" width="52" height="52"/>
         <image name="back.png" width="55" height="49"/>
         <image name="filterActivity.png" width="67" height="131"/>
         <image name="filterMoods.png" width="67" height="131"/>
         <image name="filterProfiles.png" width="67" height="131"/>
         <image name="fromtoSplash.png" width="640" height="416"/>
+        <image name="headerTitle.png" width="640" height="69"/>
         <image name="image_placeholder.png" width="640" height="257"/>
+        <image name="moviePlay.png" width="640" height="257"/>
+        <image name="movieStill.png" width="640" height="358"/>
         <image name="separator.png" width="538" height="1"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

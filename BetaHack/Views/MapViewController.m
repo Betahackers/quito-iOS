@@ -11,10 +11,11 @@
 #import "ArticleViewController.h"
 #import "FilterViewController.h"
 #import "ILTranslucentView.h"
+#import "HeaderViewController.h"
 
 @interface MapViewController ()
 
-@property (nonatomic, strong) IBOutlet UIView *menuContainerView;
+@property (nonatomic, strong) IBOutlet UIView *headerContainerView;
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 
 @property (nonatomic, strong) IBOutlet UIView *activitiesFilterView;
@@ -44,14 +45,11 @@ BOOL isFirstTime;
 {
     [super viewDidLoad];
     [self.view applyMontserratFontToSubviews];
-    [self.menuContainerView setAlpha:0];
+    [self.headerContainerView setFrameHeight:35];
 
     self.profilesFilterImageView.layer.masksToBounds = NO;
     self.profilesFilterImageView.clipsToBounds = YES;
     self.profilesFilterImageView.layer.cornerRadius = (self.profilesFilterImageView.frame.size.height / 2);
-    
-    UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mapHeader.png"]];
-    [self.view addSubview:headerImageView];
     
     [self.moodsFilterView setAlpha:0.0f];
     [self.activitiesFilterView setAlpha:0.0f];
@@ -135,6 +133,11 @@ BOOL isFirstTime;
         }
         viewController.mapViewDelegate = self;
     }
+    
+    if ([segue.identifier isEqualToString:@"map_header"]) {
+        HeaderViewController *viewController = (HeaderViewController *)segue.destinationViewController;
+        viewController.mapViewDelegate = self;
+    }
 }
 
 - (IBAction)locationTapped:(UIButton*)sender {
@@ -165,8 +168,15 @@ BOOL isFirstTime;
     }
 }
 
-- (void)showView {
+- (void)showHideHeader {
     
+    [UIView animateWithDuration:0.3 animations:^{
+        if (self.headerContainerView.frame.size.height != 35) {
+            [self.headerContainerView setFrameHeight:35];
+        } else {
+            [self.headerContainerView setFrameHeight:400];
+        }
+    }];
 }
 
 - (void)applyFilter:(CDFilter *)filter {

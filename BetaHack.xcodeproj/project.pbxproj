@@ -140,6 +140,15 @@
 		4BE4792618FDB62A003D7D27 /* CDLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4792518FDB62A003D7D27 /* CDLocation.m */; };
 		4BE4792818FDBAEB003D7D27 /* image_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4792718FDBAEB003D7D27 /* image_placeholder.png */; };
 		4BE4792A18FDBF26003D7D27 /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4792918FDBF26003D7D27 /* separator.png */; };
+		4BE4792E18FDC339003D7D27 /* promo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4792C18FDC339003D7D27 /* promo.mp4 */; };
+		4BE4792F18FDC339003D7D27 /* tutorial.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4792D18FDC339003D7D27 /* tutorial.mp4 */; };
+		4BE4793118FDC3FD003D7D27 /* headerView.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4793018FDC3FD003D7D27 /* headerView.png */; };
+		4BE4793318FDC449003D7D27 /* headerTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4793218FDC449003D7D27 /* headerTitle.png */; };
+		4BE4793518FDC4B8003D7D27 /* UpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4793418FDC4B8003D7D27 /* UpArrow.png */; };
+		4BE4793718FDC710003D7D27 /* movieStill.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4793618FDC710003D7D27 /* movieStill.png */; };
+		4BE4793918FDC77A003D7D27 /* moviePlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4793818FDC77A003D7D27 /* moviePlay.png */; };
+		4BE4793C18FDC816003D7D27 /* HeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4793B18FDC816003D7D27 /* HeaderViewController.m */; };
+		4BE4793E18FDCA44003D7D27 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE4793D18FDCA44003D7D27 /* MediaPlayer.framework */; };
 		FAD5409421DE48A988C347D2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D0837A406B4972A8669783 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -318,6 +327,16 @@
 		4BE4792518FDB62A003D7D27 /* CDLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLocation.m; sourceTree = "<group>"; };
 		4BE4792718FDBAEB003D7D27 /* image_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_placeholder.png; sourceTree = "<group>"; };
 		4BE4792918FDBF26003D7D27 /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
+		4BE4792C18FDC339003D7D27 /* promo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = promo.mp4; sourceTree = "<group>"; };
+		4BE4792D18FDC339003D7D27 /* tutorial.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.mp4; sourceTree = "<group>"; };
+		4BE4793018FDC3FD003D7D27 /* headerView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerView.png; sourceTree = "<group>"; };
+		4BE4793218FDC449003D7D27 /* headerTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerTitle.png; sourceTree = "<group>"; };
+		4BE4793418FDC4B8003D7D27 /* UpArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpArrow.png; sourceTree = "<group>"; };
+		4BE4793618FDC710003D7D27 /* movieStill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movieStill.png; sourceTree = "<group>"; };
+		4BE4793818FDC77A003D7D27 /* moviePlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moviePlay.png; sourceTree = "<group>"; };
+		4BE4793A18FDC816003D7D27 /* HeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderViewController.h; sourceTree = "<group>"; };
+		4BE4793B18FDC816003D7D27 /* HeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderViewController.m; sourceTree = "<group>"; };
+		4BE4793D18FDCA44003D7D27 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +344,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE4793E18FDCA44003D7D27 /* MediaPlayer.framework in Frameworks */,
 				4B8243B218F9C4C60097854D /* MapKit.framework in Frameworks */,
 				4B8243B018F9B2620097854D /* SystemConfiguration.framework in Frameworks */,
 				4B8243AE18F9B22A0097854D /* AdSupport.framework in Frameworks */,
@@ -461,7 +481,12 @@
 		4BC24ECE18F946BF007FF792 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				4BE4793018FDC3FD003D7D27 /* headerView.png */,
+				4BE4793218FDC449003D7D27 /* headerTitle.png */,
+				4BE4793418FDC4B8003D7D27 /* UpArrow.png */,
+				4BE4793818FDC77A003D7D27 /* moviePlay.png */,
 				4BE4790518FD962E003D7D27 /* DownArrow.png */,
+				4BE4793618FDC710003D7D27 /* movieStill.png */,
 				4BE4790618FD962E003D7D27 /* NoProfilePhoto.png */,
 				4BB7F58F18FB653C00A68E86 /* Temp_Barceloneta.jpg */,
 				4B546B7F18FB78940091C821 /* BackArrow.png */,
@@ -471,6 +496,7 @@
 				4BE4792718FDBAEB003D7D27 /* image_placeholder.png */,
 				4BE4792918FDBF26003D7D27 /* separator.png */,
 				4BE478FC18FD64F2003D7D27 /* more.png */,
+				4BE4792B18FDC339003D7D27 /* video */,
 				4B546B4518FB725F0091C821 /* Hello */,
 				4B78FB0D18FB367700322A30 /* Article */,
 				4B78FAD418FAFE2300322A30 /* Categories */,
@@ -510,6 +536,8 @@
 				4B78FAD218FAE91500322A30 /* FilterViewController.m */,
 				4BC24EE018F94B95007FF792 /* ArticleViewController.h */,
 				4BC24EE118F94B95007FF792 /* ArticleViewController.m */,
+				4BE4793A18FDC816003D7D27 /* HeaderViewController.h */,
+				4BE4793B18FDC816003D7D27 /* HeaderViewController.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -642,6 +670,7 @@
 		4BE2A32C18F93E8F00386607 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4BE4793D18FDCA44003D7D27 /* MediaPlayer.framework */,
 				4B8243B118F9C4C60097854D /* MapKit.framework */,
 				4B8243AF18F9B2620097854D /* SystemConfiguration.framework */,
 				4B8243AD18F9B22A0097854D /* AdSupport.framework */,
@@ -685,6 +714,15 @@
 				4BE2A35518F93E8F00386607 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4BE4792B18FDC339003D7D27 /* video */ = {
+			isa = PBXGroup;
+			children = (
+				4BE4792C18FDC339003D7D27 /* promo.mp4 */,
+				4BE4792D18FDC339003D7D27 /* tutorial.mp4 */,
+			);
+			path = video;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -769,6 +807,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BE4791918FDAC50003D7D27 /* point_profile_100.png in Resources */,
+				4BE4793118FDC3FD003D7D27 /* headerView.png in Resources */,
 				4B546B6218FB725F0091C821 /* fromto_hola_App_05.png in Resources */,
 				4BE4790718FD962E003D7D27 /* DownArrow.png in Resources */,
 				4B546B8218FB7A7A0091C821 /* fromtoSplash.png in Resources */,
@@ -788,6 +827,7 @@
 				4B546B5F18FB725F0091C821 /* fromto_hola_App_02.png in Resources */,
 				4BE478E218FD46AE003D7D27 /* social_circle.png in Resources */,
 				4BE478D118FD46AE003D7D27 /* haveastroll_circle.png in Resources */,
+				4BE4793718FDC710003D7D27 /* movieStill.png in Resources */,
 				4B78FB0C18FB2E9600322A30 /* Temp_ProfilePhoto2.jpg in Resources */,
 				4B82439918F9AD580097854D /* Temp_ProfilePhoto.png in Resources */,
 				4BC24EDA18F946BF007FF792 /* Images.xcassets in Resources */,
@@ -795,6 +835,7 @@
 				4BE4792818FDBAEB003D7D27 /* image_placeholder.png in Resources */,
 				4BE478C518FD46AE003D7D27 /* adventure_circle.png in Resources */,
 				4BE478D618FD46AE003D7D27 /* intellectual.png in Resources */,
+				4BE4793918FDC77A003D7D27 /* moviePlay.png in Resources */,
 				4BC56CFB18FAD48100B7DD7E /* fromto.png in Resources */,
 				4B546B6F18FB725F0091C821 /* fromto_hola_App_18.png in Resources */,
 				4BE478E918FD4881003D7D27 /* filterProfiles.png in Resources */,
@@ -808,6 +849,7 @@
 				4BE4791818FDAC50003D7D27 /* point_mood@2x.png in Resources */,
 				4B78FB0A18FB233A00322A30 /* mapHeader@2x.png in Resources */,
 				4B546B6D18FB725F0091C821 /* fromto_hola_App_16.png in Resources */,
+				4BE4792E18FDC339003D7D27 /* promo.mp4 in Resources */,
 				4B546B6718FB725F0091C821 /* fromto_hola_App_10.png in Resources */,
 				4B546B6B18FB725F0091C821 /* fromto_hola_App_14.png in Resources */,
 				4BE478C618FD46AE003D7D27 /* adventure.png in Resources */,
@@ -818,9 +860,11 @@
 				4BE478D018FD46AE003D7D27 /* food.png in Resources */,
 				4BE4791718FDAC50003D7D27 /* point_mood_100.png in Resources */,
 				4BE478DC18FD46AE003D7D27 /* music.png in Resources */,
+				4BE4792F18FDC339003D7D27 /* tutorial.mp4 in Resources */,
 				4BE478D918FD46AE003D7D27 /* lonely_circle.png in Resources */,
 				4B546B6A18FB725F0091C821 /* fromto_hola_App_13.png in Resources */,
 				4BE478C818FD46AE003D7D27 /* alternative.png in Resources */,
+				4BE4793518FDC4B8003D7D27 /* UpArrow.png in Resources */,
 				4B546B6018FB725F0091C821 /* fromto_hola_App_03.png in Resources */,
 				4BE478DB18FD46AE003D7D27 /* music_circle.png in Resources */,
 				4B546B7518FB725F0091C821 /* fromto_hola_App_00.png in Resources */,
@@ -842,6 +886,7 @@
 				4B546B6318FB725F0091C821 /* fromto_hola_App_06.png in Resources */,
 				4BE478D718FD46AE003D7D27 /* lawbreaker_circle.png in Resources */,
 				4BE478D818FD46AE003D7D27 /* lawbreaker.png in Resources */,
+				4BE4793318FDC449003D7D27 /* headerTitle.png in Resources */,
 				4BC24EDE18F946BF007FF792 /* Main.storyboard in Resources */,
 				4B546B7D18FB73CA0091C821 /* LICENSE in Resources */,
 				4B546B6518FB725F0091C821 /* fromto_hola_App_08.png in Resources */,
@@ -930,6 +975,7 @@
 				4B78FAD318FAE91500322A30 /* FilterViewController.m in Sources */,
 				4BC24ED918F946BF007FF792 /* AppDelegate.m in Sources */,
 				4BC24F5018F95557007FF792 /* UIView+Utils.m in Sources */,
+				4BE4793C18FDC816003D7D27 /* HeaderViewController.m in Sources */,
 				4BE4792618FDB62A003D7D27 /* CDLocation.m in Sources */,
 				4B546B7C18FB73CA0091C821 /* ILTranslucentView.m in Sources */,
 				4BC24F0F18F952F6007FF792 /* Model.xcdatamodeld in Sources */,

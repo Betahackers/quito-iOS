@@ -15,7 +15,7 @@
 @protocol MapViewDelegate
 - (void)applyFilter:(CDFilter*)filter;
 - (void)applyProfile:(CDProfile*)profile;
-
+- (void)showHideHeader;
 @end
 
 @interface MapViewController : UIViewController <MapViewDelegate, MKMapViewDelegate>
