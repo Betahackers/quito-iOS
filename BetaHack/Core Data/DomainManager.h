@@ -16,6 +16,7 @@
 #import "CDProfile+Utils.h"
 #import "CDFilter+Utils.h"
 #import "CDLocation+Utils.h"
+#import "UIViewController+Transitions.h"
 
 #import "NSDate+Utils.h"
 #import "NSSorting.h"

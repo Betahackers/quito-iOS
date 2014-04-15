@@ -154,7 +154,7 @@ static Installation *currentInstallation;
 - (void)fetchUsers:(void (^)(NSError *error))completion {
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://fromto.es/v1/users.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"http://fromto.es/v2/users.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         //add the articles
         NSDictionary *usersDict = (NSDictionary*)responseObject;

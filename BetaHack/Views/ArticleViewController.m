@@ -12,6 +12,7 @@
 
 @interface ArticleViewController () {
     NSMutableArray *sections;
+    BOOL isLoadingFullLocation;
 }
 @end
 
@@ -20,8 +21,13 @@
 typedef enum tableSections
 {
     kSectionProfile,
-    kSectionProfileFooter,
-    kSectionArticle
+    kSectionArticleImage,
+    kSectionArticleTitle,
+    kSectionArticleSubtitle,
+    kSectionArticleDescription,
+    kSectionArticleAddress,
+    kSectionArticleURL,
+    kSectionArticleSocial
 } TableSections;
 
 - (void)viewDidLoad
@@ -35,11 +41,22 @@ typedef enum tableSections
     
     [self.navigationController setNavigationBarHidden:YES];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTable)
+                                                 name:@"profilePhotoUpdated"
+                                               object:nil];
+    
     [self reloadTable];
     
     [self.article.locations.anyObject fetchFullLocation:^(NSError *error) {
-        [self reloadTable];
+         [self reloadTable];
+    } completion:^(NSError *error) {
+         [self reloadTable];
     }];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"profilePhotoUpdated" object:nil];
 }
 
 - (void)reloadTable {
@@ -49,6 +66,29 @@ typedef enum tableSections
     [sections addObject:[NSArray arrayWithObject:self.article]];
     [sections addObject:[NSArray arrayWithObject:self.article]];
     [sections addObject:[NSArray arrayWithObject:self.article]];
+    [sections addObject:[NSArray arrayWithObject:self.article]];
+    [sections addObject:[NSArray arrayWithObject:self.article]];
+    
+    //address
+    if (self.article.location.addressLine1.length > 0) {
+        [sections addObject:[NSArray arrayWithObject:self.article]];
+    } else {
+        [sections addObject:[NSArray array]];
+    }
+    
+    //url
+    if (self.article.location.locationURL.length > 0) {
+        [sections addObject:[NSArray arrayWithObject:self.article]];
+    } else {
+        [sections addObject:[NSArray array]];
+    }
+    
+    //social
+    if (self.article.location.foursquareURL.length > 0) {
+        [sections addObject:[NSArray arrayWithObject:self.article]];
+    } else {
+        [sections addObject:[NSArray array]];
+    }
     
     [self.tableView reloadData];
 }
@@ -75,58 +115,63 @@ typedef enum tableSections
     switch (indexPath.section) {
         
         case kSectionProfile: {
-    
             static NSString *CellIdentifier = @"ArticleProfileCell";
             ArticleProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            [cell.contentView applyMontserratFontToSubviews];
-            
-            cell.delegate = self;
-            
-            cell.profileImageView.image = self.article.profile.profileImage;
-            cell.profileImageView.layer.masksToBounds = NO;
-            cell.profileImageView.clipsToBounds = YES;
-            cell.profileImageView.layer.cornerRadius = (cell.profileImageView.frame.size.height / 2);
-            
-            cell.nameLabel.text = self.article.profile.displayName;
-            [cell.nameLabel applyFontMontserratWithWeight:kFontWeightBold];
-            cell.expertLabel.text = [NSString stringWithFormat:@"Expert in... %@", self.article.profile.expertIn];
-            [cell.expertLabel applyFontMontserratWithWeight:kFontWeightBold];
-            
-            cell.biographyLabel.text = self.article.profile.biography;
-            
+            [cell initWithArticle:self.article delegate:self];
             cell.backgroundColor = [self colourForFilterGroup:self.selectedFilterGroup];
-            
             return cell;
         }
             
-        case kSectionProfileFooter: {
-            
-            static NSString *CellIdentifier = @"ArticleProfileFooterCell";
-            ArticleProfileFooterCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            [cell.contentView applyMontserratFontToSubviews];
-            
-            cell.hometownLabel.text = self.article.profile.hometown;
-            cell.jobTitleLabel.text = self.article.profile.jobTitle;
-            
-            if (self.article.articleImage != nil) {
-                cell.articleImageView.image = self.article.articleImage;
-            } else {
-                cell.articleImageView.image = [UIImage imageNamed:@"Temp_Barceloneta.jpg"];
-                
-                ILTranslucentView *translucentView = [[ILTranslucentView alloc] initWithFrame:cell.articleImageView.bounds];
-                translucentView.translucentStyle = UIBarStyleBlack;
-                [cell.articleImageView addSubview:translucentView];
-            }
-            
-            cell.backgroundColor = [self colourForFilterGroup:self.selectedFilterGroup];
-            
+        case kSectionArticleImage: {
+            static NSString *CellIdentifier = @"ArticleImageCell";
+            ArticleImageCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            [cell initWithArticle:self.article];
             return cell;
         }
             
-        case kSectionArticle: {
+        case kSectionArticleTitle: {
+            static NSString *CellIdentifier = @"ArticleTitleCell";
+            ArticleTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            [cell initWithArticle:self.article];
+            cell.backgroundColor = [self lightColourForFilterGroup:self.selectedFilterGroup];
+            return cell;
+        }
             
-            static NSString *CellIdentifier = @"ArticleBodyCell";
-            ArticleBodyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        case kSectionArticleSubtitle: {
+            static NSString *CellIdentifier = @"ArticleSubtitleCell";
+            ArticleSubtitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            [cell initWithArticle:self.article];
+            cell.backgroundColor = [self lightColourForFilterGroup:self.selectedFilterGroup];
+            return cell;
+        }
+            
+        case kSectionArticleDescription: {
+            static NSString *CellIdentifier = @"ArticleDescriptionCell";
+            ArticleDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            [cell initWithArticle:self.article];
+            cell.backgroundColor = [self lightColourForFilterGroup:self.selectedFilterGroup];
+            return cell;
+        }
+            
+        case kSectionArticleAddress: {
+            static NSString *CellIdentifier = @"ArticleAddressCell";
+            ArticleAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            [cell initWithArticle:self.article];
+            cell.backgroundColor = [self lightColourForFilterGroup:self.selectedFilterGroup];
+            return cell;
+        }
+            
+        case kSectionArticleURL: {
+            static NSString *CellIdentifier = @"ArticleURLCell";
+            ArticleURLCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            [cell initWithArticle:self.article];
+            cell.backgroundColor = [self lightColourForFilterGroup:self.selectedFilterGroup];
+            return cell;
+        }
+            
+        case kSectionArticleSocial: {
+            static NSString *CellIdentifier = @"ArticleSocialCell";
+            ArticleSocialCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             [cell initWithArticle:self.article];
             cell.backgroundColor = [self lightColourForFilterGroup:self.selectedFilterGroup];
             return cell;
@@ -163,16 +208,34 @@ typedef enum tableSections
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier;
-    if (indexPath.section == kSectionProfile)
+    if (indexPath.section == kSectionProfile) {
         CellIdentifier = @"ArticleProfileCell";
-    else if (indexPath.section == kSectionProfileFooter)
-        CellIdentifier = @"ArticleProfileFooterCell";
-    else if (indexPath.section == kSectionArticle) {
-        CellIdentifier = @"ArticleBodyCell";
-        ArticleBodyCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        ArticleProfileCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        [cell initWithArticle:self.article delegate:self];
+        return cell.overlayBiographyLabel.frame.origin.y + cell.overlayBiographyLabel.frame.size.height + 10;
+    } else if (indexPath.section == kSectionArticleImage)
+        CellIdentifier = @"ArticleImageCell";
+    else if (indexPath.section == kSectionArticleTitle) {
+        CellIdentifier = @"ArticleTitleCell";
+        ArticleTitleCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        [cell initWithArticle:self.article];
+        return cell.overlayTitleLabel.frame.origin.y + cell.overlayTitleLabel.frame.size.height + 4;
+    } else if (indexPath.section == kSectionArticleSubtitle) {
+        CellIdentifier = @"ArticleSubtitleCell";
+        ArticleSubtitleCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        [cell initWithArticle:self.article];
+        return cell.overlaySubtitleLabel.frame.origin.y + cell.overlaySubtitleLabel.frame.size.height + 4;
+    } else if (indexPath.section == kSectionArticleDescription) {
+        CellIdentifier = @"ArticleDescriptionCell";
+        ArticleDescriptionCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         [cell initWithArticle:self.article];
         return cell.overlayContentLabel.frame.origin.y + cell.overlayContentLabel.frame.size.height + 10;
-    }
+    } else if (indexPath.section == kSectionArticleAddress)
+        CellIdentifier = @"ArticleProfileCell";
+    else if (indexPath.section == kSectionArticleURL)
+        CellIdentifier = @"ArticleProfileCell";
+    else if (indexPath.section == kSectionArticleSocial)
+        CellIdentifier = @"ArticleProfileCell";
     
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     return cell.bounds.size.height;
@@ -183,34 +246,108 @@ typedef enum tableSections
 #pragma mark - Prototype cells
 @implementation ArticleProfileCell
 
+- (void)initWithArticle:(CDArticle*)article delegate:(id<ArticleViewDelegate>)delegate {
+    
+    self.delegate = delegate;
+    
+    [self.contentView applyMontserratFontToSubviews];
+    
+    self.profileImageView.image = article.profile.profileImage;
+    self.profileImageView.layer.masksToBounds = NO;
+    self.profileImageView.clipsToBounds = YES;
+    self.profileImageView.layer.cornerRadius = (self.profileImageView.frame.size.height / 2);
+    
+    self.firstNameLabel.text = article.profile.firstName;
+    [self.firstNameLabel applyFontMontserratWithWeight:kFontWeightBold];
+    
+    self.surnameLabel.text = article.profile.lastName;
+    [self.surnameLabel applyFontMontserratWithWeight:kFontWeightBold];
+    
+    self.expertInLabel.text = article.profile.expertIn;
+    [self.expertInLabel applyFontMontserratWithWeight:kFontWeightBold];
+    [self.expertLabel applyFontMontserratWithWeight:kFontWeightBold];
+    
+    self.biographyLabel.text = article.profile.biography;
+    [self.biographyLabel applyFontMontserratWithWeight:kFontWeightBold];
+    self.overlayBiographyLabel = [self.biographyLabel replaceWithMultilineLabel];
+    
+    self.hometownLabel.text = article.profile.hometown;
+    self.jobTitleLabel.text = article.profile.jobTitle;
+}
+
 - (IBAction)backTapped:(id)sender {
     [self.delegate popViewController];
 }
 @end
 
-@implementation ArticleProfileFooterCell
+@implementation ArticleImageCell
+
+- (void)initWithArticle:(CDArticle*)article {
+    
+    if (article.location.image != nil) {
+        self.articleImageView.image = article.location.image;
+    }
+}
 @end
 
-@implementation ArticleBodyCell
+@implementation ArticleTitleCell
 
 - (void)initWithArticle:(CDArticle*)article {
     
     [self.contentView applyMontserratFontToSubviews];
-    
-    self.introLabel.text = article.title;
-    self.titleLabel.text = article.locationName;
+    self.titleLabel.text = article.location.name;
     [self.titleLabel applyFontMontserratWithWeight:kFontWeightBold];
-    self.contentLabel.text = article.content;
+    self.overlayTitleLabel = [self.titleLabel replaceWithMultilineLabel];
+}
+@end
+
+@implementation ArticleSubtitleCell
+
+- (void)initWithArticle:(CDArticle*)article {
     
-    //hide the suggestion label and add another label ontop with a variable size
-    self.contentLabel.hidden = YES;
-    self.overlayContentLabel = [[UILabel alloc] initWithFrame:self.contentLabel.frame];
-    [self.overlayContentLabel setFont:self.contentLabel.font];
-    [self.overlayContentLabel setText:self.contentLabel.text];
-    [self.overlayContentLabel setTextAlignment:self.contentLabel.textAlignment];
-    [self.overlayContentLabel setNumberOfLines:0];
-    [self.overlayContentLabel setTextColor:self.contentLabel.textColor];
-    [self.overlayContentLabel sizeToFit];
-    [self addSubview:self.overlayContentLabel];
+    [self.contentView applyMontserratFontToSubviews];
+    self.subtitleLabel.text = article.location.name;
+    [self.subtitleLabel applyFontMontserratWithWeight:kFontWeightBold];
+    self.overlaySubtitleLabel = [self.subtitleLabel replaceWithMultilineLabel];
+}
+@end
+
+@implementation ArticleDescriptionCell
+
+- (void)initWithArticle:(CDArticle*)article {
+    
+    [self.contentView applyMontserratFontToSubviews];
+    self.contentLabel.text = article.content;
+    self.overlayContentLabel = [self.contentLabel replaceWithMultilineLabel];
+}
+@end
+
+@implementation ArticleAddressCell
+
+- (void)initWithArticle:(CDArticle*)article {
+    
+    [self.contentView applyMontserratFontToSubviews];
+    self.addressLine1.text = article.location.addressLine1;
+    self.addressLine2.text = article.location.formattedTelephoneNumber;
+}
+@end
+
+@implementation ArticleURLCell
+
+- (void)initWithArticle:(CDArticle*)article {
+    
+    [self.contentView applyMontserratFontToSubviews];
+//    self.url.text = article.locations;
+    [self.url applyFontMontserratWithWeight:kFontWeightBold];
+}
+@end
+
+@implementation ArticleSocialCell
+
+- (void)initWithArticle:(CDArticle*)article {
+    
+    [self.contentView applyMontserratFontToSubviews];
+//    self.foursquareLabel.text = article.locations;
+    [self.foursquareLabel applyFontMontserratWithWeight:kFontWeightBold];
 }
 @end

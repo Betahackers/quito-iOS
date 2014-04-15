@@ -53,9 +53,9 @@ BOOL isFirstTime;
     UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mapHeader.png"]];
     [self.view addSubview:headerImageView];
     
-    [self.moodsFilterButton setAlpha:0.0f];
-    [self.activitiesFilterButton setAlpha:0.0f];
-    [self.profilesFilterButton setAlpha:0.0f];
+    [self.moodsFilterView setAlpha:0.0f];
+    [self.activitiesFilterView setAlpha:0.0f];
+    [self.profilesFilterView setAlpha:0.0f];
     
     isFirstTime = YES;
 }
@@ -74,22 +74,22 @@ BOOL isFirstTime;
         self.translucentHolderView = [[UIView alloc] initWithFrame:self.view.frame];
         [self.view addSubview:self.translucentHolderView];
         
-        ILTranslucentView *translucentView = [[ILTranslucentView alloc] initWithFrame:self.view.frame];
-        [self.translucentHolderView addSubview:translucentView];
-        
-        //    //optional:
-        //    translucentView.translucentAlpha = 1;
-        translucentView.translucentStyle = UIBarStyleBlack;
-        //    translucentView.translucentTintColor = [UIColor clearColor];
-        //    translucentView.backgroundColor = [UIColor clearColor];
+        UIColor *randomBackgroundColor;
+        int rand = arc4random() % 3;
+        switch (rand) {
+            case 0: randomBackgroundColor = [UIColor fromtoActivityColour]; break;
+            case 1: randomBackgroundColor = [UIColor fromtoMoodColour]; break;
+            default: randomBackgroundColor = [UIColor fromtoProfileColour]; break;
+        }
+        [self.translucentHolderView setBackgroundColor:randomBackgroundColor];
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
         [imageView setContentMode:UIViewContentModeScaleAspectFit];
         
-        int rand = arc4random() % 24;
+        rand = arc4random() % 24;
         NSString *imageName = [NSString stringWithFormat:@"fromto_hola_App_%02d.png", rand];
         [imageView setImage:[UIImage imageNamed:imageName]];
-        [translucentView addSubview:imageView];
+        [self.translucentHolderView addSubview:imageView];
         
         isFirstTime = NO;
     }
@@ -98,9 +98,10 @@ BOOL isFirstTime;
 - (void)viewDidAppear:(BOOL)animated {
     
     [UIView animateWithDuration:2.0 animations:^{
-        [self.moodsFilterButton setAlpha:1.0f];
-        [self.activitiesFilterButton setAlpha:1.0f];
-        [self.profilesFilterButton setAlpha:1.0f];
+        [self.moodsFilterView setAlpha:1.0f];
+        [self.activitiesFilterView setAlpha:1.0f];
+        [self.profilesFilterView setAlpha:1.0f];
+        
     } completion:^(BOOL finished) {
     
         [UIView animateWithDuration:0.8 animations:^{
@@ -164,6 +165,10 @@ BOOL isFirstTime;
     }
 }
 
+- (void)showView {
+    
+}
+
 - (void)applyFilter:(CDFilter *)filter {
     if (self.selectedFilter == filter) {
         self.selectedFilter = nil;
@@ -204,24 +209,24 @@ BOOL isFirstTime;
         
         if (self.selectedFilter) {
             if (self.selectedFilter.filterGroup == kFilterGroupEmotion) {
-                annotationView.image = [UIImage imageNamed:@"point_select_moods.png"];
+                annotationView.image = [UIImage imageNamed:@"point_mood.png"];
             } else {
-                annotationView.image = [UIImage imageNamed:@"point_select_activities.png"];
+                annotationView.image = [UIImage imageNamed:@"point_activity.png"];
             }
         } else if (self.selectedProfile) {
-            annotationView.image = [UIImage imageNamed:@"point_select_profiles.png"];
+            annotationView.image = [UIImage imageNamed:@"point_profile.png"];
         } else {
             
             MyAnnotation *mapViewAnnotation = (MyAnnotation*)annotationView.annotation;
             switch (mapViewAnnotation.article.defaultFilterGroupColour) {
                 case kFilterGroupCategory:
-                    annotationView.image = [UIImage imageNamed:@"point_select_activities.png"];
+                    annotationView.image = [UIImage imageNamed:@"point_activity.png"];
                     break;
                 case kFilterGroupEmotion:
-                    annotationView.image = [UIImage imageNamed:@"point_select_moods.png"];
+                    annotationView.image = [UIImage imageNamed:@"point_mood.png"];
                     break;
                 case kFilterGroupProfile:
-                    annotationView.image = [UIImage imageNamed:@"point_select_profiles.png"];
+                    annotationView.image = [UIImage imageNamed:@"point_profile.png"];
                     break;
                 default:
                     break;
@@ -241,11 +246,11 @@ BOOL isFirstTime;
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     MKMapRect mRect = mapView.visibleMapRect;
-    MKMapPoint eastMapPoint = MKMapPointMake(MKMapRectGetMinX(mRect), MKMapRectGetMidY(mRect));
-    MKMapPoint westMapPoint = MKMapPointMake(MKMapRectGetMaxX(mRect), MKMapRectGetMidY(mRect));
+    MKMapPoint northMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMinY(mRect));
+    MKMapPoint southMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMaxY(mRect));
     
-    float distanceBetweenEastAndWest = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
-    float radius = distanceBetweenEastAndWest / 2.0f;
+    float distanceBetweenNorthAndSouth = MKMetersBetweenMapPoints(northMapPoint, southMapPoint);
+    float radius = distanceBetweenNorthAndSouth / 2.0f;
     
     NSLog(@"Radius: %f", radius);
     
@@ -297,28 +302,32 @@ BOOL isFirstTime;
         }
     }];
     
-    //hide all the buttons
-    self.activitiesFilterImageView.image = nil;
-    self.profilesFilterImageView.image = nil;
-    self.moodsFilterImageView.image = nil;
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        [self.moodsFilterView setFrameOriginX:-34];
-        [self.activitiesFilterView setFrameOriginX:-34];
-        [self.profilesFilterView setFrameOriginX:-34];
-    }];
-    
+    //hide all the buttons    
     if (self.selectedFilter != nil) {
         if (self.selectedFilter.filterGroup == kFilterGroupEmotion) {
             [self.moodsFilterImageView setImage:[self.selectedFilter filterImageWithCircle:NO]];
             [UIView animateWithDuration:0.3 animations:^{
+                
+                [self.moodsFilterImageView setAlpha:1.0f];
+                [self.activitiesFilterImageView setAlpha:0.0f];
+                [self.profilesFilterImageView setAlpha:0.0f];
+                
                 [self.moodsFilterView setFrameOriginX:0];
+                [self.activitiesFilterView setFrameOriginX:-34];
+                [self.profilesFilterView setFrameOriginX:-34];
             }];
             
         } else {
             [self.activitiesFilterImageView setImage:[self.selectedFilter filterImageWithCircle:NO]];
             [UIView animateWithDuration:0.3 animations:^{
+                
                 [self.activitiesFilterView setFrameOriginX:0];
+                [self.moodsFilterView setFrameOriginX:-34];
+                [self.profilesFilterView setFrameOriginX:-34];
+                
+                [self.moodsFilterImageView setAlpha:0.0f];
+                [self.activitiesFilterImageView setAlpha:1.0f];
+                [self.profilesFilterImageView setAlpha:0.0f];
             }];
         }
         
@@ -326,6 +335,22 @@ BOOL isFirstTime;
         [self.profilesFilterImageView setImage:self.selectedProfile.profileImage];
         [UIView animateWithDuration:0.3 animations:^{
             [self.profilesFilterView setFrameOriginX:0];
+            [self.activitiesFilterView setFrameOriginX:-34];
+            [self.moodsFilterView setFrameOriginX:-34];
+            
+            [self.moodsFilterImageView setAlpha:0.0f];
+            [self.activitiesFilterImageView setAlpha:0.0f];
+            [self.profilesFilterImageView setAlpha:1.0f];
+        }];
+    } else {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.profilesFilterView setFrameOriginX:-34];
+            [self.activitiesFilterView setFrameOriginX:-34];
+            [self.moodsFilterView setFrameOriginX:-34];
+            
+            [self.moodsFilterImageView setAlpha:0.0f];
+            [self.activitiesFilterImageView setAlpha:0.0f];
+            [self.profilesFilterImageView setAlpha:0.0f];
         }];
     }
 }

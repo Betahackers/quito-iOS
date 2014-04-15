@@ -12,6 +12,10 @@
 @interface FilterViewController () {
     NSMutableArray *sections;
 }
+
+@property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *chooseLabel;
 @end
 
 @implementation FilterViewController
@@ -36,21 +40,32 @@ typedef enum tableSections
         case kFilterGroupCategory:
             self.view.backgroundColor = [UIColor fromtoActivityColour];
             self.titleLabel.text = @"Activities";
+            self.chooseLabel.text = @"Choose an activity";
             break;
         case kFilterGroupEmotion:
             self.view.backgroundColor = [UIColor fromtoMoodColour];
             self.titleLabel.text = @"Moods";
+            self.chooseLabel.text = @"Choose a mood";
             break;
         case kFilterGroupProfile:
             self.view.backgroundColor = [UIColor fromtoProfileColour];
             self.titleLabel.text = @"Profiles";
+            self.chooseLabel.text = @"Choose a profile";
             break;
         default:
             break;
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTable)
+                                                 name:@"profilePhotoUpdated"
+                                               object:nil];
     
     [self reloadTable];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"profilePhotoUpdated" object:nil];
 }
 
 - (void)reloadTable {
@@ -72,6 +87,10 @@ typedef enum tableSections
     }
     
     [self.collectionView reloadData];
+}
+
+- (IBAction)backTapped:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - FilterCardCellDelegate
@@ -103,7 +122,7 @@ typedef enum tableSections
             
             if ([filterItem isKindOfClass:[CDProfile class]]) {
                 CDProfile *profile = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-                cell.titleLabel.text = profile.displayName;
+                cell.titleLabel.text = profile.shortDisplayName;
                 cell.filterImage.image = profile.profileImage;
                 cell.filterImage.layer.masksToBounds = NO;
                 cell.filterImage.clipsToBounds = YES;

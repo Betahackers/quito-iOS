@@ -8,6 +8,7 @@
 
 #import "CDProfile+Utils.h"
 #import "DomainManager.h"
+#import "AFNetworking.h"
 
 @implementation CDProfile (Utils)
 
@@ -71,6 +72,32 @@
         if (url != (NSString *)[NSNull null]) {
             self.url = url;
         }
+        
+        //get the avatar URL
+        NSString *avatarPrefix = [json objectForKey:@"avatar_url_prefix"];
+        NSString *avatarSuffix = [json objectForKey:@"avatar_url_suffix"];
+        NSString *photoURL = [NSString stringWithFormat:@"%@iphone_%@", avatarPrefix, avatarSuffix];
+        
+        if (![self.photoURL.lowercaseString isEqualToString:photoURL.lowercaseString]) {
+            
+            //load the photo
+            NSLog(@"URL: %@", photoURL);
+            
+            NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:photoURL]];
+            AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+            requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+            [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
+                NSLog(@"Response: %@", responseObject);
+                self.photoData = UIImageJPEGRepresentation(responseObject, 1.0);
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"profilePhotoUpdated" object:self];
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"Image error: %@", error);
+            }];
+            [requestOperation start];
+        }
     }
 }
 
@@ -83,8 +110,22 @@
     return displayName;
 }
 
+- (NSString*)shortDisplayName {
+    
+    NSMutableString *displayName = [NSMutableString stringWithString:self.firstName];
+    if (self.lastName.length > 0) {
+        NSString *surnameInitial = [self.lastName substringToIndex:1];
+        [displayName appendFormat:@" %@.", surnameInitial];
+    }
+    return [displayName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 - (UIImage*)profileImage {
-    return [UIImage imageNamed:@"Temp_ProfilePhoto2.jpg"].grayscaleImage;
+    if (self.photoData != nil) {
+        return [UIImage imageWithData:self.photoData];
+    } else {
+        return [UIImage imageNamed:@"Temp_ProfilePhoto2.jpg"].grayscaleImage;
+    }
 }
 
 @end

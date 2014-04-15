@@ -12,5 +12,6 @@
 @interface UILabel (Utils)
 
 - (void) applyFontMontserratWithWeight:(FontWeight)weight;
+- (UILabel*)replaceWithMultilineLabel;
 
 @end

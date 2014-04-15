@@ -22,6 +22,8 @@
 @dynamic lastName;
 @dynamic twitter;
 @dynamic url;
+@dynamic photoURL;
+@dynamic photoData;
 @dynamic articles;
 @dynamic installation;
 

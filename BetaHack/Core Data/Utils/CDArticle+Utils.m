@@ -81,14 +81,9 @@
     }
 }
 
-- (UIImage*)articleImage {
-    CDLocation *location = self.locations.anyObject;
-    return location.image;
-}
-
-- (NSString*)locationName {
+- (CDLocation*)location {
     CDLocation *location = [self.locations anyObject];
-    return location.name;
+    return location;
 }
 
 - (FilterGroup)defaultFilterGroupColour {

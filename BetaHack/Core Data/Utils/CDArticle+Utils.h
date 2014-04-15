@@ -15,8 +15,7 @@
 + (id)initWithJSON:(NSDictionary*)json;
 - (void)updateWithJSON:(NSDictionary*)json;
 
-- (UIImage*)articleImage;
-- (NSString*)locationName;
+- (CDLocation*)location;
 
 - (FilterGroup)defaultFilterGroupColour;
 - (void)setDefaultFilterGroupColour:(FilterGroup)defaultFilterGroupColour;

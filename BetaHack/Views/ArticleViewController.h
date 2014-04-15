@@ -30,22 +30,76 @@
 @interface ArticleProfileCell : UITableViewCell
 @property (nonatomic, weak) id<ArticleViewDelegate> delegate;
 @property (nonatomic, strong) IBOutlet UIImageView *profileImageView;
-@property (nonatomic, strong) IBOutlet UILabel *nameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *firstNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *surnameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *expertInLabel;
 @property (nonatomic, strong) IBOutlet UILabel *expertLabel;
-@property (nonatomic, strong) IBOutlet UILabel *biographyLabel;
-@end
-
-@interface ArticleProfileFooterCell : UITableViewCell
-@property (nonatomic, strong) IBOutlet UIImageView *articleImageView;
 @property (nonatomic, strong) IBOutlet UILabel *hometownLabel;
 @property (nonatomic, strong) IBOutlet UILabel *jobTitleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *biographyLabel;
+@property (nonatomic, strong) IBOutlet UILabel *overlayBiographyLabel;
+
+- (void)initWithArticle:(CDArticle*)article delegate:(id<ArticleViewDelegate>)delegate;
+
 @end
 
-@interface ArticleBodyCell : UITableViewCell
-@property (nonatomic, strong) IBOutlet UILabel *introLabel;
-@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet UILabel *contentLabel;
-@property (nonatomic, strong) IBOutlet UILabel *overlayContentLabel;
 
+
+
+@interface ArticleImageCell : UITableViewCell
+@property (nonatomic, strong) IBOutlet UIImageView *articleImageView;
 - (void)initWithArticle:(CDArticle*)article;
 @end
+
+
+
+
+@interface ArticleTitleCell : UITableViewCell
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *overlayTitleLabel;
+- (void)initWithArticle:(CDArticle*)article;
+@end
+
+
+@interface ArticleSubtitleCell : UITableViewCell
+@property (nonatomic, strong) IBOutlet UILabel *subtitleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *overlaySubtitleLabel;
+- (void)initWithArticle:(CDArticle*)article;
+@end
+
+
+
+
+@interface ArticleDescriptionCell : UITableViewCell
+@property (nonatomic, strong) IBOutlet UILabel *contentLabel;
+@property (nonatomic, strong) IBOutlet UILabel *overlayContentLabel;
+- (void)initWithArticle:(CDArticle*)article;
+@end
+
+
+
+
+@interface ArticleAddressCell : UITableViewCell
+@property (nonatomic, strong) IBOutlet UILabel *addressLine1;
+@property (nonatomic, strong) IBOutlet UILabel *addressLine2;
+- (void)initWithArticle:(CDArticle*)article;
+@end
+
+
+
+
+@interface ArticleURLCell : UITableViewCell
+@property (nonatomic, strong) IBOutlet UILabel *url;
+- (void)initWithArticle:(CDArticle*)article;
+@end
+
+
+
+
+@interface ArticleSocialCell : UITableViewCell
+@property (nonatomic, strong) IBOutlet UILabel *foursquareLabel;
+- (void)initWithArticle:(CDArticle*)article;
+@end
+
+
+

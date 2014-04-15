@@ -52,6 +52,20 @@
     if ([json objectForKey:@"foursquare"]) {
         NSDictionary *foursquareDict = [json objectForKey:@"foursquare"];
         self.foursquareJSON = [NSString stringWithFormat:@"%@", foursquareDict];
+        
+        //addressline1, 2, url, foursquare
+        NSDictionary *location = [foursquareDict objectForKey:@"location"];
+        if (location) {
+            self.addressLine1 = [location objectForKey:@"address"];
+        }
+        
+        NSDictionary *contact = [foursquareDict objectForKey:@"contact"];
+        if (contact) {
+            self.formattedTelephoneNumber = [contact objectForKey:@"formattedPhone"];
+            self.telephoneNumber = [contact objectForKey:@"phone"];
+        }
+        
+        self.foursquareURL = [foursquareDict objectForKey:@"canonicalURL"];
     }
 }
 
@@ -66,7 +80,7 @@
 }
 
 #pragma mark - update Foursquare data
-- (void)fetchFullLocation:(void (^)(NSError *error))completion {
+- (void)fetchFullLocation:(void (^)(NSError *error))json completion:(void (^)(NSError *error))completion  {
     
     //no need to do this more than once
     if (self.foursquareJSON.length > 0) return;
@@ -81,6 +95,7 @@
         NSDictionary *locationDict = [responseDict objectForKey:@"location"];
         
         [self updateWithJSON:locationDict];
+        json(nil);
         
         NSDictionary *foursquareDict = [locationDict objectForKey:@"foursquare"];
         [self fetchFirstImageFromFoursquareJSON:foursquareDict completion:^(NSError *error) {

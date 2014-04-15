@@ -18,8 +18,6 @@
 @property (nonatomic, assign) FilterGroup filterGroup;
 @property (nonatomic, assign) id<MapViewDelegate> mapViewDelegate;
 
-@property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @end
 
 

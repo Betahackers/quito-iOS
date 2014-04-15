@@ -13,12 +13,18 @@
 
 @implementation CDLocation
 
+@dynamic foursquareJSON;
 @dynamic identifier;
 @dynamic latitude;
+@dynamic locationImageData;
 @dynamic longitude;
 @dynamic name;
-@dynamic foursquareJSON;
-@dynamic locationImageData;
+@dynamic addressLine1;
+@dynamic addressLine2;
+@dynamic locationURL;
+@dynamic foursquareURL;
+@dynamic telephoneNumber;
+@dynamic formattedTelephoneNumber;
 @dynamic articles;
 @dynamic installation;
 
