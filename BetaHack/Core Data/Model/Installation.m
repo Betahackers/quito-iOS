@@ -15,6 +15,7 @@
 
 @implementation Installation
 
+@dynamic isShownTutorial;
 @dynamic articles;
 @dynamic filters;
 @dynamic locations;

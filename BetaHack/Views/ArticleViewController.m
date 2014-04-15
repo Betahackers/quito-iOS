@@ -306,7 +306,7 @@ typedef enum tableSections
 - (void)initWithArticle:(CDArticle*)article {
     
     [self.contentView applyMontserratFontToSubviews];
-    self.subtitleLabel.text = article.location.name;
+    self.subtitleLabel.text = article.title;
     [self.subtitleLabel applyFontMontserratWithWeight:kFontWeightBold];
     self.overlaySubtitleLabel = [self.subtitleLabel replaceWithMultilineLabel];
 }

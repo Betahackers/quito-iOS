@@ -20,10 +20,10 @@
 @dynamic identifier;
 @dynamic jobTitle;
 @dynamic lastName;
+@dynamic photoData;
+@dynamic photoURL;
 @dynamic twitter;
 @dynamic url;
-@dynamic photoURL;
-@dynamic photoData;
 @dynamic articles;
 @dynamic installation;
 

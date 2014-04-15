@@ -20,10 +20,10 @@
 @property (nonatomic) int32_t identifier;
 @property (nonatomic, retain) NSString * jobTitle;
 @property (nonatomic, retain) NSString * lastName;
+@property (nonatomic, retain) NSData * photoData;
+@property (nonatomic, retain) NSString * photoURL;
 @property (nonatomic, retain) NSString * twitter;
 @property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) NSString * photoURL;
-@property (nonatomic, retain) NSData * photoData;
 @property (nonatomic, retain) NSSet *articles;
 @property (nonatomic, retain) Installation *installation;
 @end

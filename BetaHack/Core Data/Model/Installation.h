@@ -13,6 +13,7 @@
 
 @interface Installation : NSManagedObject
 
+@property (nonatomic) BOOL isShownTutorial;
 @property (nonatomic, retain) NSSet *articles;
 @property (nonatomic, retain) NSSet *filters;
 @property (nonatomic, retain) NSSet *locations;

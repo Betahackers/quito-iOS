@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "DomainManager.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface ViewController ()
 
 @property (nonatomic, strong) IBOutlet UILabel *startLabel;
+@property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
 
 @end
 
@@ -45,8 +47,14 @@ BOOL isFinishedFetching;
         float delayInSeconds = 2.0;
         float popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            
+            if (![Installation currentInstallation].isShownTutorial) {
+                [self showTutorial];
+            } else {
+                [self moveToNextScreen];
+            }
+            
             isFinishedAnimating = YES;
-            [self moveToNextScreen];
         });
         
     }];
@@ -59,4 +67,28 @@ BOOL isFinishedFetching;
     }
 }
 
+- (void)showTutorial {
+    
+    _moviePlayer =  [[MPMoviePlayerController alloc]initWithContentURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"tutorial" ofType:@"mp4"]]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayBackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:_moviePlayer];
+    _moviePlayer.controlStyle = MPMovieControlStyleDefault;
+    _moviePlayer.shouldAutoplay = YES;
+    [_moviePlayer prepareToPlay];
+    [self.view addSubview:_moviePlayer.view];
+    [_moviePlayer setFullscreen:YES animated:YES];
+    [_moviePlayer stop];
+    [_moviePlayer play];
+}
+
+- (void) moviePlayBackDidFinish:(NSNotification*)notification {
+    MPMoviePlayerController *player = [notification object];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+    
+    if ([player respondsToSelector:@selector(setFullscreen:animated:)]) {
+        [player.view removeFromSuperview];
+    }
+    
+    [Installation currentInstallation].isShownTutorial = YES;
+    [self moveToNextScreen];
+}
 @end
