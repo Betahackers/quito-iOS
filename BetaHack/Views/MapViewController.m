@@ -12,8 +12,11 @@
 #import "FilterViewController.h"
 #import "ILTranslucentView.h"
 #import "HeaderViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface MapViewController ()
+@interface MapViewController () {
+    BOOL hasBeenShown;
+}
 
 @property (nonatomic, strong) IBOutlet UIView *headerContainerView;
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
@@ -35,11 +38,11 @@
 @property (nonatomic, strong) CDProfile *selectedProfile;
 @property (nonatomic, strong) CDFilter *selectedFilter;
 
+@property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
+
 @end
 
 @implementation MapViewController
-
-BOOL isFirstTime;
 
 - (void)viewDidLoad
 {
@@ -54,15 +57,14 @@ BOOL isFirstTime;
     [self.moodsFilterView setAlpha:0.0f];
     [self.activitiesFilterView setAlpha:0.0f];
     [self.profilesFilterView setAlpha:0.0f];
-    
-    isFirstTime = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES];
     
     //41.407001,2.156799
-    if (isFirstTime) {
+    if (!hasBeenShown) {
+        
         CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(41.407001, 2.156799);
         MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
         MKCoordinateRegion region = {coord, span};
@@ -89,7 +91,16 @@ BOOL isFirstTime;
         [imageView setImage:[UIImage imageNamed:imageName]];
         [self.translucentHolderView addSubview:imageView];
         
-        isFirstTime = NO;
+        _moviePlayer =  [[MPMoviePlayerController alloc]initWithContentURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"promo" ofType:@"mp4"]]];
+        _moviePlayer.controlStyle = MPMovieControlStyleNone;
+        
+        [_moviePlayer.view setFrame:CGRectMake(0, 0, 320, 480)];
+        _moviePlayer.view.transform = CGAffineTransformConcat(_moviePlayer.view.transform, CGAffineTransformMakeRotation(M_PI/2)); // to rotate the movie palyer controller
+        [_moviePlayer.view setFrame: self.view.bounds];
+        [self.view addSubview:_moviePlayer.view];
+        [_moviePlayer.view setHidden:YES];
+        
+        hasBeenShown = YES;
     }
 }
 
@@ -177,6 +188,23 @@ BOOL isFirstTime;
             [self.headerContainerView setFrameHeight:400];
         }
     }];
+}
+
+- (void)playPromo {
+    
+    [_moviePlayer.view setHidden:NO];
+    [_moviePlayer play];
+}
+
+- (void) moviePlayBackDidFinish:(NSNotification*)notification {
+    MPMoviePlayerController *player = [notification object];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:player];
+    
+    if ([player respondsToSelector:@selector(setFullscreen:animated:)]) {
+        [player.view removeFromSuperview];
+    }
+    
+    [_moviePlayer.view setHidden:YES];
 }
 
 - (void)applyFilter:(CDFilter *)filter {

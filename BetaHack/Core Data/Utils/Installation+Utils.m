@@ -143,6 +143,8 @@ static Installation *currentInstallation;
         
         [self processLocationsResponse:responseObject];
         
+        [[DomainManager sharedManager].context save:nil];
+        
         completion(nil);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -170,6 +172,8 @@ static Installation *currentInstallation;
                 [user updateWithJSON:userDict];
             }
         }
+        
+        [[DomainManager sharedManager].context save:nil];
         
         completion(nil);
         
@@ -221,5 +225,13 @@ static Installation *currentInstallation;
             [article updateWithJSON:articleDict];
         }
     }
+}
+
+- (NSDate*)lastFlushDate {
+    return [NSDate dateWithTimeIntervalSinceReferenceDate:self.lastFlushDateInterval];
+}
+
+- (void)setLastFlushDate:(NSDate*)lastFlushDate {
+    self.lastFlushDateInterval = [lastFlushDate timeIntervalSinceReferenceDate];
 }
 @end

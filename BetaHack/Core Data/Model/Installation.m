@@ -2,7 +2,7 @@
 //  Installation.m
 //  BetaHack
 //
-//  Created by Duncan Campbell on 15/04/14.
+//  Created by Duncan Campbell on 16/04/14.
 //  Copyright (c) 2014 Betahackers. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @implementation Installation
 
 @dynamic isShownTutorial;
+@dynamic lastFlushDateInterval;
 @dynamic articles;
 @dynamic filters;
 @dynamic locations;

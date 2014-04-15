@@ -48,13 +48,13 @@ BOOL isFinishedFetching;
         float popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             
+            isFinishedAnimating = YES;
+            
             if (![Installation currentInstallation].isShownTutorial) {
                 [self showTutorial];
             } else {
                 [self moveToNextScreen];
             }
-            
-            isFinishedAnimating = YES;
         });
         
     }];
@@ -69,15 +69,16 @@ BOOL isFinishedFetching;
 
 - (void)showTutorial {
     
-    _moviePlayer =  [[MPMoviePlayerController alloc]initWithContentURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"tutorial" ofType:@"mp4"]]];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"tutorial" withExtension:@"mp4"];
+    self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    self.moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
+    self.moviePlayer.view.transform = CGAffineTransformConcat(self.moviePlayer.view.transform, CGAffineTransformMakeRotation(M_PI_2));
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayBackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:_moviePlayer];
-    _moviePlayer.controlStyle = MPMovieControlStyleDefault;
-    _moviePlayer.shouldAutoplay = YES;
-    [_moviePlayer prepareToPlay];
-    [self.view addSubview:_moviePlayer.view];
-    [_moviePlayer setFullscreen:YES animated:YES];
-    [_moviePlayer stop];
-    [_moviePlayer play];
+    UIWindow *backgroundWindow = [[UIApplication sharedApplication] keyWindow];
+    [self.moviePlayer.view setFrame:backgroundWindow.frame];
+    [backgroundWindow addSubview:self.moviePlayer.view];
+    [self.moviePlayer play];
+
 }
 
 - (void) moviePlayBackDidFinish:(NSNotification*)notification {
@@ -89,6 +90,8 @@ BOOL isFinishedFetching;
     }
     
     [Installation currentInstallation].isShownTutorial = YES;
+    [[DomainManager sharedManager].context save:nil];
+    
     [self moveToNextScreen];
 }
 @end

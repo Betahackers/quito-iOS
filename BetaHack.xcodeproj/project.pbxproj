@@ -139,9 +139,9 @@
 		4BE4793918FDC77A003D7D27 /* moviePlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4793818FDC77A003D7D27 /* moviePlay.png */; };
 		4BE4793C18FDC816003D7D27 /* HeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4793B18FDC816003D7D27 /* HeaderViewController.m */; };
 		4BE4793E18FDCA44003D7D27 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE4793D18FDCA44003D7D27 /* MediaPlayer.framework */; };
-		4BE4794218FDDF9D003D7D27 /* Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4794118FDDF9D003D7D27 /* Installation.m */; };
-		4BE4794518FDDF9D003D7D27 /* CDProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4794418FDDF9D003D7D27 /* CDProfile.m */; };
 		4BE4794718FDE1CD003D7D27 /* tutorial.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4BE4794618FDE1CD003D7D27 /* tutorial.mp4 */; };
+		4BE4795018FDEE3B003D7D27 /* CDProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4794F18FDEE3B003D7D27 /* CDProfile.m */; };
+		4BE4795318FDEE3B003D7D27 /* Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4795218FDEE3B003D7D27 /* Installation.m */; };
 		FAD5409421DE48A988C347D2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D0837A406B4972A8669783 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -318,11 +318,11 @@
 		4BE4793A18FDC816003D7D27 /* HeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderViewController.h; sourceTree = "<group>"; };
 		4BE4793B18FDC816003D7D27 /* HeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderViewController.m; sourceTree = "<group>"; };
 		4BE4793D18FDCA44003D7D27 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		4BE4794018FDDF9D003D7D27 /* Installation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Installation.h; sourceTree = "<group>"; };
-		4BE4794118FDDF9D003D7D27 /* Installation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installation.m; sourceTree = "<group>"; };
-		4BE4794318FDDF9D003D7D27 /* CDProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProfile.h; sourceTree = "<group>"; };
-		4BE4794418FDDF9D003D7D27 /* CDProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfile.m; sourceTree = "<group>"; };
 		4BE4794618FDE1CD003D7D27 /* tutorial.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.mp4; sourceTree = "<group>"; };
+		4BE4794E18FDEE3B003D7D27 /* CDProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProfile.h; sourceTree = "<group>"; };
+		4BE4794F18FDEE3B003D7D27 /* CDProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfile.m; sourceTree = "<group>"; };
+		4BE4795118FDEE3B003D7D27 /* Installation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Installation.h; sourceTree = "<group>"; };
+		4BE4795218FDEE3B003D7D27 /* Installation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -538,10 +538,10 @@
 			isa = PBXGroup;
 			children = (
 				4BC24EF618F952F6007FF792 /* Model.xcdatamodeld */,
-				4BE4794318FDDF9D003D7D27 /* CDProfile.h */,
-				4BE4794418FDDF9D003D7D27 /* CDProfile.m */,
-				4BE4794018FDDF9D003D7D27 /* Installation.h */,
-				4BE4794118FDDF9D003D7D27 /* Installation.m */,
+				4BE4794E18FDEE3B003D7D27 /* CDProfile.h */,
+				4BE4794F18FDEE3B003D7D27 /* CDProfile.m */,
+				4BE4795118FDEE3B003D7D27 /* Installation.h */,
+				4BE4795218FDEE3B003D7D27 /* Installation.m */,
 				4BE4792418FDB62A003D7D27 /* CDLocation.h */,
 				4BE4792518FDB62A003D7D27 /* CDLocation.m */,
 				4B546BC118FD15B10091C821 /* CDFilter.h */,
@@ -932,7 +932,7 @@
 				4BC24F0818F952F6007FF792 /* DomainEnums.m in Sources */,
 				4BC24F4B18F95557007FF792 /* NSSorting.m in Sources */,
 				4BC24F0918F952F6007FF792 /* DomainManager.m in Sources */,
-				4BE4794518FDDF9D003D7D27 /* CDProfile.m in Sources */,
+				4BE4795018FDEE3B003D7D27 /* CDProfile.m in Sources */,
 				4BC24F4D18F95557007FF792 /* UIColor+Utils.m in Sources */,
 				4BC24EDF18F946BF007FF792 /* ViewController.m in Sources */,
 				4BC24EE218F94B95007FF792 /* ArticleViewController.m in Sources */,
@@ -957,7 +957,7 @@
 				4BC24F7218F95BA9007FF792 /* MapViewController.m in Sources */,
 				4BB7F58B18FB5F2600A68E86 /* CDArticle.m in Sources */,
 				4BE478FA18FD6148003D7D27 /* UIViewController+Transitions.m in Sources */,
-				4BE4794218FDDF9D003D7D27 /* Installation.m in Sources */,
+				4BE4795318FDEE3B003D7D27 /* Installation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

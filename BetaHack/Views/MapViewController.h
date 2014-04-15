@@ -16,6 +16,7 @@
 - (void)applyFilter:(CDFilter*)filter;
 - (void)applyProfile:(CDProfile*)profile;
 - (void)showHideHeader;
+- (void)playPromo;
 @end
 
 @interface MapViewController : UIViewController <MapViewDelegate, MKMapViewDelegate>

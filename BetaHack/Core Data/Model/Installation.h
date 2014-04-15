@@ -2,7 +2,7 @@
 //  Installation.h
 //  BetaHack
 //
-//  Created by Duncan Campbell on 15/04/14.
+//  Created by Duncan Campbell on 16/04/14.
 //  Copyright (c) 2014 Betahackers. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 @interface Installation : NSManagedObject
 
 @property (nonatomic) BOOL isShownTutorial;
+@property (nonatomic) NSTimeInterval lastFlushDateInterval;
 @property (nonatomic, retain) NSSet *articles;
 @property (nonatomic, retain) NSSet *filters;
 @property (nonatomic, retain) NSSet *locations;

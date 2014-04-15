@@ -27,6 +27,9 @@
 
 - (void)fetchUsers:(void (^)(NSError *error))completion;
 
+- (NSDate*)lastFlushDate;
+- (void)setLastFlushDate:(NSDate*)lastFlushDate;
+
 @end
 
 
