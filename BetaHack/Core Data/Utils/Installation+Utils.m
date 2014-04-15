@@ -28,23 +28,23 @@ static Installation *currentInstallation;
             //create the Installation
             currentInstallation = (Installation*)[Installation createEntity];
             
-            [CDFilter initWithJSON:nil type:kFilterCategoryCulture group:kFilterGroupCategory name:@"Culture" jsonName:@"culture" imageName:@"culture.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryDancing group:kFilterGroupCategory name:@"Alternative" jsonName:@"alternative" imageName:@"alternative.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryDrink group:kFilterGroupCategory name:@"Drinks" jsonName:@"drinks" imageName:@"drinks.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryEat group:kFilterGroupCategory name:@"Food" jsonName:@"food" imageName:@"food.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryHealthyLife group:kFilterGroupCategory name:@"Healthy Life" jsonName:@"healthy_life" imageName:@"healthylife.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryLiveMusic group:kFilterGroupCategory name:@"Music" jsonName:@"music" imageName:@"music.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryShopping group:kFilterGroupCategory name:@"Shopping" jsonName:@"shopping" imageName:@"shopping.png"];
-            [CDFilter initWithJSON:nil type:kFilterCategoryWalks group:kFilterGroupCategory name:@"Have a stroll" jsonName:@"have_a_stroll" imageName:@"haveastroll.png"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryCulture group:kFilterGroupCategory name:@"Culture" jsonName:@"culture" imageName:@"culture"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryDancing group:kFilterGroupCategory name:@"Alternative" jsonName:@"alternative" imageName:@"alternative"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryDrink group:kFilterGroupCategory name:@"Drinks" jsonName:@"drinks" imageName:@"drinks"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryEat group:kFilterGroupCategory name:@"Food" jsonName:@"food" imageName:@"food"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryHealthyLife group:kFilterGroupCategory name:@"Healthy Life" jsonName:@"healthy_life" imageName:@"healthylife"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryLiveMusic group:kFilterGroupCategory name:@"Music" jsonName:@"music" imageName:@"music"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryShopping group:kFilterGroupCategory name:@"Shopping" jsonName:@"shopping" imageName:@"shopping"];
+            [CDFilter initWithJSON:nil type:kFilterCategoryWalks group:kFilterGroupCategory name:@"Have a stroll" jsonName:@"have_a_stroll" imageName:@"haveastroll"];
             
-            [CDFilter initWithJSON:nil type:kFilterEmotionIllegal group:kFilterGroupEmotion name:@"Lawbreaker" jsonName:@"lawbreaker" imageName:@"prison.png"];
-            [CDFilter initWithJSON:nil type:kFilterEmotionSociable group:kFilterGroupEmotion name:@"Social" jsonName:@"social" imageName:@"sociable.png"];
-            [CDFilter initWithJSON:nil type:kFilterEmotionAdventure group:kFilterGroupEmotion name:@"Adventure" jsonName:@"adventurous" imageName:@"Adventure.png"];
-            [CDFilter initWithJSON:nil type:kFilterEmotionActive group:kFilterGroupEmotion name:@"Energetic" jsonName:@"energetic" imageName:@"active.png"];
-            [CDFilter initWithJSON:nil type:kFilterEmotionCultural group:kFilterGroupEmotion name:@"Intellectual" jsonName:@"intellectual" imageName:@"philosophical.png"];
-            [CDFilter initWithJSON:nil type:kFilterEmotionRomantic group:kFilterGroupEmotion name:@"Romantic" jsonName:@"romantic" imageName:@"Romantic.png"];
-            [CDFilter initWithJSON:nil type:kFilterEmotionRelaxed group:kFilterGroupEmotion name:@"Relaxed" jsonName:@"relaxed" imageName:@"Relaxed.png"];
-            [CDFilter initWithJSON:nil type:kFilterEmotionSolitary group:kFilterGroupEmotion name:@"Lonely" jsonName:@"lonely" imageName:@"solitary.png"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionIllegal group:kFilterGroupEmotion name:@"Lawbreaker" jsonName:@"lawbreaker" imageName:@"lawbreaker"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionSociable group:kFilterGroupEmotion name:@"Social" jsonName:@"social" imageName:@"social"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionAdventure group:kFilterGroupEmotion name:@"Adventure" jsonName:@"adventurous" imageName:@"adventure"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionActive group:kFilterGroupEmotion name:@"Energetic" jsonName:@"energetic" imageName:@"energetic"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionCultural group:kFilterGroupEmotion name:@"Intellectual" jsonName:@"intellectual" imageName:@"intellectual"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionRomantic group:kFilterGroupEmotion name:@"Romantic" jsonName:@"romantic" imageName:@"romantic"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionRelaxed group:kFilterGroupEmotion name:@"Relaxed" jsonName:@"relaxed" imageName:@"relaxed"];
+            [CDFilter initWithJSON:nil type:kFilterEmotionSolitary group:kFilterGroupEmotion name:@"Lonely" jsonName:@"lonely" imageName:@"lonely"];
             
         } else {
             currentInstallation = [fetchedObjects objectAtIndex:0];

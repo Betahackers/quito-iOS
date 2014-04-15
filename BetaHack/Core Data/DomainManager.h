@@ -24,6 +24,7 @@
 #import "UIView+Utils.h"
 #import "UIFont+Utils.h"
 #import "UILabel+Utils.h"
+#import "UIImage+Utils.h"
 
 @interface DomainManager : NSObject
 

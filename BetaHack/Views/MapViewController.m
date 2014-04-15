@@ -17,6 +17,10 @@
 @property (nonatomic, strong) IBOutlet UIView *menuContainerView;
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 
+@property (nonatomic, strong) IBOutlet UIView *activitiesFilterView;
+@property (nonatomic, strong) IBOutlet UIView *moodsFilterView;
+@property (nonatomic, strong) IBOutlet UIView *profilesFilterView;
+
 @property (nonatomic, strong) IBOutlet UIButton *activitiesFilterButton;
 @property (nonatomic, strong) IBOutlet UIButton *moodsFilterButton;
 @property (nonatomic, strong) IBOutlet UIButton *profilesFilterButton;
@@ -41,24 +45,10 @@ BOOL isFirstTime;
     [super viewDidLoad];
     [self.view applyMontserratFontToSubviews];
     [self.menuContainerView setAlpha:0];
-    
-    self.moodsFilterImageView = [[UIImageView alloc] initWithFrame:self.moodsFilterButton.bounds];
-    [self.moodsFilterImageView setFrameOriginX:-self.moodsFilterImageView.frame.size.width];
-    [self.moodsFilterImageView setFrameWidth:self.moodsFilterImageView.frame.size.width * 2];
-    [self.moodsFilterButton addSubview:self.moodsFilterImageView];
-    
-    self.activitiesFilterImageView = [[UIImageView alloc] initWithFrame:self.moodsFilterButton.bounds];
-    [self.activitiesFilterImageView setFrameOriginX:-self.activitiesFilterImageView.frame.size.width];
-    [self.activitiesFilterImageView setFrameWidth:self.activitiesFilterImageView.frame.size.width * 2];
-    [self.activitiesFilterButton addSubview:self.activitiesFilterImageView];
-    
-    self.profilesFilterImageView = [[UIImageView alloc] initWithFrame:self.moodsFilterButton.bounds];
-    [self.profilesFilterImageView setFrameOriginX:-self.profilesFilterImageView.frame.size.width];
-    [self.profilesFilterImageView setFrameWidth:self.profilesFilterImageView.frame.size.width * 2];
+
     self.profilesFilterImageView.layer.masksToBounds = NO;
     self.profilesFilterImageView.clipsToBounds = YES;
     self.profilesFilterImageView.layer.cornerRadius = (self.profilesFilterImageView.frame.size.height / 2);
-    [self.profilesFilterButton addSubview:self.profilesFilterImageView];
     
     UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mapHeader.png"]];
     [self.view addSubview:headerImageView];
@@ -158,21 +148,21 @@ BOOL isFirstTime;
     
     if (self.selectedProfile != nil && sender == self.profilesFilterButton) {
         self.selectedProfile = nil;
+        [self reloadAnnotations];
     } else if (self.selectedFilter != nil) {
         if (self.selectedFilter.filterGroup == kFilterGroupEmotion && sender == self.moodsFilterButton) {
             self.selectedFilter = nil;
+            [self reloadAnnotations];
         } else if (self.selectedFilter.filterGroup == kFilterGroupCategory && sender == self.activitiesFilterButton) {
             self.selectedFilter = nil;
+            [self reloadAnnotations];
         } else {
             [self performSegueWithIdentifier:@"map_filter" sender:[NSNumber numberWithInt:sender.tag]];
         }
     } else {
         [self performSegueWithIdentifier:@"map_filter" sender:[NSNumber numberWithInt:sender.tag]];
     }
-    
-    [self reloadAnnotations];
 }
-
 
 - (void)applyFilter:(CDFilter *)filter {
     if (self.selectedFilter == filter) {
@@ -266,14 +256,14 @@ BOOL isFirstTime;
 }
 
 - (void)reloadAnnotations {
-    
+        
     [self.mapView removeAnnotations:self.mapView.annotations];
     
     NSMutableArray *articles = [NSMutableArray array];
     for (CDArticle *article in [Installation currentInstallation].sortedArticles) {
         if (!self.selectedFilter && !self.selectedProfile) {
             [articles addObject:article];
-        
+            
         } else if (self.selectedFilter != nil) {
             if ([article.filters containsObject:self.selectedFilter]) {
                 [articles addObject:article];
@@ -295,19 +285,67 @@ BOOL isFirstTime;
         [self.mapView addAnnotation:annotation1];
     }
     
+    for (id<MKAnnotation> annotation in self.mapView.annotations) {
+        MKAnnotationView *annotationView = [self mapView:self.mapView viewForAnnotation:annotation];
+        [annotationView setAlpha:0.0f];
+    }
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        for (id<MKAnnotation> annotation in self.mapView.annotations) {
+            MKAnnotationView *annotationView = [self mapView:self.mapView viewForAnnotation:annotation];
+            [annotationView setAlpha:1.0f];
+        }
+    }];
+    
     //hide all the buttons
     self.activitiesFilterImageView.image = nil;
     self.profilesFilterImageView.image = nil;
     self.moodsFilterImageView.image = nil;
     
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.moodsFilterView setFrameOriginX:-34];
+        [self.activitiesFilterView setFrameOriginX:-34];
+        [self.profilesFilterView setFrameOriginX:-34];
+    }];
+    
     if (self.selectedFilter != nil) {
         if (self.selectedFilter.filterGroup == kFilterGroupEmotion) {
-            [self.moodsFilterImageView setImage:self.selectedFilter.filterImage];
+            [self.moodsFilterImageView setImage:[self.selectedFilter filterImageWithCircle:NO]];
+            [UIView animateWithDuration:0.3 animations:^{
+                [self.moodsFilterView setFrameOriginX:0];
+            }];
+            
         } else {
-            [self.activitiesFilterImageView setImage:self.selectedFilter.filterImage];
+            [self.activitiesFilterImageView setImage:[self.selectedFilter filterImageWithCircle:NO]];
+            [UIView animateWithDuration:0.3 animations:^{
+                [self.activitiesFilterView setFrameOriginX:0];
+            }];
         }
+        
     } else if (self.selectedProfile != nil) {
         [self.profilesFilterImageView setImage:self.selectedProfile.profileImage];
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.profilesFilterView setFrameOriginX:0];
+        }];
+    }
+}
+
+- (void)viewDidLayoutSubviews {
+    
+    NSLog(@"View did layout subviews");
+    
+    [self.moodsFilterView setFrameOriginX:-34];
+    [self.activitiesFilterView setFrameOriginX:-34];
+    [self.profilesFilterView setFrameOriginX:-34];
+    
+    if (self.selectedFilter != nil) {
+        if (self.selectedFilter.filterGroup == kFilterGroupEmotion) {
+            [self.moodsFilterView setFrameOriginX:0];
+        } else {
+            [self.activitiesFilterView setFrameOriginX:0];
+        }
+    } else if (self.selectedProfile != nil) {
+        [self.profilesFilterView setFrameOriginX:0];
     }
 }
 @end

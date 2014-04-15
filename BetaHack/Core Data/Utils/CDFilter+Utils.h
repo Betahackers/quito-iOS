@@ -20,7 +20,7 @@
 - (FilterGroup)filterGroup;
 - (void)setFilterGroup:(FilterGroup)filterGroup;
 
-- (UIImage*)filterImage;
+- (UIImage*)filterImageWithCircle:(BOOL)isWithCircle;
 
 @end
 

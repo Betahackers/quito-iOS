@@ -8,7 +8,7 @@
 
 #import "ArticleViewController.h"
 #import "DomainManager.h"
-#import "ProfileViewController.h"
+#import "ILTranslucentView.h"
 
 @interface ArticleViewController () {
     NSMutableArray *sections;
@@ -19,7 +19,6 @@
 
 typedef enum tableSections
 {
-    kSectionHeader,
     kSectionProfile,
     kSectionProfileFooter,
     kSectionArticle
@@ -50,17 +49,8 @@ typedef enum tableSections
     [sections addObject:[NSArray arrayWithObject:self.article]];
     [sections addObject:[NSArray arrayWithObject:self.article]];
     [sections addObject:[NSArray arrayWithObject:self.article]];
-    [sections addObject:[NSArray arrayWithObject:self.article]];
     
     [self.tableView reloadData];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"article_profile"]) {
-        CDProfile *profile = (CDProfile*)sender;
-        ProfileViewController *viewController = (ProfileViewController *)segue.destinationViewController;
-        viewController.profile = profile;
-    }
 }
 
 #pragma mark - ArticleCardCellDelegate
@@ -83,13 +73,7 @@ typedef enum tableSections
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.section) {
-        case kSectionHeader: {
-            
-            static NSString *CellIdentifier = @"ArticleHeaderCell";
-            ArticleHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            return cell;
-        }
-            
+        
         case kSectionProfile: {
     
             static NSString *CellIdentifier = @"ArticleProfileCell";
@@ -123,7 +107,16 @@ typedef enum tableSections
             
             cell.hometownLabel.text = self.article.profile.hometown;
             cell.jobTitleLabel.text = self.article.profile.jobTitle;
-            cell.articleImageView.image = self.article.articleImage;
+            
+            if (self.article.articleImage != nil) {
+                cell.articleImageView.image = self.article.articleImage;
+            } else {
+                cell.articleImageView.image = [UIImage imageNamed:@"Temp_Barceloneta.jpg"];
+                
+                ILTranslucentView *translucentView = [[ILTranslucentView alloc] initWithFrame:cell.articleImageView.bounds];
+                translucentView.translucentStyle = UIBarStyleBlack;
+                [cell.articleImageView addSubview:translucentView];
+            }
             
             cell.backgroundColor = [self colourForFilterGroup:self.selectedFilterGroup];
             
@@ -170,9 +163,7 @@ typedef enum tableSections
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier;
-    if (indexPath.section == kSectionHeader)
-        CellIdentifier = @"ArticleHeaderCell";
-    else if (indexPath.section == kSectionProfile)
+    if (indexPath.section == kSectionProfile)
         CellIdentifier = @"ArticleProfileCell";
     else if (indexPath.section == kSectionProfileFooter)
         CellIdentifier = @"ArticleProfileFooterCell";
@@ -190,9 +181,6 @@ typedef enum tableSections
 @end
 
 #pragma mark - Prototype cells
-@implementation ArticleHeaderCell
-@end
-
 @implementation ArticleProfileCell
 
 - (IBAction)backTapped:(id)sender {

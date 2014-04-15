@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.16470588235294117" green="0.77254901960784317" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="kyn-ef-rhD"/>
                     <connections>
@@ -66,45 +66,111 @@
                                     <outlet property="delegate" destination="X86-Tt-HqN" id="Lye-Ph-ccN"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" tag="1001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5md-Sc-owP">
-                                <rect key="frame" x="0.0" y="75" width="34" height="74"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="66N-ad-A5M">
+                                <rect key="frame" x="0.0" y="85" width="66" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="filterMoods.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="filterTapped:" destination="X86-Tt-HqN" eventType="touchUpInside" id="K4z-l4-OZP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhi-E6-D6X">
-                                <rect key="frame" x="0.0" y="157" width="34" height="74"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0a4-nn-M0d">
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.22745098039215686" green="0.80784313725490198" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="filterMoods.png" translatesAutoresizingMaskIntoConstraints="NO" id="e3x-af-aAK">
+                                        <rect key="frame" x="34" y="0.0" width="32" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Row-Lg-Vk4">
+                                        <rect key="frame" x="3" y="2" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVZ-Xs-RA3">
+                                        <rect key="frame" x="0.0" y="0.0" width="66" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="filterTapped:" destination="X86-Tt-HqN" eventType="touchDown" id="BG6-bL-P0H"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.6705882353" green="0.64705882349999999" blue="0.84313725490000002" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ShJ-CE-3hc">
+                                <rect key="frame" x="0.0" y="157" width="66" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="filterActivity.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="filterTapped:" destination="X86-Tt-HqN" eventType="touchUpInside" id="jQi-ZU-5bj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1003" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guB-jp-qIy">
-                                <rect key="frame" x="0.0" y="239" width="34" height="74"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2vz-FI-xrW">
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.6705882353" green="0.64705882349999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="filterActivity.png" translatesAutoresizingMaskIntoConstraints="NO" id="zmv-dl-0yU">
+                                        <rect key="frame" x="34" y="0.0" width="32" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LPd-2W-IUD">
+                                        <rect key="frame" x="3" y="2" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1z9-qy-BjF">
+                                        <rect key="frame" x="0.0" y="0.0" width="66" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="filterTapped:" destination="X86-Tt-HqN" eventType="touchDown" id="BLs-Gi-DOp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.6705882352941176" green="0.6470588235294118" blue="0.84313725490196079" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="08c-81-qFJ">
+                                <rect key="frame" x="0.0" y="229" width="66" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="filterProfiles.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="filterTapped:" destination="X86-Tt-HqN" eventType="touchUpInside" id="ey5-6a-dgd"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlv-Sg-TdP">
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.60392156862745094" green="0.82352941176470584" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="filterProfiles.png" translatesAutoresizingMaskIntoConstraints="NO" id="7FQ-Tj-4Wc">
+                                        <rect key="frame" x="34" y="0.0" width="32" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="npz-ws-rtW">
+                                        <rect key="frame" x="3" y="2" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urr-3U-TjD">
+                                        <rect key="frame" x="0.0" y="0.0" width="66" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="filterTapped:" destination="X86-Tt-HqN" eventType="touchDown" id="cJh-hZ-bym"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.6705882353" green="0.64705882349999999" blue="0.84313725490000002" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="kl9-lQ-cu8"/>
                     <connections>
-                        <outlet property="activitiesFilterButton" destination="Jhi-E6-D6X" id="Dnr-WD-SML"/>
+                        <outlet property="activitiesFilterButton" destination="1z9-qy-BjF" id="NdY-0d-Cqo"/>
+                        <outlet property="activitiesFilterImageView" destination="LPd-2W-IUD" id="ySB-RB-qvm"/>
+                        <outlet property="activitiesFilterView" destination="ShJ-CE-3hc" id="iuf-Nb-xYt"/>
                         <outlet property="mapView" destination="TH2-iK-WgD" id="pr7-9w-Ba2"/>
-                        <outlet property="moodsFilterButton" destination="5md-Sc-owP" id="xcc-6k-P3O"/>
-                        <outlet property="profilesFilterButton" destination="guB-jp-qIy" id="R9Q-5a-uQc"/>
+                        <outlet property="moodsFilterButton" destination="aVZ-Xs-RA3" id="tmR-3f-qRk"/>
+                        <outlet property="moodsFilterImageView" destination="Row-Lg-Vk4" id="xNJ-Kp-vbV"/>
+                        <outlet property="moodsFilterView" destination="66N-ad-A5M" id="SQn-df-fhU"/>
+                        <outlet property="profilesFilterButton" destination="Urr-3U-TjD" id="bpR-sE-Bru"/>
+                        <outlet property="profilesFilterImageView" destination="npz-ws-rtW" id="Gth-bD-VTi"/>
+                        <outlet property="profilesFilterView" destination="08c-81-qFJ" id="SYR-w1-TzM"/>
                         <segue destination="RhD-lh-DyO" kind="push" identifier="map_article" id="M02-rJ-Wmt"/>
                         <segue destination="mL9-lk-KHZ" kind="push" identifier="map_filter" id="Jf8-8T-kBd"/>
                     </connections>
@@ -121,22 +187,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArticleHeaderCell" rowHeight="35" id="jf2-hL-MSD" customClass="ArticleHeaderCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="35"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jf2-hL-MSD" id="hdL-3t-eoT">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mapHeader.png" translatesAutoresizingMaskIntoConstraints="NO" id="caJ-ZJ-EIx">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArticleProfileCell" rowHeight="154" id="zJ3-g6-lOM" customClass="ArticleProfileCell">
-                                <rect key="frame" x="0.0" y="57" width="320" height="154"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="154"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zJ3-g6-lOM" id="P2C-mE-H9e">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
@@ -189,7 +241,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArticleProfileFooterCell" rowHeight="155" id="Qzc-JH-bvk" customClass="ArticleProfileFooterCell">
-                                <rect key="frame" x="0.0" y="211" width="320" height="155"/>
+                                <rect key="frame" x="0.0" y="176" width="320" height="155"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qzc-JH-bvk" id="DLx-Zz-RWw">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
@@ -224,7 +276,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArticleBodyCell" rowHeight="103" id="wpX-GL-9uX" customClass="ArticleBodyCell">
-                                <rect key="frame" x="0.0" y="366" width="320" height="103"/>
+                                <rect key="frame" x="0.0" y="331" width="320" height="103"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wpX-GL-9uX" id="QI3-cV-rfb">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
@@ -273,9 +325,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Axx-76-b6l"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <segue destination="qic-nk-YVq" kind="push" identifier="article_profile" id="TcK-uD-E7T"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfV-LK-FLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -362,47 +411,6 @@
             </objects>
             <point key="canvasLocation" x="936" y="871"/>
         </scene>
-        <!--Profile View Controller-->
-        <scene sceneID="99q-zp-ofH">
-            <objects>
-                <tableViewController id="qic-nk-YVq" customClass="ProfileViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" sectionHeaderHeight="22" sectionFooterHeight="22" id="i1L-lJ-4R8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileHeaderCell" rowHeight="123" id="fJe-N3-YeD" customClass="ProfileHeaderCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="123"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fJe-N3-YeD" id="04s-7O-BsK">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="122"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author of Article" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="2i3-nA-glc">
-                                            <rect key="frame" x="24" y="10" width="272" height="101"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="51"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="nameLabel" destination="2i3-nA-glc" id="dC7-6r-uAg"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="qic-nk-YVq" id="88F-Ax-VjY"/>
-                            <outlet property="delegate" destination="qic-nk-YVq" id="oeH-Px-Gk8"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="2BC-9L-oRd"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MhU-UT-CPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1454" y="113"/>
-        </scene>
     </scenes>
     <resources>
         <image name="BackArrow.png" width="49" height="35"/>
@@ -412,7 +420,6 @@
         <image name="filterMoods.png" width="67" height="131"/>
         <image name="filterProfiles.png" width="67" height="131"/>
         <image name="fromtoSplash.png" width="640" height="416"/>
-        <image name="mapHeader.png" width="320" height="34"/>
         <image name="separator.png" width="576" height="1"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -43,7 +43,14 @@
     self.filterGroupRaw = filterGroup;
 }
 
-- (UIImage*)filterImage {
-    return [UIImage imageNamed:self.imageName];
+- (UIImage*)filterImageWithCircle:(BOOL)isWithCircle {
+    
+    NSMutableString *imageName = [NSMutableString stringWithString:self.imageName];
+    if (isWithCircle) {
+        [imageName appendString:@"_circle"];
+    }
+    [imageName appendString:@".png"];
+    
+    return [UIImage imageNamed:imageName];
 }
 @end

@@ -8,7 +8,6 @@
 
 #import "FilterViewController.h"
 #import "DomainManager.h"
-#import "ProfileViewController.h"
 
 @interface FilterViewController () {
     NSMutableArray *sections;
@@ -75,14 +74,6 @@ typedef enum tableSections
     [self.collectionView reloadData];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"filter_profile"]) {
-        CDProfile *profile = (CDProfile*)sender;
-        ProfileViewController *viewController = (ProfileViewController *)segue.destinationViewController;
-        viewController.profile = profile;
-    }
-}
-
 #pragma mark - FilterCardCellDelegate
 - (void)showProfile:(CDProfile *)profile {
     [self performSegueWithIdentifier:@"filter_profile" sender:profile];
@@ -122,7 +113,7 @@ typedef enum tableSections
             if ([filterItem isKindOfClass:[CDFilter class]]) {
                 CDFilter *filter = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
                 cell.titleLabel.text = filter.name;
-                cell.filterImage.image = filter.filterImage;
+                cell.filterImage.image = [filter filterImageWithCircle:YES];
             }
             
             return cell;

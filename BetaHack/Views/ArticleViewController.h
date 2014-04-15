@@ -27,9 +27,6 @@
 
 
 #pragma mark - ArticleHeaderCell
-@interface ArticleHeaderCell : UITableViewCell
-@end
-
 @interface ArticleProfileCell : UITableViewCell
 @property (nonatomic, weak) id<ArticleViewDelegate> delegate;
 @property (nonatomic, strong) IBOutlet UIImageView *profileImageView;

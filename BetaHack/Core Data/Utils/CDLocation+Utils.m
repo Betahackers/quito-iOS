@@ -61,7 +61,7 @@
     if (self.locationImageData) {
         return [UIImage imageWithData:self.locationImageData];
     } else {
-        return [UIImage imageNamed:@"Temp_Barceloneta.jpg"];
+        return nil;
     }
 }
 

@@ -84,7 +84,7 @@
 }
 
 - (UIImage*)profileImage {
-    return [UIImage imageNamed:@"Temp_ProfilePhoto2.jpg"];
+    return [UIImage imageNamed:@"Temp_ProfilePhoto2.jpg"].grayscaleImage;
 }
 
 @end
