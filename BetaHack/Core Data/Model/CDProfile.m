@@ -2,7 +2,7 @@
 //  CDProfile.m
 //  BetaHack
 //
-//  Created by Duncan Campbell on 13/04/14.
+//  Created by Duncan Campbell on 15/04/14.
 //  Copyright (c) 2014 Betahackers. All rights reserved.
 //
 
@@ -13,13 +13,15 @@
 
 @implementation CDProfile
 
-@dynamic firstName;
-@dynamic identifier;
-@dynamic lastName;
-@dynamic expertIn;
 @dynamic biography;
+@dynamic expertIn;
+@dynamic firstName;
 @dynamic hometown;
+@dynamic identifier;
 @dynamic jobTitle;
+@dynamic lastName;
+@dynamic twitter;
+@dynamic url;
 @dynamic articles;
 @dynamic installation;
 

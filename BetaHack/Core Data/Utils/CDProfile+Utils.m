@@ -61,6 +61,16 @@
         if (jobTitle != (NSString *)[NSNull null]) {
             self.jobTitle = jobTitle;
         }
+        
+        NSString *twitter = [json objectForKey:@"twitter_handle"];
+        if (twitter != (NSString *)[NSNull null]) {
+            self.twitter = twitter;
+        }
+        
+        NSString *url = [json objectForKey:@"website_url"];
+        if (url != (NSString *)[NSNull null]) {
+            self.url = url;
+        }
     }
 }
 

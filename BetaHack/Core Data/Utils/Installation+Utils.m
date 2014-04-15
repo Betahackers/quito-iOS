@@ -117,45 +117,25 @@ static Installation *currentInstallation;
 }
 
 #pragma mark - fetch articles
-- (void)fetchLocationsWithRadius:(float)radius long:(float)longitude lat:(float)latitude completion:(void (^)(NSError *error))completion {
+- (void)fetchLocationsWithRadius:(float)radius long:(float)longitude lat:(float)latitude filter:(CDFilter*)filter profile:(CDProfile*)profile completion:(void (^)(NSError *error))completion {
     
-    NSString *url = [NSString stringWithFormat:@"http://fromto.es/v1/locations.json?ll=%f,%f&radius=%f&include_articles=true", latitude, longitude, radius];
-    NSLog(@"URL: %@", url);
+    NSMutableString *url = [NSMutableString stringWithFormat:@"http://fromto.es/v2/locations.json?by_lat_long[lat]=%f&by_lat_long[long]=%f&by_lat_long[radius]=%f", latitude, longitude, radius];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    if (filter) {
         
-        [self processLocationsResponse:responseObject];
-        
-        completion(nil);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        completion(error);
-    }];
-}
-
-- (void)fetchLocationsWithRadius:(float)radius long:(float)longitude lat:(float)latitude filter:(CDFilter*)filter completion:(void (^)(NSError *error))completion {
+        NSString *filterGroupName;
+        if (filter.filterGroup == kFilterGroupEmotion) {
+            filterGroupName = @"by_mood";
+        } else {
+            filterGroupName = @"by_category";
+        }
+        [url appendFormat:@"%@=%@", filterGroupName, filter.jsonName];
+    }
     
-    NSString *url = [NSString stringWithFormat:@"http://fromto.es/v1/locations.json?ll=%f,%f&radius=%f&mood=%@&include_articles=true", latitude, longitude, radius, filter.name.lowercaseString];
-    NSLog(@"URL: %@", url);
+    if (profile) {
+        [url appendFormat:@"by_user=%d", profile.identifier];
+    }
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        [self processLocationsResponse:responseObject];
-        
-        completion(nil);
-
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        completion(error);
-    }];
-}
-
-- (void)fetchLocationsWithRadius:(float)radius long:(float)longitude lat:(float)latitude profile:(CDProfile*)profile completion:(void (^)(NSError *error))completion {
-    
-    NSString *url = [NSString stringWithFormat:@"http://fromto.es/v1/locations.json?ll=%f,%f&radius=%f&user=%d&include_articles=true", latitude, longitude, radius, profile.identifier];
     NSLog(@"URL: %@", url);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

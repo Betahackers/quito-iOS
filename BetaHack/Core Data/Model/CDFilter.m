@@ -2,7 +2,7 @@
 //  CDFilter.m
 //  BetaHack
 //
-//  Created by Duncan Campbell on 14/04/14.
+//  Created by Duncan Campbell on 15/04/14.
 //  Copyright (c) 2014 Betahackers. All rights reserved.
 //
 
@@ -16,8 +16,8 @@
 @dynamic filterGroupRaw;
 @dynamic filterTypeRaw;
 @dynamic imageName;
-@dynamic name;
 @dynamic jsonName;
+@dynamic name;
 @dynamic articles;
 @dynamic installation;
 

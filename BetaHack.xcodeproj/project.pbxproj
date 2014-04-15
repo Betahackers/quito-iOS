@@ -39,8 +39,10 @@
 		4B546B8218FB7A7A0091C821 /* fromtoSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B8118FB7A7A0091C821 /* fromtoSplash.png */; };
 		4B546B9418FBFFDA0091C821 /* icon_app_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B9218FBFFDA0091C821 /* icon_app_120.png */; };
 		4B546B9518FBFFDA0091C821 /* icon_app_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B9318FBFFDA0091C821 /* icon_app_1024.png */; };
-		4B546B9818FC219F0091C821 /* CDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546B9718FC219F0091C821 /* CDFilter.m */; };
-		4B546B9B18FC219F0091C821 /* CDLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546B9A18FC219F0091C821 /* CDLocation.m */; };
+		4B546BC318FD15B10091C821 /* CDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546BC218FD15B10091C821 /* CDFilter.m */; };
+		4B546BCF18FD20240091C821 /* Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546BCE18FD20240091C821 /* Installation.m */; };
+		4B546BE118FD2B1C0091C821 /* CDLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546BE018FD2B1C0091C821 /* CDLocation.m */; };
+		4B546BE418FD2B1C0091C821 /* CDProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546BE318FD2B1C0091C821 /* CDProfile.m */; };
 		4B78FAD318FAE91500322A30 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B78FAD218FAE91500322A30 /* FilterViewController.m */; };
 		4B78FADD18FAFE2300322A30 /* active.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B78FAD518FAFE2300322A30 /* active.png */; };
 		4B78FADE18FAFE2300322A30 /* Adventure.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B78FAD618FAFE2300322A30 /* Adventure.png */; };
@@ -65,8 +67,6 @@
 		4B78FB0C18FB2E9600322A30 /* Temp_ProfilePhoto2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B78FB0B18FB2E9600322A30 /* Temp_ProfilePhoto2.jpg */; };
 		4B78FB0F18FB367700322A30 /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B78FB0E18FB367700322A30 /* separator.png */; };
 		4B78FB2C18FB3EA000322A30 /* Temp_ParcGuell.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B78FB2B18FB3EA000322A30 /* Temp_ParcGuell.png */; };
-		4B78FB2F18FB3F0100322A30 /* Installation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B78FB2E18FB3F0100322A30 /* Installation.m */; };
-		4B78FB3B18FB3F0200322A30 /* CDProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B78FB3A18FB3F0200322A30 /* CDProfile.m */; };
 		4B82439918F9AD580097854D /* Temp_ProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B82439818F9AD580097854D /* Temp_ProfilePhoto.png */; };
 		4B8243AC18F9B2200097854D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8243AB18F9B2200097854D /* libz.dylib */; };
 		4B8243AE18F9B22A0097854D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8243AD18F9B22A0097854D /* AdSupport.framework */; };
@@ -167,10 +167,14 @@
 		4B546B8118FB7A7A0091C821 /* fromtoSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fromtoSplash.png; sourceTree = "<group>"; };
 		4B546B9218FBFFDA0091C821 /* icon_app_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_app_120.png; sourceTree = "<group>"; };
 		4B546B9318FBFFDA0091C821 /* icon_app_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_app_1024.png; sourceTree = "<group>"; };
-		4B546B9618FC219F0091C821 /* CDFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFilter.h; sourceTree = "<group>"; };
-		4B546B9718FC219F0091C821 /* CDFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilter.m; sourceTree = "<group>"; };
-		4B546B9918FC219F0091C821 /* CDLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLocation.h; sourceTree = "<group>"; };
-		4B546B9A18FC219F0091C821 /* CDLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLocation.m; sourceTree = "<group>"; };
+		4B546BC118FD15B10091C821 /* CDFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFilter.h; sourceTree = "<group>"; };
+		4B546BC218FD15B10091C821 /* CDFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilter.m; sourceTree = "<group>"; };
+		4B546BCD18FD20240091C821 /* Installation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Installation.h; sourceTree = "<group>"; };
+		4B546BCE18FD20240091C821 /* Installation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installation.m; sourceTree = "<group>"; };
+		4B546BDF18FD2B1C0091C821 /* CDLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLocation.h; sourceTree = "<group>"; };
+		4B546BE018FD2B1C0091C821 /* CDLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLocation.m; sourceTree = "<group>"; };
+		4B546BE218FD2B1C0091C821 /* CDProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProfile.h; sourceTree = "<group>"; };
+		4B546BE318FD2B1C0091C821 /* CDProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfile.m; sourceTree = "<group>"; };
 		4B78FAD118FAE91500322A30 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		4B78FAD218FAE91500322A30 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		4B78FAD518FAFE2300322A30 /* active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = active.png; sourceTree = "<group>"; };
@@ -196,10 +200,6 @@
 		4B78FB0B18FB2E9600322A30 /* Temp_ProfilePhoto2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Temp_ProfilePhoto2.jpg; sourceTree = "<group>"; };
 		4B78FB0E18FB367700322A30 /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
 		4B78FB2B18FB3EA000322A30 /* Temp_ParcGuell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_ParcGuell.png; sourceTree = "<group>"; };
-		4B78FB2D18FB3F0100322A30 /* Installation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Installation.h; sourceTree = "<group>"; };
-		4B78FB2E18FB3F0100322A30 /* Installation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installation.m; sourceTree = "<group>"; };
-		4B78FB3918FB3F0200322A30 /* CDProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProfile.h; sourceTree = "<group>"; };
-		4B78FB3A18FB3F0200322A30 /* CDProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProfile.m; sourceTree = "<group>"; };
 		4B82439818F9AD580097854D /* Temp_ProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Temp_ProfilePhoto.png; sourceTree = "<group>"; };
 		4B8243AB18F9B2200097854D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4B8243AD18F9B22A0097854D /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -463,17 +463,17 @@
 		4BC24EEB18F952F6007FF792 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4B546B9618FC219F0091C821 /* CDFilter.h */,
-				4B546B9918FC219F0091C821 /* CDLocation.h */,
-				4B546B9A18FC219F0091C821 /* CDLocation.m */,
-				4B546B9718FC219F0091C821 /* CDFilter.m */,
 				4BC24EF618F952F6007FF792 /* Model.xcdatamodeld */,
+				4B546BDF18FD2B1C0091C821 /* CDLocation.h */,
+				4B546BE018FD2B1C0091C821 /* CDLocation.m */,
+				4B546BE218FD2B1C0091C821 /* CDProfile.h */,
+				4B546BE318FD2B1C0091C821 /* CDProfile.m */,
+				4B546BCD18FD20240091C821 /* Installation.h */,
+				4B546BCE18FD20240091C821 /* Installation.m */,
+				4B546BC118FD15B10091C821 /* CDFilter.h */,
+				4B546BC218FD15B10091C821 /* CDFilter.m */,
 				4BB7F58918FB5F2600A68E86 /* CDArticle.h */,
 				4BB7F58A18FB5F2600A68E86 /* CDArticle.m */,
-				4B78FB3918FB3F0200322A30 /* CDProfile.h */,
-				4B78FB3A18FB3F0200322A30 /* CDProfile.m */,
-				4B78FB2D18FB3F0100322A30 /* Installation.h */,
-				4B78FB2E18FB3F0100322A30 /* Installation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -828,8 +828,8 @@
 				4BC24F4E18F95557007FF792 /* UIFont+Utils.m in Sources */,
 				4BC24EDD18F946BF007FF792 /* main.m in Sources */,
 				4BC24F4A18F95557007FF792 /* NSDate+Utils.m in Sources */,
-				4B78FB2F18FB3F0100322A30 /* Installation.m in Sources */,
 				4BC24F4C18F95557007FF792 /* NSString+Utils.m in Sources */,
+				4B546BCF18FD20240091C821 /* Installation.m in Sources */,
 				4B35F69F18F98621005FDBB2 /* CDFilter+Utils.m in Sources */,
 				4BC24F1218F952F6007FF792 /* CDArticle+Utils.m in Sources */,
 				4BC24F6218F955DC007FF792 /* CDProfile+Utils.m in Sources */,
@@ -839,13 +839,13 @@
 				4BC24F5018F95557007FF792 /* UIView+Utils.m in Sources */,
 				4B546B7C18FB73CA0091C821 /* ILTranslucentView.m in Sources */,
 				4BC24F0F18F952F6007FF792 /* Model.xcdatamodeld in Sources */,
-				4B546B9818FC219F0091C821 /* CDFilter.m in Sources */,
-				4B78FB3B18FB3F0200322A30 /* CDProfile.m in Sources */,
+				4B546BC318FD15B10091C821 /* CDFilter.m in Sources */,
 				4BC24F1618F952F6007FF792 /* Installation+Utils.m in Sources */,
 				4B8243D318FAA5550097854D /* CDLocation+Utils.m in Sources */,
 				4BC24F7218F95BA9007FF792 /* MapViewController.m in Sources */,
 				4BB7F58B18FB5F2600A68E86 /* CDArticle.m in Sources */,
-				4B546B9B18FC219F0091C821 /* CDLocation.m in Sources */,
+				4B546BE418FD2B1C0091C821 /* CDProfile.m in Sources */,
+				4B546BE118FD2B1C0091C821 /* CDLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

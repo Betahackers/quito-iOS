@@ -260,7 +260,7 @@ BOOL isFirstTime;
     NSLog(@"Radius: %f", radius);
     
     //now reload the points for this location
-    [[Installation currentInstallation] fetchLocationsWithRadius:radius long:mapView.centerCoordinate.longitude lat:mapView.centerCoordinate.latitude completion:^(NSError *error) {
+    [[Installation currentInstallation] fetchLocationsWithRadius:radius long:mapView.centerCoordinate.longitude lat:mapView.centerCoordinate.latitude filter:self.selectedFilter profile:self.selectedProfile completion:^(NSError *error) {
         [self reloadAnnotations];
     }];
 }

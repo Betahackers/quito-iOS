@@ -44,8 +44,8 @@
     }
     self.profile = profile;
     
-    [self removeLocations:self.locations];
-    
+//    [self removeLocations:self.locations];
+//    
 //    NSArray *locationsArray = [json objectForKey:@"locations"];
 //    for (NSDictionary *locationDict in locationsArray) {
 //        
@@ -82,7 +82,8 @@
 }
 
 - (UIImage*)articleImage {
-    return [UIImage imageNamed:@"Temp_Barceloneta.jpg"];
+    CDLocation *location = self.locations.anyObject;
+    return location.image;
 }
 
 - (NSString*)locationName {

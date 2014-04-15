@@ -21,8 +21,10 @@
         <relationship name="installation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Installation" inverseName="filters" inverseEntity="Installation" syncable="YES"/>
     </entity>
     <entity name="CDLocation" representedClassName="CDLocation" syncable="YES">
-        <attribute name="identifier" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="foursquareJSON" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="locationImageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="articles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDArticle" inverseName="locations" inverseEntity="CDArticle" syncable="YES"/>
@@ -36,6 +38,8 @@
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="jobTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="twitter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="articles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDArticle" inverseName="profile" inverseEntity="CDArticle" syncable="YES"/>
         <relationship name="installation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Installation" inverseName="profiles" inverseEntity="Installation" syncable="YES"/>
     </entity>
@@ -48,8 +52,8 @@
     <elements>
         <element name="CDArticle" positionX="0" positionY="0" width="128" height="180"/>
         <element name="CDFilter" positionX="9" positionY="45" width="128" height="148"/>
-        <element name="CDLocation" positionX="9" positionY="72" width="128" height="133"/>
-        <element name="CDProfile" positionX="18" positionY="27" width="128" height="178"/>
+        <element name="CDLocation" positionX="9" positionY="72" width="128" height="163"/>
+        <element name="CDProfile" positionX="18" positionY="27" width="128" height="210"/>
         <element name="Installation" positionX="0" positionY="0" width="128" height="105"/>
     </elements>
 </model>

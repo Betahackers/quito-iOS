@@ -36,8 +36,11 @@ typedef enum tableSections
     
     [self.navigationController setNavigationBarHidden:YES];
     
-    sections = [NSMutableArray array];
     [self reloadTable];
+    
+    [self.article.locations.anyObject fetchFullLocation:^(NSError *error) {
+        [self reloadTable];
+    }];
 }
 
 - (void)reloadTable {

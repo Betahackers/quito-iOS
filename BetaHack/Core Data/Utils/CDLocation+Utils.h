@@ -15,6 +15,10 @@
 + (id)initWithJSON:(NSDictionary*)json;
 - (void)updateWithJSON:(NSDictionary*)json;
 
+- (void)fetchFullLocation:(void (^)(NSError *error))completion;
+
+- (UIImage*)image;
+
 @end
 
 
