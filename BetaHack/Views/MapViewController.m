@@ -370,7 +370,7 @@
         }
         
     } else if (self.selectedProfile != nil) {
-        [self.profilesFilterImageView setImage:self.selectedProfile.profileImage];
+        [self.profilesFilterImageView setImage:self.selectedProfile.profileImage.grayscaleImage];
         [UIView animateWithDuration:0.3 animations:^{
             [self.profilesFilterView setFrameOriginX:0];
             [self.activitiesFilterView setFrameOriginX:-34];
