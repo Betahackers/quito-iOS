@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "DomainManager.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import <MapKit/MapKit.h>
 
 @interface ViewController ()
 
@@ -37,9 +38,12 @@ BOOL isFinishedFetching;
     [self.splashImageView centerWithinSuperview];
     
     //pull some articles
-    [[Installation currentInstallation] fetchUsers:^(NSError *error) {
-        isFinishedFetching = YES;
-        [self moveToNextScreen];
+    [[Installation currentInstallation] fetchLocationsWithRadius:8000 long:41.407001 lat:2.156799 filter:nil profile:nil completion:^(NSError *error) {
+        
+        [[Installation currentInstallation] fetchUsers:^(NSError *error) {
+            isFinishedFetching = YES;
+            [self moveToNextScreen];
+        }];
     }];
 
     [UIView animateWithDuration:2.0 animations:^{
