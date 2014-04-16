@@ -15,7 +15,7 @@
 @protocol MapViewDelegate
 - (void)applyFilter:(CDFilter*)filter;
 - (void)applyProfile:(CDProfile*)profile;
-- (void)showHideHeader;
+- (BOOL) showHideHeader;
 - (void)playPromo;
 @end
 

@@ -12,8 +12,8 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) IBOutlet UILabel *startLabel;
 @property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
+@property (strong, nonatomic) IBOutlet UIImageView *splashImageView;
 
 @end
 
@@ -33,6 +33,9 @@ BOOL isFinishedFetching;
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    [self.splashImageView setAlpha:0.0f];
+    [self.splashImageView centerWithinSuperview];
+    
     //pull some articles
     [[Installation currentInstallation] fetchUsers:^(NSError *error) {
         isFinishedFetching = YES;
@@ -40,7 +43,8 @@ BOOL isFinishedFetching;
     }];
 
     [UIView animateWithDuration:2.0 animations:^{
-        self.startLabel.alpha = 1.0f;
+        self.splashImageView.alpha = 1.0f;
+    
     } completion:^(BOOL finished) {
         
         //show the map
@@ -48,11 +52,10 @@ BOOL isFinishedFetching;
         float popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             
-            isFinishedAnimating = YES;
-            
             if (![Installation currentInstallation].isShownTutorial) {
                 [self showTutorial];
             } else {
+                isFinishedAnimating = YES;
                 [self moveToNextScreen];
             }
         });
@@ -92,6 +95,7 @@ BOOL isFinishedFetching;
     [Installation currentInstallation].isShownTutorial = YES;
     [[DomainManager sharedManager].context save:nil];
     
+    isFinishedAnimating = YES;
     [self moveToNextScreen];
 }
 @end

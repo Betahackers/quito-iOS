@@ -117,6 +117,7 @@
             [self.translucentHolderView setFrameOriginY:self.translucentHolderView.frame.size.height];
         } completion:^(BOOL finished) {
             [self.translucentHolderView removeFromSuperview];
+            [self.mapView setShowsUserLocation:YES];
         }];
     }];
 }
@@ -179,15 +180,19 @@
     }
 }
 
-- (void)showHideHeader {
+- (BOOL) showHideHeader {
     
+    BOOL isCurrentlyShown = (self.headerContainerView.frame.size.height > 35);
+
     [UIView animateWithDuration:0.3 animations:^{
-        if (self.headerContainerView.frame.size.height != 35) {
+        if (isCurrentlyShown) {
             [self.headerContainerView setFrameHeight:35];
         } else {
             [self.headerContainerView setFrameHeight:400];
         }
     }];
+    
+    return !isCurrentlyShown;
 }
 
 - (void)playPromo {
@@ -278,7 +283,11 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     MyAnnotation *mapViewAnnotation = (MyAnnotation*)view.annotation;
-    [self performSegueWithIdentifier:@"map_article" sender:mapViewAnnotation.article];
+    
+        //only segue to actual annotations, not the user location
+    if ([mapViewAnnotation isKindOfClass:[MyAnnotation class]]) {
+        [self performSegueWithIdentifier:@"map_article" sender:mapViewAnnotation.article];
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
@@ -370,7 +379,7 @@
         }
         
     } else if (self.selectedProfile != nil) {
-        [self.profilesFilterImageView setImage:self.selectedProfile.profileImage.grayscaleImage];
+        [self.profilesFilterImageView setImage:self.selectedProfile.profileImage];
         [UIView animateWithDuration:0.3 animations:^{
             [self.profilesFilterView setFrameOriginX:0];
             [self.activitiesFilterView setFrameOriginX:-34];

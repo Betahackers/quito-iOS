@@ -122,9 +122,9 @@
 
 - (UIImage*)profileImage {
     if (self.photoData != nil) {
-        return [UIImage imageWithData:self.photoData];
+        return [UIImage imageWithData:self.photoData].grayscaleImage;
     } else {
-        return [UIImage imageNamed:@"Temp_ProfilePhoto2.jpg"].grayscaleImage;
+        return [UIImage imageNamed:@"Temp_ProfilePhoto2.jpg"];
     }
 }
 

@@ -10,11 +10,11 @@
 #import "DomainManager.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface HeaderViewController () {
-    BOOL isDownArrow;
-}
+@interface HeaderViewController ()
 
 @property (nonatomic, strong) IBOutlet UIImageView *downButtonImageView;
+@property (nonatomic, strong) IBOutlet UIButton *tutorialButton;
+
 @property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
 
 @end
@@ -25,24 +25,37 @@
 {
     [super viewDidLoad];
     [self.view applyMontserratFontToSubviews];
-    
-    isDownArrow = YES;
+    [self.tutorialButton setAlpha:0.0f];
 }
 
 - (IBAction)downTapped:(id)sender {
-    [self.mapViewDelegate showHideHeader];
     
-    isDownArrow = !isDownArrow;
-    if (isDownArrow) {
-        [self.downButtonImageView setImage:[UIImage imageNamed:@"DownArrow.png"]];
-    } else {
-        [self.downButtonImageView setImage:[UIImage imageNamed:@"UpArrow.png"]];
-    }
+    BOOL isShown = [self.mapViewDelegate showHideHeader];
+
+    [UIView animateWithDuration:0.3 animations:^{
+        if (isShown) {
+            [self.downButtonImageView setImage:[UIImage imageNamed:@"UpArrow.png"]];
+            [self.tutorialButton setAlpha:1.0f];
+            
+        } else {
+            [self.downButtonImageView setImage:[UIImage imageNamed:@"DownArrow.png"]];
+            [self.tutorialButton setAlpha:0.0f];
+        }
+    }];
+}
+
+- (IBAction)tutorialTapped:(id)sender {
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"tutorial" withExtension:@"mp4"];
+    [self playMovie:url];
 }
 
 - (IBAction)playTapped:(id)sender {
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"promo" withExtension:@"mp4"];
+    [self playMovie:url];
+}
+
+- (void)playMovie:(NSURL*)url {
     self.moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
     self.moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
     self.moviePlayer.view.transform = CGAffineTransformConcat(self.moviePlayer.view.transform, CGAffineTransformMakeRotation(M_PI_2));
