@@ -305,6 +305,11 @@
     if ([mapViewAnnotation isKindOfClass:[MyAnnotation class]]) {
         [self performSegueWithIdentifier:@"map_article" sender:mapViewAnnotation.article];
     }
+    
+    
+    for (id<MKAnnotation> annotation in self.mapView.annotations) {
+        [self.mapView deselectAnnotation:annotation animated:YES];
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
