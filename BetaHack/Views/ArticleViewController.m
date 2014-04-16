@@ -9,6 +9,7 @@
 #import "ArticleViewController.h"
 #import "DomainManager.h"
 #import "ILTranslucentView.h"
+#import "Mixpanel.h"
 
 @interface ArticleViewController () {
     NSMutableArray *sections;
@@ -53,6 +54,8 @@ typedef enum tableSections
     } completion:^(NSError *error) {
          [self reloadTable];
     }];
+    
+    [[Mixpanel sharedInstance] track:@"Article viewed" properties:@{@"Location": self.article.location.name, @"Article": self.article.title, @"Author": self.article.profile.displayName}];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

@@ -9,6 +9,7 @@
 #import "HeaderViewController.h"
 #import "DomainManager.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "Mixpanel.h"
 
 @interface HeaderViewController ()
 
@@ -51,12 +52,14 @@
 - (IBAction)tutorialTapped:(id)sender {
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"tutorial" withExtension:@"mp4"];
     [self playMovie:url];
+    [[Mixpanel sharedInstance] track:@"Tutorial viewed" properties:@{@"View": @"Header"}];
 }
 
 - (IBAction)playTapped:(id)sender {
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"promo" withExtension:@"mp4"];
     [self playMovie:url];
+    [[Mixpanel sharedInstance] track:@"Promo viewed" properties:nil];
 }
 
 - (void)playMovie:(NSURL*)url {

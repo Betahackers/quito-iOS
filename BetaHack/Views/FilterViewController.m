@@ -8,6 +8,7 @@
 
 #import "FilterViewController.h"
 #import "DomainManager.h"
+#import "Mixpanel.h"
 
 @interface FilterViewController () {
     NSMutableArray *sections;
@@ -90,12 +91,8 @@ typedef enum tableSections
 }
 
 - (IBAction)backTapped:(id)sender {
+    [[Mixpanel sharedInstance] track:@"Filter back tapped" properties:@{@"FilterGroup": self.titleLabel.text}];
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - FilterCardCellDelegate
-- (void)showProfile:(CDProfile *)profile {
-    [self performSegueWithIdentifier:@"filter_profile" sender:profile];
 }
 
 #pragma mark - TableView data source

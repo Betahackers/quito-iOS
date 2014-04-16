@@ -13,6 +13,7 @@
 #import "ILTranslucentView.h"
 #import "HeaderViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "Mixpanel.h"
 
 @interface MapViewController () {
     BOOL hasBeenShown;
@@ -197,8 +198,11 @@
     [UIView animateWithDuration:0.3 animations:^{
         if (isCurrentlyShown) {
             [self.headerContainerView setFrameHeight:35];
+            [[Mixpanel sharedInstance] track:@"Header closed" properties:nil];
+            
         } else {
             [self.headerContainerView setFrameHeight:400];
+            [[Mixpanel sharedInstance] track:@"Header opened" properties:nil];
         }
     }];
     
@@ -209,6 +213,7 @@
     
     [_moviePlayer.view setHidden:NO];
     [_moviePlayer play];
+    [[Mixpanel sharedInstance] track:@"Promo viewed" properties:nil];
 }
 
 - (void) moviePlayBackDidFinish:(NSNotification*)notification {
@@ -230,6 +235,7 @@
     }
     self.selectedProfile = nil;
     [self reloadAnnotations];
+    [[Mixpanel sharedInstance] track:@"Filter applied" properties:@{@"Filter": filter.name}];
 }
 
 - (void)applyProfile:(CDProfile *)profile {
@@ -240,6 +246,7 @@
     }
     self.selectedFilter = nil;
     [self reloadAnnotations];
+    [[Mixpanel sharedInstance] track:@"Profile applied" properties:@{@"Filter": profile.shortDisplayName}];
 }
 
 #pragma mark - MKMapView Delegate
@@ -317,6 +324,7 @@
     }];
     
     [self hideHeader];
+    [[Mixpanel sharedInstance] track:@"Map region changed" properties:nil];
 }
 
 - (void)reloadAnnotations {

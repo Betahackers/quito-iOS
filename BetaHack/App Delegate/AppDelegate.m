@@ -7,12 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "Mixpanel.h"
+
+#define MIXPANEL_TOKEN @"329898397f262ad2fadcfe468fdbd29b"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     return YES;
 }
 							

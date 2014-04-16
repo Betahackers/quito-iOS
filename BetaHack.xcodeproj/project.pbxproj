@@ -10,6 +10,9 @@
 		4B2DB5A118FE726B00FF9D55 /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B2DB5A018FE726B00FF9D55 /* splash@2x.png */; };
 		4B2DB5A318FE756600FF9D55 /* tutorialButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B2DB5A218FE756600FF9D55 /* tutorialButton.png */; };
 		4B2DB5A518FE772600FF9D55 /* wideShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B2DB5A418FE772600FF9D55 /* wideShadow.png */; };
+		4B2DB5CA18FEBEFE00FF9D55 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2DB5C918FEBEFE00FF9D55 /* CoreText.framework */; };
+		4B2DB5CC18FEBF0800FF9D55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2DB5CB18FEBF0800FF9D55 /* QuartzCore.framework */; };
+		4B2DB5CE18FEBF1100FF9D55 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2DB5CD18FEBF1100FF9D55 /* Security.framework */; };
 		4B35F69F18F98621005FDBB2 /* CDFilter+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B35F69E18F98621005FDBB2 /* CDFilter+Utils.m */; };
 		4B546B7C18FB73CA0091C821 /* ILTranslucentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546B7918FB73CA0091C821 /* ILTranslucentView.m */; };
 		4B546B7D18FB73CA0091C821 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B7A18FB73CA0091C821 /* LICENSE */; };
@@ -107,7 +110,6 @@
 		4B8243D318FAA5550097854D /* CDLocation+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8243D218FAA5550097854D /* CDLocation+Utils.m */; };
 		4BB7F58B18FB5F2600A68E86 /* CDArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB7F58A18FB5F2600A68E86 /* CDArticle.m */; };
 		4BC24ED918F946BF007FF792 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24ECD18F946BF007FF792 /* AppDelegate.m */; };
-		4BC24EDB18F946BF007FF792 /* BetaHack-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24ED118F946BF007FF792 /* BetaHack-Info.plist */; };
 		4BC24EDC18F946BF007FF792 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24ED318F946BF007FF792 /* InfoPlist.strings */; };
 		4BC24EDD18F946BF007FF792 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24ED418F946BF007FF792 /* main.m */; };
 		4BC24EDE18F946BF007FF792 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24ED618F946BF007FF792 /* Main.storyboard */; };
@@ -161,6 +163,9 @@
 		4B2DB5A018FE726B00FF9D55 /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		4B2DB5A218FE756600FF9D55 /* tutorialButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorialButton.png; sourceTree = "<group>"; };
 		4B2DB5A418FE772600FF9D55 /* wideShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wideShadow.png; sourceTree = "<group>"; };
+		4B2DB5C918FEBEFE00FF9D55 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		4B2DB5CB18FEBF0800FF9D55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4B2DB5CD18FEBF1100FF9D55 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4B35F69D18F98621005FDBB2 /* CDFilter+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDFilter+Utils.h"; sourceTree = "<group>"; };
 		4B35F69E18F98621005FDBB2 /* CDFilter+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDFilter+Utils.m"; sourceTree = "<group>"; };
 		4B546B7818FB73CA0091C821 /* ILTranslucentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILTranslucentView.h; sourceTree = "<group>"; };
@@ -330,6 +335,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B2DB5CE18FEBF1100FF9D55 /* Security.framework in Frameworks */,
+				4B2DB5CC18FEBF0800FF9D55 /* QuartzCore.framework in Frameworks */,
+				4B2DB5CA18FEBEFE00FF9D55 /* CoreText.framework in Frameworks */,
 				4BE4793E18FDCA44003D7D27 /* MediaPlayer.framework in Frameworks */,
 				4B8243B218F9C4C60097854D /* MapKit.framework in Frameworks */,
 				4B8243B018F9B2620097854D /* SystemConfiguration.framework in Frameworks */,
@@ -682,6 +690,9 @@
 		4BE2A32C18F93E8F00386607 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4B2DB5CD18FEBF1100FF9D55 /* Security.framework */,
+				4B2DB5CB18FEBF0800FF9D55 /* QuartzCore.framework */,
+				4B2DB5C918FEBEFE00FF9D55 /* CoreText.framework */,
 				4BE4793D18FDCA44003D7D27 /* MediaPlayer.framework */,
 				4B8243B118F9C4C60097854D /* MapKit.framework */,
 				4B8243AF18F9B2620097854D /* SystemConfiguration.framework */,
@@ -845,7 +856,6 @@
 				4B71C98118FE71BA007E87FC /* headerView.png in Resources */,
 				4B71C95F18FE71BA007E87FC /* culture_circle.png in Resources */,
 				4B71C98C18FE71BA007E87FC /* fromto_hola_App_07.png in Resources */,
-				4BC24EDB18F946BF007FF792 /* BetaHack-Info.plist in Resources */,
 				4B71C99418FE71BA007E87FC /* fromto_hola_App_15.png in Resources */,
 				4B2DB5A318FE756600FF9D55 /* tutorialButton.png in Resources */,
 				4B71C96018FE71BA007E87FC /* drinks.png in Resources */,
@@ -1092,15 +1102,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BetaHack/Project Config/BetaHack-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BetaHack/Project Config/BetaHack-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BetaHack/Google",
-					Analytics/Library,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1113,15 +1120,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BetaHack/Project Config/BetaHack-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BetaHack/Project Config/BetaHack-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BetaHack/Google",
-					Analytics/Library,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

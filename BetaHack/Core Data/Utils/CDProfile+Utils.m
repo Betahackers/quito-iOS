@@ -90,6 +90,9 @@
                 
                 NSLog(@"Response: %@", responseObject);
                 self.photoData = UIImageJPEGRepresentation(responseObject, 1.0);
+                self.photoURL = photoURL;
+                
+                [[DomainManager sharedManager].context save:nil];
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"profilePhotoUpdated" object:self];
                 
@@ -99,6 +102,8 @@
             [requestOperation start];
         }
     }
+    
+    [[DomainManager sharedManager].context save:nil];
 }
 
 - (NSString*)displayName {
@@ -124,7 +129,7 @@
     if (self.photoData != nil) {
         return [UIImage imageWithData:self.photoData];
     } else {
-        return [UIImage imageNamed:@"Temp_ProfilePhoto2.jpg"];
+        return [UIImage imageNamed:@"NoProfilePhoto.png"];
     }
 }
 

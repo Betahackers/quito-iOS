@@ -10,6 +10,7 @@
 #import "DomainManager.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <MapKit/MapKit.h>
+#import "Mixpanel.h"
 
 @interface ViewController ()
 
@@ -85,7 +86,8 @@ BOOL isFinishedFetching;
     [self.moviePlayer.view setFrame:backgroundWindow.frame];
     [backgroundWindow addSubview:self.moviePlayer.view];
     [self.moviePlayer play];
-
+    
+    [[Mixpanel sharedInstance] track:@"Tutorial viewed" properties:@{@"View": @"Launch"}];
 }
 
 - (void) moviePlayBackDidFinish:(NSNotification*)notification {
