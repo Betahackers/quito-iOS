@@ -665,6 +665,7 @@
                     <navigationItem key="navigationItem" id="dST-o0-dKS"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="chooseLabel" destination="hcL-xz-5zs" id="y45-OC-VCL"/>
                         <outlet property="collectionView" destination="E3h-Rb-k1b" id="3VX-LS-LRo"/>
                         <outlet property="titleLabel" destination="Qye-p3-gTO" id="51I-Ux-a3H"/>
                     </connections>

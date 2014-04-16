@@ -19,6 +19,8 @@
 }
 
 @property (nonatomic, strong) IBOutlet UIView *headerContainerView;
+@property (nonatomic, strong) HeaderViewController *headerViewController;
+
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 
 @property (nonatomic, strong) IBOutlet UIView *activitiesFilterView;
@@ -138,7 +140,7 @@
     
     if ([segue.identifier isEqualToString:@"map_filter"]) {
         FilterViewController *viewController = (FilterViewController *)segue.destinationViewController;
-        switch ([sender intValue]) {
+        switch ([sender longValue]) {
             case 1001: viewController.filterGroup = kFilterGroupEmotion; break;
             case 1002: viewController.filterGroup = kFilterGroupCategory; break;
             case 1003: viewController.filterGroup = kFilterGroupProfile; break;
@@ -147,8 +149,8 @@
     }
     
     if ([segue.identifier isEqualToString:@"map_header"]) {
-        HeaderViewController *viewController = (HeaderViewController *)segue.destinationViewController;
-        viewController.mapViewDelegate = self;
+        self.headerViewController = (HeaderViewController *)segue.destinationViewController;
+        self.headerViewController.mapViewDelegate = self;
     }
 }
 
@@ -173,10 +175,18 @@
             self.selectedFilter = nil;
             [self reloadAnnotations];
         } else {
-            [self performSegueWithIdentifier:@"map_filter" sender:[NSNumber numberWithInt:sender.tag]];
+            [self performSegueWithIdentifier:@"map_filter" sender:[NSNumber numberWithLong:sender.tag]];
         }
     } else {
-        [self performSegueWithIdentifier:@"map_filter" sender:[NSNumber numberWithInt:sender.tag]];
+        [self performSegueWithIdentifier:@"map_filter" sender:[NSNumber numberWithLong:sender.tag]];
+    }
+}
+
+- (void)hideHeader {
+    
+    BOOL isCurrentlyShown = (self.headerContainerView.frame.size.height > 35);
+    if (isCurrentlyShown) {
+        [self.headerViewController hideHeader];
     }
 }
 
@@ -237,11 +247,11 @@
     static NSString *identifier = @"MyLocation";
     if ([annotation isKindOfClass:[MyAnnotation class]])
     {
-        MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        MKAnnotationView *annotationView = (MKAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         
         if (annotationView == nil)
         {
-            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
         } else
         {
             annotationView.annotation = annotation;
@@ -305,6 +315,8 @@
     [[Installation currentInstallation] fetchLocationsWithRadius:radius long:mapView.centerCoordinate.longitude lat:mapView.centerCoordinate.latitude filter:self.selectedFilter profile:self.selectedProfile completion:^(NSError *error) {
         [self reloadAnnotations];
     }];
+    
+    [self hideHeader];
 }
 
 - (void)reloadAnnotations {

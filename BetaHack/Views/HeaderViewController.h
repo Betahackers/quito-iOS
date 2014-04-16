@@ -15,4 +15,6 @@
 
 @property (nonatomic, weak) id<MapViewDelegate> mapViewDelegate;
 
+- (void)hideHeader;
+
 @end

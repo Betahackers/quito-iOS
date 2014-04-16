@@ -269,6 +269,7 @@ typedef enum tableSections
     
     self.biographyLabel.text = article.profile.biography;
     [self.biographyLabel applyFontMontserratWithWeight:kFontWeightBold];
+    [self.overlayBiographyLabel removeFromSuperview];
     self.overlayBiographyLabel = [self.biographyLabel replaceWithMultilineLabel];
     
     self.hometownLabel.text = article.profile.hometown;
@@ -297,6 +298,8 @@ typedef enum tableSections
     [self.contentView applyMontserratFontToSubviews];
     self.titleLabel.text = article.location.name;
     [self.titleLabel applyFontMontserratWithWeight:kFontWeightBold];
+    
+    [self.overlayTitleLabel removeFromSuperview];
     self.overlayTitleLabel = [self.titleLabel replaceWithMultilineLabel];
 }
 @end
@@ -318,6 +321,8 @@ typedef enum tableSections
     
     [self.contentView applyMontserratFontToSubviews];
     self.contentLabel.text = article.content;
+    
+    [self.overlayContentLabel removeFromSuperview];
     self.overlayContentLabel = [self.contentLabel replaceWithMultilineLabel];
 }
 @end

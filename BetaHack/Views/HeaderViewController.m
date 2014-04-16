@@ -28,6 +28,10 @@
     [self.tutorialButton setAlpha:0.0f];
 }
 
+- (void)hideHeader {
+    [self downTapped:nil];
+}
+
 - (IBAction)downTapped:(id)sender {
     
     BOOL isShown = [self.mapViewDelegate showHideHeader];

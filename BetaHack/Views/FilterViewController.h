@@ -13,7 +13,7 @@
 @class CDFilter, CDProfile;
 
 #pragma mark - FilterViewController
-@interface FilterViewController : UIViewController <MapViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface FilterViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, assign) FilterGroup filterGroup;
 @property (nonatomic, assign) id<MapViewDelegate> mapViewDelegate;

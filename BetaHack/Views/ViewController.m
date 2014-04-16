@@ -38,7 +38,7 @@ BOOL isFinishedFetching;
     [self.splashImageView centerWithinSuperview];
     
     //pull some articles
-    [[Installation currentInstallation] fetchLocationsWithRadius:8000 long:41.407001 lat:2.156799 filter:nil profile:nil completion:^(NSError *error) {
+    [[Installation currentInstallation] fetchLocationsWithRadius:8000 long:2.156799 lat:41.407001 filter:nil profile:nil completion:^(NSError *error) {
         
         [[Installation currentInstallation] fetchUsers:^(NSError *error) {
             isFinishedFetching = YES;
