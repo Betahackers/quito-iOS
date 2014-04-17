@@ -36,7 +36,6 @@ BOOL isFinishedFetching;
 - (void)viewWillAppear:(BOOL)animated {
     
     [self.splashImageView setAlpha:0.0f];
-    [self.splashImageView centerWithinSuperview];
     
     //pull some articles
     [[Installation currentInstallation] fetchLocationsWithRadius:8000 long:2.156799 lat:41.407001 filter:nil profile:nil completion:^(NSError *error) {
@@ -66,6 +65,10 @@ BOOL isFinishedFetching;
         });
         
     }];
+}
+
+- (void)viewDidLayoutSubviews {
+    [self.splashImageView centerWithinSuperview];
 }
 
 - (void)moveToNextScreen {

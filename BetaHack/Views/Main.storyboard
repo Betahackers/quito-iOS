@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="qbN-VI-76M">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="227" width="320" height="114"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
@@ -601,7 +601,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Temp_ProfilePhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="eLM-Rh-Ir9">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NoProfilePhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="eLM-Rh-Ir9">
                                                     <rect key="frame" x="15" y="0.0" width="90" height="90"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
@@ -677,7 +677,7 @@
     </scenes>
     <resources>
         <image name="DownArrow.png" width="57" height="18"/>
-        <image name="Temp_ProfilePhoto.png" width="52" height="52"/>
+        <image name="NoProfilePhoto.png" width="199" height="200"/>
         <image name="back.png" width="55" height="49"/>
         <image name="filterActivity.png" width="67" height="131"/>
         <image name="filterMoods.png" width="67" height="131"/>
