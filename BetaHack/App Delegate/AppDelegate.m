@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Mixpanel.h"
+#import "DomainManager.h"
 
 #define MIXPANEL_TOKEN @"329898397f262ad2fadcfe468fdbd29b"
 
@@ -35,6 +36,13 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    [[Installation currentInstallation] fetchUsers:^(NSError *error) {
+        //users updated
+    }];
+    [[Installation currentInstallation] fetchLocationsWithRadius:8000 long:2.156799 lat:41.407001 filter:nil profile:nil completion:^(NSError *error) {
+        //locations for Barcelona updated
+    }];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

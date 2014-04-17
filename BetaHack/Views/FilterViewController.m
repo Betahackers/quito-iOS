@@ -48,11 +48,17 @@ typedef enum tableSections
             self.titleLabel.text = @"Moods";
             self.chooseLabel.text = @"Choose a mood";
             break;
-        case kFilterGroupProfile:
+        case kFilterGroupProfile: {
             self.view.backgroundColor = [UIColor fromtoProfileColour];
             self.titleLabel.text = @"Profiles";
             self.chooseLabel.text = @"Choose a profile";
+            
+            [[Installation currentInstallation] fetchUsers:^(NSError *error) {
+                [self reloadTable];
+            }];
+            
             break;
+        }
         default:
             break;
     }
