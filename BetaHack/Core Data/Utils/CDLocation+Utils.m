@@ -21,23 +21,6 @@
         
         location.identifier = [[json objectForKey:@"id"] intValue];
         [location updateWithJSON:json];
-        
-        [location removeArticles:location.articles];
-        
-        for (NSDictionary *articleHolderDict in [json objectForKey:@"articles"]) {
-            
-            NSDictionary *articleDict = [articleHolderDict objectForKey:@"article"];
-            
-            int articleID = [[articleDict objectForKey:@"id"] intValue];
-            CDArticle *article = [[Installation currentInstallation] articleWithID:articleID];
-            if (!article) {
-                article = [CDArticle initWithJSON:articleDict];
-            } else {
-                [article updateWithJSON:articleDict];
-            }
-            
-            [location addArticlesObject:article];
-        }
     }
     
     return location;
@@ -48,6 +31,22 @@
     self.name = [json objectForKey:@"name"];
     self.longitude = [[json objectForKey:@"longitude"] floatValue];
     self.latitude = [[json objectForKey:@"latitude"] floatValue];
+    
+    [self removeArticles:self.articles];
+    for (NSDictionary *articleHolderDict in [json objectForKey:@"articles"]) {
+        
+        NSDictionary *articleDict = [articleHolderDict objectForKey:@"article"];
+        
+        int articleID = [[articleDict objectForKey:@"id"] intValue];
+        CDArticle *article = [[Installation currentInstallation] articleWithID:articleID];
+        if (!article) {
+            article = [CDArticle initWithJSON:articleDict];
+        } else {
+            [article updateWithJSON:articleDict];
+        }
+        
+        [self addArticlesObject:article];
+    }
     
     if ([json objectForKey:@"foursquare"]) {
         NSDictionary *foursquareDict = [json objectForKey:@"foursquare"];
