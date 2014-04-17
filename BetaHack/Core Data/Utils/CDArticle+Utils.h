@@ -20,6 +20,9 @@
 - (FilterGroup)defaultFilterGroupColour;
 - (void)setDefaultFilterGroupColour:(FilterGroup)defaultFilterGroupColour;
 
+- (NSDate*)createdDate;
+- (void)setCreatedDate:(NSDate*)createdDate;
+
 @end
 
 

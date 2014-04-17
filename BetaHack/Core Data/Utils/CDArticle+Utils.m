@@ -34,6 +34,11 @@
     self.title = [json objectForKey:@"title"];
     self.content = [json objectForKey:@"content"];
     
+    NSString *dateString = [json objectForKey:@"created_at"];;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    self.createdDate = [dateFormatter dateFromString:dateString];;
+    
     NSDictionary *authorDict = [json objectForKey:@"user"];
     int profileID = [[authorDict objectForKey:@"id"] intValue];
     CDProfile *profile = [[Installation currentInstallation] profileWithID:profileID];
@@ -91,5 +96,14 @@
 }
 - (void)setDefaultFilterGroupColour:(FilterGroup)defaultFilterGroupColour {
     self.defaultFilterGroupColourRaw = defaultFilterGroupColour;
+}
+
+
+- (NSDate*)createdDate {
+    return [NSDate dateWithTimeIntervalSinceReferenceDate:self.createdDateInterval];
+}
+
+- (void)setCreatedDate:(NSDate*)createdDate {
+    self.createdDateInterval = [createdDate timeIntervalSinceReferenceDate];
 }
 @end

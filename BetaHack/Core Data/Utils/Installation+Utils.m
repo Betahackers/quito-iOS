@@ -14,6 +14,8 @@
 static NSString *entityName = @"Installation";
 static Installation *currentInstallation;
 
+static NSMutableDictionary *cachedRegions;
+
 #pragma mark - Initialisation
 + (Installation*)currentInstallation {
     
@@ -119,22 +121,24 @@ static Installation *currentInstallation;
 #pragma mark - fetch articles
 - (void)fetchLocationsWithRadius:(float)radius long:(float)longitude lat:(float)latitude filter:(CDFilter*)filter profile:(CDProfile*)profile completion:(void (^)(NSError *error))completion {
     
-    NSMutableString *url = [NSMutableString stringWithFormat:@"http://fromto.es/v2/locations.json?by_lat_long[lat]=%f&by_lat_long[long]=%f&by_lat_long[radius]=%f", latitude, longitude, radius];
+    NSMutableString *url = [NSMutableString stringWithString:@"http://fromto.es/v2/locations.json"];
     
-    if (filter) {
-        
-        NSString *filterGroupName;
-        if (filter.filterGroup == kFilterGroupEmotion) {
-            filterGroupName = @"by_mood";
-        } else {
-            filterGroupName = @"by_category";
-        }
-        [url appendFormat:@"%@=%@", filterGroupName, filter.jsonName];
-    }
+//    [url appendFormat:@"?by_lat_long[lat]=%f&by_lat_long[long]=%f&by_lat_long[radius]=%f", latitude, longitude, radius];
     
-    if (profile) {
-        [url appendFormat:@"by_user=%d", profile.identifier];
-    }
+//    if (filter) {
+//        
+//        NSString *filterGroupName;
+//        if (filter.filterGroup == kFilterGroupEmotion) {
+//            filterGroupName = @"by_mood";
+//        } else {
+//            filterGroupName = @"by_category";
+//        }
+//        [url appendFormat:@"%@=%@", filterGroupName, filter.jsonName];
+//    }
+//    
+//    if (profile) {
+//        [url appendFormat:@"by_user=%d", profile.identifier];
+//    }
     
     NSLog(@"URL: %@", url);
     

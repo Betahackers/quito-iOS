@@ -17,7 +17,6 @@
 		4B546B7C18FB73CA0091C821 /* ILTranslucentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546B7918FB73CA0091C821 /* ILTranslucentView.m */; };
 		4B546B7D18FB73CA0091C821 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B7A18FB73CA0091C821 /* LICENSE */; };
 		4B546B7E18FB73CA0091C821 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4B546B7B18FB73CA0091C821 /* README.md */; };
-		4B546BC318FD15B10091C821 /* CDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B546BC218FD15B10091C821 /* CDFilter.m */; };
 		4B71C95718FE71BA007E87FC /* image_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B71C8F918FE71BA007E87FC /* image_placeholder.png */; };
 		4B71C95818FE71BA007E87FC /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B71C8FA18FE71BA007E87FC /* separator.png */; };
 		4B71C95918FE71BA007E87FC /* adventure.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B71C8FC18FE71BA007E87FC /* adventure.png */; };
@@ -108,7 +107,8 @@
 		4B8243B018F9B2620097854D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8243AF18F9B2620097854D /* SystemConfiguration.framework */; };
 		4B8243B218F9C4C60097854D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8243B118F9C4C60097854D /* MapKit.framework */; };
 		4B8243D318FAA5550097854D /* CDLocation+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8243D218FAA5550097854D /* CDLocation+Utils.m */; };
-		4BB7F58B18FB5F2600A68E86 /* CDArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB7F58A18FB5F2600A68E86 /* CDArticle.m */; };
+		4B8E850218FFF9F2005D22E5 /* CDArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E850118FFF9F2005D22E5 /* CDArticle.m */; };
+		4B8E850518FFF9F2005D22E5 /* CDFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E850418FFF9F2005D22E5 /* CDFilter.m */; };
 		4BC24ED918F946BF007FF792 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24ECD18F946BF007FF792 /* AppDelegate.m */; };
 		4BC24EDC18F946BF007FF792 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BC24ED318F946BF007FF792 /* InfoPlist.strings */; };
 		4BC24EDD18F946BF007FF792 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC24ED418F946BF007FF792 /* main.m */; };
@@ -172,8 +172,6 @@
 		4B546B7918FB73CA0091C821 /* ILTranslucentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILTranslucentView.m; sourceTree = "<group>"; };
 		4B546B7A18FB73CA0091C821 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4B546B7B18FB73CA0091C821 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		4B546BC118FD15B10091C821 /* CDFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFilter.h; sourceTree = "<group>"; };
-		4B546BC218FD15B10091C821 /* CDFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilter.m; sourceTree = "<group>"; };
 		4B71C8F918FE71BA007E87FC /* image_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_placeholder.png; sourceTree = "<group>"; };
 		4B71C8FA18FE71BA007E87FC /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
 		4B71C8FC18FE71BA007E87FC /* adventure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adventure.png; sourceTree = "<group>"; };
@@ -266,8 +264,10 @@
 		4B8243B118F9C4C60097854D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4B8243D118FAA5550097854D /* CDLocation+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDLocation+Utils.h"; sourceTree = "<group>"; };
 		4B8243D218FAA5550097854D /* CDLocation+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDLocation+Utils.m"; sourceTree = "<group>"; };
-		4BB7F58918FB5F2600A68E86 /* CDArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDArticle.h; sourceTree = "<group>"; };
-		4BB7F58A18FB5F2600A68E86 /* CDArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDArticle.m; sourceTree = "<group>"; };
+		4B8E850018FFF9F2005D22E5 /* CDArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDArticle.h; sourceTree = "<group>"; };
+		4B8E850118FFF9F2005D22E5 /* CDArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDArticle.m; sourceTree = "<group>"; };
+		4B8E850318FFF9F2005D22E5 /* CDFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFilter.h; sourceTree = "<group>"; };
+		4B8E850418FFF9F2005D22E5 /* CDFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilter.m; sourceTree = "<group>"; };
 		4BC24ECC18F946BF007FF792 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4BC24ECD18F946BF007FF792 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4BC24ED118F946BF007FF792 /* BetaHack-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BetaHack-Info.plist"; sourceTree = "<group>"; };
@@ -611,16 +611,16 @@
 			isa = PBXGroup;
 			children = (
 				4BC24EF618F952F6007FF792 /* Model.xcdatamodeld */,
+				4B8E850318FFF9F2005D22E5 /* CDFilter.h */,
+				4B8E850418FFF9F2005D22E5 /* CDFilter.m */,
+				4B8E850018FFF9F2005D22E5 /* CDArticle.h */,
+				4B8E850118FFF9F2005D22E5 /* CDArticle.m */,
 				4BE4794E18FDEE3B003D7D27 /* CDProfile.h */,
 				4BE4794F18FDEE3B003D7D27 /* CDProfile.m */,
 				4BE4795118FDEE3B003D7D27 /* Installation.h */,
 				4BE4795218FDEE3B003D7D27 /* Installation.m */,
 				4BE4792418FDB62A003D7D27 /* CDLocation.h */,
 				4BE4792518FDB62A003D7D27 /* CDLocation.m */,
-				4B546BC118FD15B10091C821 /* CDFilter.h */,
-				4B546BC218FD15B10091C821 /* CDFilter.m */,
-				4BB7F58918FB5F2600A68E86 /* CDArticle.h */,
-				4BB7F58A18FB5F2600A68E86 /* CDArticle.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -966,6 +966,7 @@
 				4BC24F0818F952F6007FF792 /* DomainEnums.m in Sources */,
 				4BC24F4B18F95557007FF792 /* NSSorting.m in Sources */,
 				4BC24F0918F952F6007FF792 /* DomainManager.m in Sources */,
+				4B8E850518FFF9F2005D22E5 /* CDFilter.m in Sources */,
 				4BE4795018FDEE3B003D7D27 /* CDProfile.m in Sources */,
 				4BC24F4D18F95557007FF792 /* UIColor+Utils.m in Sources */,
 				4BC24EDF18F946BF007FF792 /* ViewController.m in Sources */,
@@ -985,13 +986,12 @@
 				4B546B7C18FB73CA0091C821 /* ILTranslucentView.m in Sources */,
 				4BC24F0F18F952F6007FF792 /* Model.xcdatamodeld in Sources */,
 				4BE478F518FD56AF003D7D27 /* UIImage+Utils.m in Sources */,
-				4B546BC318FD15B10091C821 /* CDFilter.m in Sources */,
 				4BC24F1618F952F6007FF792 /* Installation+Utils.m in Sources */,
 				4B8243D318FAA5550097854D /* CDLocation+Utils.m in Sources */,
 				4BC24F7218F95BA9007FF792 /* MapViewController.m in Sources */,
-				4BB7F58B18FB5F2600A68E86 /* CDArticle.m in Sources */,
 				4BE478FA18FD6148003D7D27 /* UIViewController+Transitions.m in Sources */,
 				4BE4795318FDEE3B003D7D27 /* Installation.m in Sources */,
+				4B8E850218FFF9F2005D22E5 /* CDArticle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

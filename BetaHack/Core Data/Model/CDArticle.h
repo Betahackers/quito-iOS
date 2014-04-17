@@ -2,7 +2,7 @@
 //  CDArticle.h
 //  BetaHack
 //
-//  Created by Duncan Campbell on 14/04/14.
+//  Created by Duncan Campbell on 17/04/14.
 //  Copyright (c) 2014 Betahackers. All rights reserved.
 //
 
@@ -14,10 +14,11 @@
 @interface CDArticle : NSManagedObject
 
 @property (nonatomic, retain) NSString * content;
+@property (nonatomic) int16_t defaultFilterGroupColourRaw;
 @property (nonatomic) int32_t identifier;
 @property (nonatomic, retain) NSString * intro;
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic) int16_t defaultFilterGroupColourRaw;
+@property (nonatomic) NSTimeInterval createdDateInterval;
 @property (nonatomic, retain) NSSet *filters;
 @property (nonatomic, retain) Installation *installation;
 @property (nonatomic, retain) NSSet *locations;

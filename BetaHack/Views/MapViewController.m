@@ -105,6 +105,8 @@
         
         hasBeenShown = YES;
     }
+    
+    [self reloadAnnotations];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -314,22 +316,23 @@
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    MKMapRect mRect = mapView.visibleMapRect;
-    MKMapPoint northMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMinY(mRect));
-    MKMapPoint southMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMaxY(mRect));
-    
-    float distanceBetweenNorthAndSouth = MKMetersBetweenMapPoints(northMapPoint, southMapPoint);
-    float radius = distanceBetweenNorthAndSouth / 2.0f;
-    
-    NSLog(@"Radius: %f", radius);
-    
-    //now reload the points for this location
-    [[Installation currentInstallation] fetchLocationsWithRadius:radius long:mapView.centerCoordinate.longitude lat:mapView.centerCoordinate.latitude filter:self.selectedFilter profile:self.selectedProfile completion:^(NSError *error) {
-        [self reloadAnnotations];
-    }];
+//    MKMapRect mRect = mapView.visibleMapRect;
+//    MKMapPoint northMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMinY(mRect));
+//    MKMapPoint southMapPoint = MKMapPointMake(MKMapRectGetMidX(mRect), MKMapRectGetMaxY(mRect));
+//    
+//    float distanceBetweenNorthAndSouth = MKMetersBetweenMapPoints(northMapPoint, southMapPoint);
+//    float radius = distanceBetweenNorthAndSouth / 2.0f;
+//    
+//    NSLog(@"Radius: %f", radius);
+//    
+//    //now reload the points for this location
+//    [[Installation currentInstallation] fetchLocationsWithRadius:radius long:mapView.centerCoordinate.longitude lat:mapView.centerCoordinate.latitude filter:self.selectedFilter profile:self.selectedProfile completion:^(NSError *error) {
+//        [self reloadAnnotations];
+//    }];
     
     [self hideHeader];
-    [[Mixpanel sharedInstance] track:@"Map region changed" properties:nil];
+    
+    //[[Mixpanel sharedInstance] track:@"Map region changed" properties:nil];
 }
 
 - (void)reloadAnnotations {
