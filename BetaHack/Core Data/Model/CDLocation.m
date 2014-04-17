@@ -2,7 +2,7 @@
 //  CDLocation.m
 //  BetaHack
 //
-//  Created by Duncan Campbell on 15/04/14.
+//  Created by Duncan Campbell on 17/04/14.
 //  Copyright (c) 2014 Betahackers. All rights reserved.
 //
 
@@ -13,18 +13,18 @@
 
 @implementation CDLocation
 
+@dynamic addressLine1;
+@dynamic addressLine2;
+@dynamic formattedTelephoneNumber;
 @dynamic foursquareJSON;
+@dynamic foursquareURL;
 @dynamic identifier;
 @dynamic latitude;
 @dynamic locationImageData;
+@dynamic locationURL;
 @dynamic longitude;
 @dynamic name;
-@dynamic addressLine1;
-@dynamic addressLine2;
-@dynamic locationURL;
-@dynamic foursquareURL;
 @dynamic telephoneNumber;
-@dynamic formattedTelephoneNumber;
 @dynamic articles;
 @dynamic installation;
 

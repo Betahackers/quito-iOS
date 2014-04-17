@@ -20,6 +20,9 @@
 
 - (UIImage*)profileImage;
 
+- (NSDate*)updatedDate;
+- (void)setUpdatedDate:(NSDate*)updatedDate;
+
 @end
 
 

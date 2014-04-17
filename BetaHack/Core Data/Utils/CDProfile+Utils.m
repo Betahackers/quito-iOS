@@ -73,13 +73,20 @@
             self.url = url;
         }
         
-        //get the avatar URL
-        NSString *avatarPrefix = [json objectForKey:@"avatar_url_prefix"];
-        NSString *avatarSuffix = [json objectForKey:@"avatar_url_suffix"];
-        NSString *photoURL = [NSString stringWithFormat:@"%@iphone_%@", avatarPrefix, avatarSuffix];
+        NSString *dateString = [json objectForKey:@"updated_at"];;
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSDate *thisUpdatedDate = [dateFormatter dateFromString:dateString];
         
-        if (![self.photoURL.lowercaseString isEqualToString:photoURL.lowercaseString]) {
+        if (![self.updatedDate isEqualToDate:thisUpdatedDate]) {
+        
+            self.updatedDate = thisUpdatedDate;
             
+            //get the avatar URL
+            NSString *avatarPrefix = [json objectForKey:@"avatar_url_prefix"];
+            NSString *avatarSuffix = [json objectForKey:@"avatar_url_suffix"];
+            NSString *photoURL = [NSString stringWithFormat:@"%@iphone_%@", avatarPrefix, avatarSuffix];
+        
             //load the photo
             NSLog(@"URL: %@", photoURL);
             
@@ -131,6 +138,14 @@
     } else {
         return [UIImage imageNamed:@"NoProfilePhoto.png"];
     }
+}
+
+- (NSDate*)updatedDate {
+    return [NSDate dateWithTimeIntervalSinceReferenceDate:self.updatedDateInterval];
+}
+
+- (void)setUpdatedDate:(NSDate*)updatedDate {
+    self.updatedDateInterval = [updatedDate timeIntervalSinceReferenceDate];
 }
 
 @end

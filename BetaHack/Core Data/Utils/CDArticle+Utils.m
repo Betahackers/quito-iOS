@@ -37,7 +37,7 @@
     NSString *dateString = [json objectForKey:@"created_at"];;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    self.createdDate = [dateFormatter dateFromString:dateString];;
+    self.createdDate = [dateFormatter dateFromString:dateString];
     
     NSDictionary *authorDict = [json objectForKey:@"user"];
     int profileID = [[authorDict objectForKey:@"id"] intValue];
@@ -48,21 +48,6 @@
         [profile updateWithJSON:authorDict];
     }
     self.profile = profile;
-    
-//    [self removeLocations:self.locations];
-//    
-//    NSArray *locationsArray = [json objectForKey:@"locations"];
-//    for (NSDictionary *locationDict in locationsArray) {
-//        
-//        int locationID = [[locationDict objectForKey:@"id"] intValue];
-//        CDLocation *location = [[Installation currentInstallation] locationWithID:locationID];
-//        if (!location) {
-//            location = [CDLocation initWithJSON:locationDict];
-//        } else {
-//            [location updateWithJSON:locationDict];
-//        }
-//        [self addLocationsObject:location];
-//    }
     
     //Filters
     [self removeFilters:self.filters];

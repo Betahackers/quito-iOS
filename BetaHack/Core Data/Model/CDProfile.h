@@ -2,7 +2,7 @@
 //  CDProfile.h
 //  BetaHack
 //
-//  Created by Duncan Campbell on 16/04/14.
+//  Created by Duncan Campbell on 17/04/14.
 //  Copyright (c) 2014 Betahackers. All rights reserved.
 //
 
@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSString * photoURL;
 @property (nonatomic, retain) NSString * twitter;
 @property (nonatomic, retain) NSString * url;
+@property (nonatomic) NSTimeInterval updatedDateInterval;
 @property (nonatomic, retain) NSSet *articles;
 @property (nonatomic, retain) Installation *installation;
 @end
