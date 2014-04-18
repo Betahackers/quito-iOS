@@ -58,7 +58,7 @@ BOOL isFinishedFetching;
         }];
     }];
 
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:2.0f animations:^{
         self.splashImageView.alpha = 1.0f;
     
     } completion:^(BOOL finished) {
