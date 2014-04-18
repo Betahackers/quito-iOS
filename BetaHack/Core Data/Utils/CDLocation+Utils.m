@@ -64,7 +64,7 @@
             self.telephoneNumber = [contact objectForKey:@"phone"];
         }
         
-        self.foursquareURL = [foursquareDict objectForKey:@"canonicalURL"];
+        self.foursquareURL = [foursquareDict objectForKey:@"canonicalUrl"];
     }
 }
 

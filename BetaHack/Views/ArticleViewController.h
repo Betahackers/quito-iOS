@@ -90,6 +90,7 @@
 
 @interface ArticleURLCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UILabel *url;
+@property (nonatomic, strong) CDArticle *article;
 - (void)initWithArticle:(CDArticle*)article;
 @end
 

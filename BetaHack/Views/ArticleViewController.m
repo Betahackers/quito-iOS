@@ -80,18 +80,18 @@ typedef enum tableSections
     }
     
     //url
-    if (self.article.location.locationURL.length > 0) {
-        [sections addObject:[NSArray arrayWithObject:self.article]];
-    } else {
-        [sections addObject:[NSArray array]];
-    }
-    
-    //social
     if (self.article.location.foursquareURL.length > 0) {
         [sections addObject:[NSArray arrayWithObject:self.article]];
     } else {
         [sections addObject:[NSArray array]];
     }
+    
+//    //social
+//    if (self.article.location.foursquareURL.length > 0) {
+//        [sections addObject:[NSArray arrayWithObject:self.article]];
+//    } else {
+//        [sections addObject:[NSArray array]];
+//    }
     
     [self.tableView reloadData];
 }
@@ -234,14 +234,25 @@ typedef enum tableSections
         [cell initWithArticle:self.article];
         return cell.overlayContentLabel.frame.origin.y + cell.overlayContentLabel.frame.size.height + 10;
     } else if (indexPath.section == kSectionArticleAddress)
-        CellIdentifier = @"ArticleProfileCell";
+        CellIdentifier = @"ArticleAddressCell";
     else if (indexPath.section == kSectionArticleURL)
-        CellIdentifier = @"ArticleProfileCell";
+        CellIdentifier = @"ArticleURLCell";
     else if (indexPath.section == kSectionArticleSocial)
-        CellIdentifier = @"ArticleProfileCell";
+        CellIdentifier = @"ArticleSocialCell";
     
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     return cell.bounds.size.height;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    switch (indexPath.section) {
+        case kSectionArticleURL:
+            
+            break;
+        default:
+            break;
+    }
 }
 
 @end
@@ -343,10 +354,15 @@ typedef enum tableSections
 @implementation ArticleURLCell
 
 - (void)initWithArticle:(CDArticle*)article {
+    self.article = article;
     
     [self.contentView applyMontserratFontToSubviews];
-//    self.url.text = article.locations;
+    self.url.text = article.location.foursquareURL;
     [self.url applyFontMontserratWithWeight:kFontWeightBold];
+}
+
+- (IBAction)urlTapped:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.article.location.foursquareURL]];
 }
 @end
 
