@@ -312,7 +312,7 @@
 		4BC24F6118F955DC007FF792 /* CDProfile+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDProfile+Utils.m"; sourceTree = "<group>"; };
 		4BC24F7018F95BA9007FF792 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		4BC24F7118F95BA9007FF792 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		4BE2A32A18F93E8F00386607 /* BetaHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetaHack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BE2A32A18F93E8F00386607 /* Fromto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fromto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE2A32D18F93E8F00386607 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4BE2A32F18F93E8F00386607 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4BE2A33118F93E8F00386607 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -681,7 +681,7 @@
 		4BE2A32B18F93E8F00386607 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4BE2A32A18F93E8F00386607 /* BetaHack.app */,
+				4BE2A32A18F93E8F00386607 /* Fromto.app */,
 				4BE2A34B18F93E8F00386607 /* BetaHackTests.xctest */,
 			);
 			name = Products;
@@ -758,7 +758,7 @@
 			);
 			name = BetaHack;
 			productName = BetaHack;
-			productReference = 4BE2A32A18F93E8F00386607 /* BetaHack.app */;
+			productReference = 4BE2A32A18F93E8F00386607 /* Fromto.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4BE2A34A18F93E8F00386607 /* BetaHackTests */ = {
@@ -1108,7 +1108,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BetaHack/Project Config/BetaHack-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Fromto;
 				PROVISIONING_PROFILE = "7BE7CB54-C488-4B82-9F8D-706763B3CE07";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1127,7 +1127,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BetaHack/Project Config/BetaHack-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Fromto;
 				PROVISIONING_PROFILE = "7BE7CB54-C488-4B82-9F8D-706763B3CE07";
 				WRAPPER_EXTENSION = app;
 			};
