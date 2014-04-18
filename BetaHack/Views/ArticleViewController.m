@@ -357,7 +357,7 @@ typedef enum tableSections
     self.article = article;
     
     [self.contentView applyMontserratFontToSubviews];
-    self.url.text = article.location.foursquareURL;
+    //self.url.text = article.location.foursquareURL;
     [self.url applyFontMontserratWithWeight:kFontWeightBold];
 }
 
