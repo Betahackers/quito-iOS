@@ -23,6 +23,8 @@
 - (NSDate*)updatedDate;
 - (void)setUpdatedDate:(NSDate*)updatedDate;
 
+- (void)fetchProfilePhoto:(void (^)(NSError *error))completion;
+
 @end
 
 

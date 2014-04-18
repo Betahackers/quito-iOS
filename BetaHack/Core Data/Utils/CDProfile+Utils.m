@@ -73,44 +73,47 @@
             self.url = url;
         }
         
+        NSString *avatarPrefix = [json objectForKey:@"avatar_url_prefix"];
+        NSString *avatarSuffix = [json objectForKey:@"avatar_url_suffix"];
+        self.photoURL = [NSString stringWithFormat:@"%@iphone_%@", avatarPrefix, avatarSuffix];
+        
         NSString *dateString = [json objectForKey:@"updated_at"];;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         NSDate *thisUpdatedDate = [dateFormatter dateFromString:dateString];
         
         if (![self.updatedDate isEqualToDate:thisUpdatedDate]) {
-        
-            self.updatedDate = thisUpdatedDate;
-            
-            //get the avatar URL
-            NSString *avatarPrefix = [json objectForKey:@"avatar_url_prefix"];
-            NSString *avatarSuffix = [json objectForKey:@"avatar_url_suffix"];
-            NSString *photoURL = [NSString stringWithFormat:@"%@iphone_%@", avatarPrefix, avatarSuffix];
-        
-            //load the photo
-            NSLog(@"URL: %@", photoURL);
-            
-            NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:photoURL]];
-            AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-            requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
-            [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-                
-                NSLog(@"Response: %@", responseObject);
-                self.photoData = UIImageJPEGRepresentation(responseObject, 1.0);
-                self.photoURL = photoURL;
-                
-                [[DomainManager sharedManager].context save:nil];
-                
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"profilePhotoUpdated" object:self];
-                
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                NSLog(@"Image error: %@", error);
-            }];
-            [requestOperation start];
+            self.photoData = nil;
         }
+        self.updatedDate = thisUpdatedDate;
     }
     
     [[DomainManager sharedManager].context save:nil];
+}
+
+- (void)fetchProfilePhoto:(void (^)(NSError *error))completion {
+    
+    if (self.photoURL.length == 0) {
+        completion(nil);
+        return;
+    }
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.photoURL]];
+    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"Response: %@", responseObject);
+        self.photoData = UIImageJPEGRepresentation(responseObject, 1.0);
+        
+        [[DomainManager sharedManager].context save:nil];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"profilePhotoUpdated" object:self];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Image error: %@", error);
+    }];
+    [requestOperation start];
 }
 
 - (NSString*)displayName {

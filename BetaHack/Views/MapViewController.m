@@ -65,6 +65,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+
+    
     //41.407001,2.156799
     if (!hasBeenShown) {
         
@@ -123,8 +126,62 @@
         } completion:^(BOOL finished) {
             [self.translucentHolderView removeFromSuperview];
             [self.mapView setShowsUserLocation:YES];
+            [self showNoResults];
         }];
     }];
+}
+
+- (void)appDidEnterForeground:(NSNotification *)notification {
+    
+    //wait and then show the connection error if nothing has loaded
+    double delayInSeconds = 5.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self showNoResults];
+    });
+}
+
+- (void)showNoResults {
+    
+    if ([Installation currentInstallation].locations.count == 0) {
+        
+        //still fetching, so show a loading wheel
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 48)];
+        [label setBackgroundColor:[UIColor fromtoMoodColour]];
+        [label setTextColor:[UIColor whiteColor]];
+        [label setFont:[UIFont montserratWithWeight:kFontWeightRegular size:10]];
+        label.text = @"Can't connect to server.\r\nTry again later.";
+        label.numberOfLines = 2;
+        label.textAlignment = NSTextAlignmentCenter;
+        
+        [label.layer setCornerRadius:12];
+        label.clipsToBounds = YES;
+        
+        label.alpha = 0.0f;
+        [self.view addSubview:label];
+        [label centerWithinSuperview];
+        [label setFrameOriginY:self.view.frame.size.height - 60];
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            [label setAlpha:1.0f];
+            
+        } completion:^(BOOL finished) {
+            
+            double delayInSeconds = 5.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                
+                [UIView animateWithDuration:0.3 animations:^{
+                    [label setAlpha:0.0f];
+                } completion:^(BOOL finished) {
+                    [label removeFromSuperview];
+                }];
+                
+            });
+        }];
+    } else {
+        [self reloadAnnotations];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
