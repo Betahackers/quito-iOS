@@ -67,7 +67,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 
-    
     //41.407001,2.156799
     if (!hasBeenShown) {
         
@@ -127,6 +126,12 @@
             [self.translucentHolderView removeFromSuperview];
             [self.mapView setShowsUserLocation:YES];
             [self showNoResults];
+            
+            for (CDProfile *profile in [Installation currentInstallation].profiles) {
+                [profile fetchProfilePhoto:^(NSError *error) {
+                    [[DomainManager sharedManager].context save:nil];
+                }];
+            }
         }];
     }];
 }

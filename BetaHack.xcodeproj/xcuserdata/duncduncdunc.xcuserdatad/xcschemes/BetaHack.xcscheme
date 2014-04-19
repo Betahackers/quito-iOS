@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4BE2A32918F93E8F00386607"
-               BuildableName = "BetaHack.app"
+               BuildableName = "Fromto.app"
                BlueprintName = "BetaHack"
                ReferencedContainer = "container:BetaHack.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4BE2A32918F93E8F00386607"
-            BuildableName = "BetaHack.app"
+            BuildableName = "Fromto.app"
             BlueprintName = "BetaHack"
             ReferencedContainer = "container:BetaHack.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4BE2A32918F93E8F00386607"
-            BuildableName = "BetaHack.app"
+            BuildableName = "Fromto.app"
             BlueprintName = "BetaHack"
             ReferencedContainer = "container:BetaHack.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4BE2A32918F93E8F00386607"
-            BuildableName = "BetaHack.app"
+            BuildableName = "Fromto.app"
             BlueprintName = "BetaHack"
             ReferencedContainer = "container:BetaHack.xcodeproj">
          </BuildableReference>

@@ -23,6 +23,7 @@
 
 BOOL isFinishedAnimating;
 BOOL isFinishedFetching;
+BOOL isFetchingRequired;
 
 - (void)viewDidLoad
 {
@@ -37,6 +38,10 @@ BOOL isFinishedFetching;
     
     [self.splashImageView setAlpha:0.0f];
     
+    if ([Installation currentInstallation].locations.count == 0) {
+        isFetchingRequired = YES;
+    }
+    
     //pull some articles
     NSLog(@"Fetching locations");
     [[Installation currentInstallation] fetchLocationsWithRadius:8000 long:2.156799 lat:41.407001 filter:nil profile:nil completion:^(NSError *error) {
@@ -49,12 +54,6 @@ BOOL isFinishedFetching;
             isFinishedFetching = YES;
             
             [self moveToNextScreen];
-            
-            for (CDProfile *profile in [Installation currentInstallation].profiles) {
-                [profile fetchProfilePhoto:^(NSError *error) {
-                    [[DomainManager sharedManager].context save:nil];
-                }];
-            }
         }];
     }];
 
@@ -85,29 +84,33 @@ BOOL isFinishedFetching;
 
 - (void)moveToNextScreen {
     
-    if (isFinishedAnimating && isFinishedFetching) {
-        [self performSegueWithIdentifier:@"splash_map" sender:self];
-    } else if (isFinishedAnimating) {
+    if (isFinishedAnimating) {
         
-        //still fetching, so show a loading wheel
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 24)];
-        [label setBackgroundColor:[UIColor whiteColor]];
-        [label setTextColor:[UIColor fromtoMoodColour]];
-        [label setFont:[UIFont montserratWithWeight:kFontWeightRegular size:10]];
-        label.text = @"loading...";
-        label.textAlignment = NSTextAlignmentCenter;
-        
-        [label.layer setCornerRadius:12];
-        label.clipsToBounds = YES;
-        
-        label.alpha = 0.0f;
-        [self.view addSubview:label];
-        [label centerWithinSuperview];
-        [label setFrameOriginY:self.view.frame.size.height - 60];
-        
-        [UIView animateWithDuration:0.5 animations:^{
-            [label setAlpha:1.0f];
-        }];
+        //only continue when the fetch is complete (if necessary)
+        if (isFinishedFetching || !isFetchingRequired) {
+            [self performSegueWithIdentifier:@"splash_map" sender:self];
+        } else {
+            
+            //still fetching, so show a loading wheel
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 24)];
+            [label setBackgroundColor:[UIColor whiteColor]];
+            [label setTextColor:[UIColor fromtoMoodColour]];
+            [label setFont:[UIFont montserratWithWeight:kFontWeightRegular size:10]];
+            label.text = @"loading...";
+            label.textAlignment = NSTextAlignmentCenter;
+            
+            [label.layer setCornerRadius:12];
+            label.clipsToBounds = YES;
+            
+            label.alpha = 0.0f;
+            [self.view addSubview:label];
+            [label centerWithinSuperview];
+            [label setFrameOriginY:self.view.frame.size.height - 60];
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                [label setAlpha:1.0f];
+            }];
+        }
     }
 }
 

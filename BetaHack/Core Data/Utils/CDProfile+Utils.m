@@ -93,6 +93,10 @@
 
 - (void)fetchProfilePhoto:(void (^)(NSError *error))completion {
     
+    if (self.photoData != nil) {
+        return;
+    }
+    
     if (self.photoURL.length == 0) {
         completion(nil);
         return;
