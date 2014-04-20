@@ -53,7 +53,9 @@ BOOL isFetchingRequired;
             
             isFinishedFetching = YES;
             
-            [self moveToNextScreen];
+            if (isFetchingRequired) {
+                [self moveToNextScreen];
+            }
         }];
     }];
 
