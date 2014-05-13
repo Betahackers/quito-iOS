@@ -144,6 +144,7 @@
 		4BE478FA18FD6148003D7D27 /* UIViewController+Transitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE478F918FD6148003D7D27 /* UIViewController+Transitions.m */; };
 		4BE4793C18FDC816003D7D27 /* HeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4793B18FDC816003D7D27 /* HeaderViewController.m */; };
 		4BE4793E18FDCA44003D7D27 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE4793D18FDCA44003D7D27 /* MediaPlayer.framework */; };
+		4BFC88F81922104000BADE1C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFC88F71922104000BADE1C /* FacebookSDK.framework */; };
 		FAD5409421DE48A988C347D2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D0837A406B4972A8669783 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -328,6 +329,7 @@
 		4BE4793A18FDC816003D7D27 /* HeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderViewController.h; sourceTree = "<group>"; };
 		4BE4793B18FDC816003D7D27 /* HeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderViewController.m; sourceTree = "<group>"; };
 		4BE4793D18FDCA44003D7D27 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		4BFC88F71922104000BADE1C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +345,7 @@
 				4B8243B018F9B2620097854D /* SystemConfiguration.framework in Frameworks */,
 				4B8243AE18F9B22A0097854D /* AdSupport.framework in Frameworks */,
 				4B8243AC18F9B2200097854D /* libz.dylib in Frameworks */,
+				4BFC88F81922104000BADE1C /* FacebookSDK.framework in Frameworks */,
 				4BE2A33018F93E8F00386607 /* CoreGraphics.framework in Frameworks */,
 				4BE2A33218F93E8F00386607 /* UIKit.framework in Frameworks */,
 				4BE2A32E18F93E8F00386607 /* Foundation.framework in Frameworks */,
@@ -690,6 +693,7 @@
 		4BE2A32C18F93E8F00386607 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4BFC88F71922104000BADE1C /* FacebookSDK.framework */,
 				4B2DB5CD18FEBF1100FF9D55 /* Security.framework */,
 				4B2DB5CB18FEBF0800FF9D55 /* QuartzCore.framework */,
 				4B2DB5C918FEBEFE00FF9D55 /* CoreText.framework */,
@@ -1102,7 +1106,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mr D A Campbell (83LM65SZ4L)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/duncduncdunc/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BetaHack/Project Config/BetaHack-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BetaHack/Project Config/BetaHack-Info.plist";
@@ -1121,7 +1128,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mr D A Campbell (83LM65SZ4L)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/duncduncdunc/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BetaHack/Project Config/BetaHack-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/BetaHack/Project Config/BetaHack-Info.plist";

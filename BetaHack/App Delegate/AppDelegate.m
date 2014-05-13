@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Mixpanel.h"
 #import "DomainManager.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 #define MIXPANEL_TOKEN @"329898397f262ad2fadcfe468fdbd29b"
 
@@ -18,6 +19,11 @@
 {
     // Override point for customization after application launch.
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    
+    //facebook
+    [FBSettings setDefaultAppID:@"517394835033708"];
+    [FBAppEvents activateApp];
+    
     return YES;
 }
 							
